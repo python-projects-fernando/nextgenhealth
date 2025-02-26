@@ -22,8 +22,8 @@ Functional requirements describe what the system should do. They are divided int
 2. **Patient Search:**
    - The system must allow healthcare providers to search for patients by:
      - Name.
-     - CPF.
-     - Date of birth.
+     - National ID.
+     - Email.
 
 ### 2.1.2 Appointment Scheduling
 1. **Appointment Booking:**
