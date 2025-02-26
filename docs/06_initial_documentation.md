@@ -65,3 +65,11 @@ A structured testing strategy will be followed to ensure the reliability and sec
 - **Selenium** for frontend UI testing.
 - **Postman** for API testing.
 
+
+## 4. Software Development Lifecycle Docs
+
+- [Project Scope](./01_project_scope.md).
+- [Requirements Gathering](./02_requirements_gathering.md).
+- [Feasibility Analysis](./03_feasibility_analysis.md).
+- [Project Planning](./04_project_planning.md).
+- [System Architecture](./05_system_architecture.md).
