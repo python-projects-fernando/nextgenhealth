@@ -34,7 +34,7 @@ The system is structured using **Clean Architecture**, which separates concerns 
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/nextgenhealth.git
+   git clone https://github.com/python-projects-fernando/nextgenhealth.git
    cd nextgenhealth
    ```
 2. Create a virtual environment:
