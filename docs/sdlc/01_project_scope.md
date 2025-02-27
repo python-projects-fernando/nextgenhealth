@@ -28,6 +28,8 @@ NextGenHealth is designed for the following users:
    - Healthcare professionals who need access to patient records and appointment schedules.
 4. **Healthcare Professionals:**
    - Nurses, administrators, and other staff involved in patient care and clinic management.
+5. **Patients:**
+   - Individuals who need to manage their appointments and view their medical records.
 
 ---
 
@@ -37,15 +39,18 @@ The system will include the following core features:
 
 ### 1.3.1 Patient Management
 - **Patient Registration:**
-  - Capture and store patient details such as name, date of birth, address, phone number, email and national ID.
+  - Capture and store patient details such as name, date of birth, address, phone number, email, and national ID.
+  - Patients can register themselves or be registered by an administrator.
 - **Patient Search:**
   - Allow healthcare providers to search for patients by name, national ID, or other identifiers.
 
 ### 1.3.2 Appointment Scheduling
 - **Appointment Booking:**
   - Enable the scheduling of appointments, associating patients, doctors, date, and time.
+  - Patients can view available time slots and book their own appointments.
 - **Appointment Reminders:**
   - Send reminders to patients via email or SMS.
+  - Patients can also view their upcoming appointments in the system.
 
 ### 1.3.3 Electronic Medical Records (EMR)
 - **Record Management:**
@@ -61,7 +66,8 @@ The system will include the following core features:
 
 ### 1.3.5 Authentication and Access Control
 - **User Roles:**
-  - Define roles such as doctor, nurse, and administrator with different access levels.
+  - Define roles such as doctor, nurse, administrator, and patient with different access levels.
+  - Patients can register themselves, manage their appointments, and view their own medical records.
 - **Secure Login:**
   - Implement a secure authentication system to protect sensitive data.
 
@@ -80,7 +86,7 @@ To avoid scope creep, the following features are explicitly **out of scope** for
 
 The project will be considered successful if:
 1. The system is fully functional and meets the requirements outlined in this document.
-2. Users (doctors, nurses, administrators) can perform their tasks efficiently using the system.
+2. Users (doctors, nurses, administrators, patients) can perform their tasks efficiently using the system.
 3. The system is deployed and accessible in a production environment.
 
 ---

@@ -18,6 +18,7 @@ Functional requirements describe what the system should do. They are divided int
      - Email address (used as the primary identifier).
      - National ID (optional, for country-specific identification).
    - The system must generate a unique internal identifier (UUID) for each patient.
+   - Patients can register themselves or be registered by an administrator.
 
 2. **Patient Search:**
    - The system must allow healthcare providers to search for patients by:
@@ -32,10 +33,12 @@ Functional requirements describe what the system should do. They are divided int
      - Doctor.
      - Date and time.
      - Type of appointment (e.g., consultation, exam).
+   - Patients can view available time slots and book their own appointments.
    - The system must prevent double-booking of doctors or patients.
 
 2. **Appointment Reminders:**
    - The system must send reminders to patients via email or SMS 24 hours before the appointment.
+   - Patients can also view their upcoming appointments in the system.
 
 ### 2.1.3 Electronic Medical Records (EMR)
 1. **Record Management:**
@@ -69,6 +72,7 @@ Functional requirements describe what the system should do. They are divided int
      - Doctor: Can view and update medical records.
      - Nurse: Can view medical records and schedule appointments.
      - Administrator: Can manage users and system settings.
+     - Patient: Can view their own medical records and schedule appointments.
 
 2. **Secure Login:**
    - The system must implement a secure login system with:
