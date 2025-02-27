@@ -64,5 +64,5 @@ pytest
 ## License
 This project is licensed under the MIT License.
 
-For more details, check the **[Initial Documentation](./docs/06_initial_documentation.md)**.
+For more details, check the **[Initial Documentation](./docs/sdlc/06_initial_documentation.md)**.
 
