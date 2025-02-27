@@ -1,7 +1,3 @@
-Aqui está a versão alterada para refletir as mudanças feitas no escopo do **NextGenHealth**, considerando os novos recursos como o registro e agendamento de consultas pelos pacientes:
-
----
-
 # Initial Documentation for NextGenHealth
 
 This document outlines the foundational documentation for the **NextGenHealth** system, ensuring clarity on vision, scope, and key components before development begins.
@@ -82,7 +78,3 @@ A structured testing strategy will be followed to ensure the reliability and sec
 - [Feasibility Analysis](./03_feasibility_analysis.md).
 - [Project Planning](./04_project_planning.md).
 - [System Architecture](./05_system_architecture.md).
-
----
-
-Agora, o documento está ajustado para refletir as funcionalidades de registro de pacientes e agendamento de consultas, além de incluir as novas permissões para visualização de registros médicos pelos pacientes. Se precisar de mais alguma modificação ou adição, é só avisar!
