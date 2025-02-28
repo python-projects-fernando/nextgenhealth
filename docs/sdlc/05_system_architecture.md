@@ -55,7 +55,7 @@ The **NextGenHealth** system is structured using **Clean Architecture**, which s
 
 ```
 +-------------+        +-------------+        +-------------+        +-------------+
-|  Frontend   | <----> | API Layer   | <----> |  Use Cases  | <----> |  Entities   |
+|  Frontend   | -----> | API Layer   | -----> |  Use Cases  | -----> |  Entities   |
 | (Web UI)    |  REST  |(Controllers)|  Logic | (Services)  |  Core  | (Domain)    |
 +-------------+        +-------------+        +-------------+        +-------------+
                                                   |                         |
@@ -64,6 +64,7 @@ The **NextGenHealth** system is structured using **Clean Architecture**, which s
                                            |  Database   |        | External API |
                                            | (PostgreSQL)|        | (Third-Party |
                                            +-------------+        +--------------+
+
 ```
 
 ### 3.2 Use Case Diagram
