@@ -50,7 +50,7 @@ The NextGenHealth system employs a **layered architecture** based on **Clean Arc
 │                   INFRASTRUCTURE LAYER                          │
 ├─────────────────────┬─────────────────────┬─────────────────────┤
 │     Database        │   External APIs     │   File Storage      │
-│   (PostgreSQL)      │  (Email/SMS/Auth)   │    (AWS S3)        │
+│   (PostgreSQL)      │  (Email/SMS/Auth)   │    (AWS S3)         │
 │                     │                     │                     │
 │     Caching         │    Monitoring       │    Security         │
 │     (Redis)         │   (Logs/Metrics)    │  (Encryption/Auth)  │

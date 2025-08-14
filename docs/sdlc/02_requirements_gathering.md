@@ -26,7 +26,7 @@ Functional requirements describe what the system should do. They are organized b
 - **REQ-PAT-003**: The system MUST generate a unique internal identifier (UUID) for each patient
 - **REQ-PAT-004**: Patients MUST be able to self-register through a secure web interface
 - **REQ-PAT-005**: Administrators MUST be able to register patients on behalf of patients
-- **REQ-PAT-006**: The system MUST validate email format and phone number format
+- **REQ-PAT-006**: The system MUST validate email format
 - **REQ-PAT-007**: The system MUST prevent duplicate patient registration based on email address
 
 #### 2.1.1.2 Patient Profile Management
