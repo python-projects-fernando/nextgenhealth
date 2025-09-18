@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=45"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nextgenhealth"
+version = "0.1.0"
+description = "Healthcare management system with Clean Architecture and DDD"
+authors = [{name = "Fernando Antunes de Magalhães"}]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["user_management*"]
+
+[tool.setuptools.package-dir]
+"" = "src"
