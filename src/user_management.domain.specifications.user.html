@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_management.domain.specifications.user package &mdash; NextGenHealth 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="user_management.domain.validation package" href="user_management.domain.validation.html" />
+    <link rel="prev" title="user_management.domain.specifications package" href="user_management.domain.specifications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NextGenHealth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">User Management</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="user_management.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="user_management.domain.html">user_management.domain package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="user_management.domain.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NextGenHealth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="user_management.html">User Management</a></li>
+          <li class="breadcrumb-item"><a href="user_management.domain.html">user_management.domain package</a></li>
+          <li class="breadcrumb-item"><a href="user_management.domain.specifications.html">user_management.domain.specifications package</a></li>
+      <li class="breadcrumb-item active">user_management.domain.specifications.user package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/user_management.domain.specifications.user.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-user_management.domain.specifications.user">
+<span id="user-management-domain-specifications-user-package"></span><h1>user_management.domain.specifications.user package<a class="headerlink" href="#module-user_management.domain.specifications.user" title="Link to this heading"></a></h1>
+<p>Public API for User-related business rule specifications.</p>
+<p>This module provides ready-to-use specifications for validating core user data
+during registration, profile updates, and authentication workflows.</p>
+<p>Import specifications directly using:
+from src.user_management.domain.specifications.user import (</p>
+<blockquote>
+<div><p>ValidEmailSpecification,
+ValidNameSpecification,
+ValidPhoneE164Specification,
+ValidDateOfBirthSpecification</p>
+</div></blockquote>
+<p>)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidDateOfBirthSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.</span></span><span class="sig-name descname"><span class="pre">ValidDateOfBirthSpecification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/date_of_birth.html#ValidDateOfBirthSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidDateOfBirthSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>]</p>
+<p>Specification that validates whether a given date of birth is valid.</p>
+<p>A valid date of birth must:
+- Not be None
+- Not be in the future (after today)
+- Represent a realistic human age (not older than 150 years)</p>
+<p>This rule is enforced during user creation and profile updates to ensure data integrity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidDateOfBirthSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/date_of_birth.html#ValidDateOfBirthSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidDateOfBirthSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided date of birth satisfies all validation rules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dob</strong> (<em>date</em>) – The date of birth to validate. Can be None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the date is valid; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidEmailSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.</span></span><span class="sig-name descname"><span class="pre">ValidEmailSpecification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/email.html#ValidEmailSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidEmailSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<p>Specification that validates whether a given string is a valid email address.</p>
+<p>A valid email must:
+- Not be empty or None
+- Follow the general format <a class="reference external" href="mailto:local-part&#37;&#52;&#48;domain&#46;tld">local-part<span>&#64;</span>domain<span>&#46;</span>tld</a>
+- Contain valid characters and proper domain structure</p>
+<p>This rule is enforced during user creation and profile updates to ensure data integrity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidEmailSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/email.html#ValidEmailSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidEmailSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided string satisfies the email format requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>str</em>) – The email address to validate. Can be None or empty.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the email is valid; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidNameSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.</span></span><span class="sig-name descname"><span class="pre">ValidNameSpecification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/name.html#ValidNameSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidNameSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<p>Specification that validates whether a given string is a valid name.</p>
+<p>A valid name must:
+- Not be empty or consist only of whitespace
+- Contain only alphabetic characters (a-z, A-Z) and spaces
+- Not include numbers, special characters, or symbols</p>
+<p>This rule is enforced during user creation and profile updates to ensure data consistency.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidNameSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/name.html#ValidNameSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidNameSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided string satisfies the name format requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name to validate. Can be None or empty.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the name is valid; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidPhoneE164Specification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.</span></span><span class="sig-name descname"><span class="pre">ValidPhoneE164Specification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/phone.html#ValidPhoneE164Specification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidPhoneE164Specification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<p>Specification that validates whether a given phone number follows the E.164 format.</p>
+<p>A valid phone number must:
+- Be None (optional field) or a non-empty string
+- Start with ‘+’ followed by country code and subscriber number
+- Contain only digits after the ‘+’
+- Have 1 to 15 digits in total (country code + number)</p>
+<p>This rule is enforced during user creation and profile updates to ensure interoperability
+with communication services such as SMS and calling platforms.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.ValidPhoneE164Specification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/phone.html#ValidPhoneE164Specification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.ValidPhoneE164Specification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided phone number satisfies the E.164 format requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phone</strong> (<em>str</em>) – The phone number to validate. Can be None or a string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the phone number is None or correctly formatted; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_management.domain.specifications.user.date_of_birth">
+<span id="user-management-domain-specifications-user-date-of-birth-module"></span><h2>user_management.domain.specifications.user.date_of_birth module<a class="headerlink" href="#module-user_management.domain.specifications.user.date_of_birth" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.date_of_birth.</span></span><span class="sig-name descname"><span class="pre">ValidDateOfBirthSpecification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/date_of_birth.html#ValidDateOfBirthSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>]</p>
+<p>Specification that validates whether a given date of birth is valid.</p>
+<p>A valid date of birth must:
+- Not be None
+- Not be in the future (after today)
+- Represent a realistic human age (not older than 150 years)</p>
+<p>This rule is enforced during user creation and profile updates to ensure data integrity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/date_of_birth.html#ValidDateOfBirthSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided date of birth satisfies all validation rules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dob</strong> (<em>date</em>) – The date of birth to validate. Can be None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the date is valid; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications.user.email">
+<span id="user-management-domain-specifications-user-email-module"></span><h2>user_management.domain.specifications.user.email module<a class="headerlink" href="#module-user_management.domain.specifications.user.email" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.email.ValidEmailSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.email.</span></span><span class="sig-name descname"><span class="pre">ValidEmailSpecification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/email.html#ValidEmailSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.email.ValidEmailSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<p>Specification that validates whether a given string is a valid email address.</p>
+<p>A valid email must:
+- Not be empty or None
+- Follow the general format <a class="reference external" href="mailto:local-part&#37;&#52;&#48;domain&#46;tld">local-part<span>&#64;</span>domain<span>&#46;</span>tld</a>
+- Contain valid characters and proper domain structure</p>
+<p>This rule is enforced during user creation and profile updates to ensure data integrity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.email.ValidEmailSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/email.html#ValidEmailSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.email.ValidEmailSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided string satisfies the email format requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>str</em>) – The email address to validate. Can be None or empty.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the email is valid; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications.user.name">
+<span id="user-management-domain-specifications-user-name-module"></span><h2>user_management.domain.specifications.user.name module<a class="headerlink" href="#module-user_management.domain.specifications.user.name" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.name.ValidNameSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.name.</span></span><span class="sig-name descname"><span class="pre">ValidNameSpecification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/name.html#ValidNameSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.name.ValidNameSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<p>Specification that validates whether a given string is a valid name.</p>
+<p>A valid name must:
+- Not be empty or consist only of whitespace
+- Contain only alphabetic characters (a-z, A-Z) and spaces
+- Not include numbers, special characters, or symbols</p>
+<p>This rule is enforced during user creation and profile updates to ensure data consistency.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.name.ValidNameSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/name.html#ValidNameSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.name.ValidNameSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided string satisfies the name format requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name to validate. Can be None or empty.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the name is valid; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications.user.phone">
+<span id="user-management-domain-specifications-user-phone-module"></span><h2>user_management.domain.specifications.user.phone module<a class="headerlink" href="#module-user_management.domain.specifications.user.phone" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.phone.ValidPhoneE164Specification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.user.phone.</span></span><span class="sig-name descname"><span class="pre">ValidPhoneE164Specification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/phone.html#ValidPhoneE164Specification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.phone.ValidPhoneE164Specification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.specifications.html#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<p>Specification that validates whether a given phone number follows the E.164 format.</p>
+<p>A valid phone number must:
+- Be None (optional field) or a non-empty string
+- Start with ‘+’ followed by country code and subscriber number
+- Contain only digits after the ‘+’
+- Have 1 to 15 digits in total (country code + number)</p>
+<p>This rule is enforced during user creation and profile updates to ensure interoperability
+with communication services such as SMS and calling platforms.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.user.phone.ValidPhoneE164Specification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/user/phone.html#ValidPhoneE164Specification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.user.phone.ValidPhoneE164Specification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided phone number satisfies the E.164 format requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phone</strong> (<em>str</em>) – The phone number to validate. Can be None or a string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the phone number is None or correctly formatted; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_management.domain.specifications.html" class="btn btn-neutral float-left" title="user_management.domain.specifications package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_management.domain.validation.html" class="btn btn-neutral float-right" title="user_management.domain.validation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Fernando Antunes de Magalhães.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

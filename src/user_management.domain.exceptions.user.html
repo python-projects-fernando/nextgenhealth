@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_management.domain.exceptions.user package &mdash; NextGenHealth 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="user_management.domain.specifications package" href="user_management.domain.specifications.html" />
+    <link rel="prev" title="user_management.domain.exceptions package" href="user_management.domain.exceptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NextGenHealth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">User Management</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="user_management.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="user_management.domain.html">user_management.domain package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="user_management.domain.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NextGenHealth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="user_management.html">User Management</a></li>
+          <li class="breadcrumb-item"><a href="user_management.domain.html">user_management.domain package</a></li>
+          <li class="breadcrumb-item"><a href="user_management.domain.exceptions.html">user_management.domain.exceptions package</a></li>
+      <li class="breadcrumb-item active">user_management.domain.exceptions.user package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/user_management.domain.exceptions.user.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-user_management.domain.exceptions.user">
+<span id="user-management-domain-exceptions-user-package"></span><h1>user_management.domain.exceptions.user package<a class="headerlink" href="#module-user_management.domain.exceptions.user" title="Link to this heading"></a></h1>
+<p>Public API for domain exceptions.
+Import these directly from:
+from src.user_management.domain.exceptions.user import {ExceptionName}</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_management.domain.exceptions.user.user_exceptions">
+<span id="user-management-domain-exceptions-user-user-exceptions-module"></span><h2>user_management.domain.exceptions.user.user_exceptions module<a class="headerlink" href="#module-user_management.domain.exceptions.user.user_exceptions" title="Link to this heading"></a></h2>
+<p>Defines domain-level exceptions for the User Management module.</p>
+<p>These exceptions represent business rule violations and validation failures
+that occur during user-related operations. They are raised in the domain layer
+and handled appropriately by higher layers (application, interface).</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.user_exceptions.InvalidEmailError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.user_exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidEmailError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user/user_exceptions.html#InvalidEmailError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.user_exceptions.InvalidEmailError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when an email address does not meet the required format or is invalid.</p>
+<p>This includes malformed syntax, missing components, or incorrect structure.
+Used during user creation, profile updates, and authentication processes.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.user_exceptions.InvalidPhoneNumberError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.user_exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidPhoneNumberError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user/user_exceptions.html#InvalidPhoneNumberError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.user_exceptions.InvalidPhoneNumberError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when a phone number does not conform to the E.164 format standard.</p>
+<p>The expected format is ‘+CountryCodeNumber’ without spaces or special characters.
+Applies to both creation and update operations involving contact information.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.user_exceptions.InvalidUserError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.user_exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidUserError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user/user_exceptions.html#InvalidUserError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.user_exceptions.InvalidUserError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when required user data is missing, empty, or contains invalid content.</p>
+<p>Covers fields such as names, role assignments, and status values.
+Indicates a violation of core user entity invariants.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_management.domain.exceptions.html" class="btn btn-neutral float-left" title="user_management.domain.exceptions package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_management.domain.specifications.html" class="btn btn-neutral float-right" title="user_management.domain.specifications package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Fernando Antunes de Magalhães.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

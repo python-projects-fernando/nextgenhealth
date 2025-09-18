@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_management.domain.entities.user &mdash; NextGenHealth 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            NextGenHealth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../src/user_management.html">User Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NextGenHealth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">user_management.domain.entities.user</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for user_management.domain.entities.user</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">UUID</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserRole</span><span class="p">,</span> <span class="n">UserStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..validation.user.user_validator</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserValidator</span>
+
+
+<div class="viewcode-block" id="User">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.User">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a user in the system with core identity attributes and role-based access.</span>
+
+<span class="sd">    This entity serves as the foundation for all authenticated actors, including</span>
+<span class="sd">    Patients, Nurses, Doctors, and Administrators. It enforces data integrity through</span>
+<span class="sd">    centralized validation before instantiation.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        uuid (UUID): Unique identifier for the user.</span>
+<span class="sd">        email (str): Email address used for login and communication.</span>
+<span class="sd">        first_name (str): User&#39;s first name.</span>
+<span class="sd">        last_name (str): User&#39;s last name.</span>
+<span class="sd">        phone (str, optional): Phone number in E.164 format. Can be None.</span>
+<span class="sd">        date_of_birth (date): User&#39;s date of birth.</span>
+<span class="sd">        role (UserRole): Role assigned to the user, determining permissions.</span>
+<span class="sd">        status (UserStatus): Current account status (e.g., Active, Inactive and Locked).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="User.__init__">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.User.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">uuid</span><span class="p">:</span> <span class="n">UUID</span><span class="p">,</span>
+        <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">phone</span><span class="p">,</span>
+        <span class="n">date_of_birth</span><span class="p">,</span>
+        <span class="n">role</span><span class="p">:</span> <span class="n">UserRole</span><span class="p">,</span>
+        <span class="n">status</span><span class="p">:</span> <span class="n">UserStatus</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new User instance after validating all input data.</span>
+
+<span class="sd">        Validation is delegated to UserValidator to ensure domain rules are enforced,</span>
+<span class="sd">        such as valid email format, proper name characters, correct phone format (E.164),</span>
+<span class="sd">        realistic date of birth, and valid role/status values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            uuid (UUID): Unique system identifier.</span>
+<span class="sd">            email (str): Valid email address, must be properly formatted.</span>
+<span class="sd">            first_name (str): First name containing only letters and spaces.</span>
+<span class="sd">            last_name (str): Last name containing only letters and spaces.</span>
+<span class="sd">            phone (str, optional): Phone number in E.164 format (e.g., +1234567890).</span>
+<span class="sd">                                          May be None if not provided.</span>
+<span class="sd">            date_of_birth (date): Date of birth; must not be in the future.</span>
+<span class="sd">            role (UserRole): The user&#39;s role within the system.</span>
+<span class="sd">            status (UserStatus): The current status of the user account.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            InvalidEmailError: If the email format is invalid.</span>
+<span class="sd">            InvalidUserError: If name, phone, or other fields fail validation.</span>
+<span class="sd">            InvalidPhoneNumberError: If phone is provided but not in E.164 format.</span>
+<span class="sd">            InvalidDateOfBirthError: If date of birth is in the future or unrealistic.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">UserValidator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span>
+                               <span class="n">date_of_birth</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phone</span> <span class="o">=</span> <span class="n">phone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_of_birth</span> <span class="o">=</span> <span class="n">date_of_birth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="n">role</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Fernando Antunes de Magalhães.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

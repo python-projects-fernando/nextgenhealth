@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_management.domain.validation.user.user_validator &mdash; NextGenHealth 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            NextGenHealth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../src/user_management.html">User Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">NextGenHealth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">user_management.domain.validation.user.user_validator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for user_management.domain.validation.user.user_validator</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">UUID</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">...enums.user_role</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserRole</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...enums.user_status</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions.user</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidEmailError</span><span class="p">,</span> <span class="n">InvalidUserError</span><span class="p">,</span> <span class="n">InvalidPhoneNumberError</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">....domain.specifications.user</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ValidEmailSpecification</span><span class="p">,</span>
+    <span class="n">ValidNameSpecification</span><span class="p">,</span>
+    <span class="n">ValidPhoneE164Specification</span><span class="p">,</span>
+    <span class="n">ValidDateOfBirthSpecification</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="UserValidator">
+<a class="viewcode-back" href="../../../../../src/user_management.domain.validation.user.html#user_management.domain.validation.user.UserValidator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">UserValidator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Centralized validator for User entity creation and updates.</span>
+
+<span class="sd">    Applies domain rules through reusable Specification objects to ensure data integrity.</span>
+<span class="sd">    This class encapsulates all validation logic, enabling clean separation from the User entity</span>
+<span class="sd">    and promoting testability, reuse, and maintainability.</span>
+
+<span class="sd">    Validation includes:</span>
+<span class="sd">    - UUID format</span>
+<span class="sd">    - Email validity</span>
+<span class="sd">    - Name character constraints</span>
+<span class="sd">    - Phone number in E.164 format</span>
+<span class="sd">    - Realistic and non-future date of birth</span>
+<span class="sd">    - Valid role and status enums</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UserValidator.validate">
+<a class="viewcode-back" href="../../../../../src/user_management.domain.validation.user.html#user_management.domain.validation.user.UserValidator.validate">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
+        <span class="n">uuid</span><span class="p">:</span> <span class="n">UUID</span><span class="p">,</span>
+        <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">phone</span><span class="p">,</span>
+        <span class="n">date_of_birth</span><span class="p">,</span>
+        <span class="n">role</span><span class="p">:</span> <span class="n">UserRole</span><span class="p">,</span>
+        <span class="n">status</span><span class="p">:</span> <span class="n">UserStatus</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates user data against domain rules before entity creation.</span>
+
+<span class="sd">        Executes a series of checks using Specifications. Raises specific domain exceptions</span>
+<span class="sd">        if any validation fails. All validations are executed sequentially.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            uuid (UUID): Unique identifier; must be a valid UUID instance.</span>
+<span class="sd">            email (str): Email address; must be properly formatted.</span>
+<span class="sd">            first_name (str): First name; must contain only letters and spaces.</span>
+<span class="sd">            last_name (str): Last name; must contain only letters and spaces.</span>
+<span class="sd">            phone (str, optional): Phone number in E.164 format (e.g., +1234567890).</span>
+<span class="sd">                                   May be None.</span>
+<span class="sd">            date_of_birth (date): Date of birth; must not be in the future or unrealistic.</span>
+<span class="sd">            role (UserRole): Assigned role; must be a valid UserRole enum member.</span>
+<span class="sd">            status (UserStatus): Account status; must be a valid UserStatus enum member.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            InvalidUserError: If UUID, names, role, status, or date of birth are invalid.</span>
+<span class="sd">            InvalidEmailError: If email format is invalid.</span>
+<span class="sd">            InvalidPhoneNumberError: If phone is provided but not in E.164 format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">UUID</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;User ID must be a valid UUID&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidEmailSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidEmailError</span><span class="p">(</span><span class="s2">&quot;Invalid email format&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidNameSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">first_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Name must contain only letters and spaces&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidNameSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">last_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Name must contain only letters and spaces&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidPhoneE164Specification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">phone</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidPhoneNumberError</span><span class="p">(</span><span class="s2">&quot;Phone must be in E.164 format&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidDateOfBirthSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">date_of_birth</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">date_of_birth</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Date of birth is required&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">date_of_birth</span> <span class="o">&gt;</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Date of birth cannot be in the future&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Unrealistic age detected&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">UserRole</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Invalid user role&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">UserStatus</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Invalid user status&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Fernando Antunes de Magalhães.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
