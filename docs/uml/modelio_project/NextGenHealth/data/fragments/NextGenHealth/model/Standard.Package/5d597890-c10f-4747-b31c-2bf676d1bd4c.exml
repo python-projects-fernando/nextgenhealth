@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Data Types" version="4">
+  <OBJECT>
+    <ID name="Data Types" mc="Standard.Package" uid="5d597890-c10f-4747-b31c-2bf676d1bd4c"/>
+    <PID name="04 - Class Diagram" mc="Standard.Package" uid="eb23cfd6-50b0-4ca5-8e2f-9f7496ddbc49"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Data Types]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="dict" mc="Standard.DataType" uid="0d419b7b-af79-46f5-a0f0-0d68e0a1f1fa"/>
+        <COMPID name="UUID" mc="Standard.DataType" uid="a2116718-c82d-4fc1-9b91-8101bfda6e60"/>
+        <COMPID name="datetime" mc="Standard.DataType" uid="5988e9e6-eb26-4025-8eb0-158f3e1c4517"/>
+        <COMPID name="list" mc="Standard.DataType" uid="9248d605-c826-43dc-9240-3100c053cf28"/>
+        <COMPID name="none" mc="Standard.DataType" uid="920f4fab-e966-465c-a26d-11cde723d798"/>
+        <COMPID name="Result&lt;boolean, string&gt;" mc="Standard.DataType" uid="257d4c10-5f2c-4301-a316-42472222521b"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

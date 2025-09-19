@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="04 - Authentication and Access Control" version="4">
+  <OBJECT>
+    <ID name="04 - Authentication and Access Control" mc="Standard.Package" uid="bcfc035d-accc-4fa9-adce-01b7f00984dd"/>
+    <PID name="Use Case Diagram" mc="Standard.Package" uid="a5ff1665-2115-46fc-82a6-52f6f4c2ee72"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[04 - Authentication and Access Control]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Patient" mc="Standard.Actor" uid="1c82152b-7f07-46d8-bd77-2c8ae6b813f8"/>
+        <COMPID name="Administrator" mc="Standard.Actor" uid="e40b3da1-1090-4cbd-8f55-33470b00b039"/>
+        <COMPID name="Nurse" mc="Standard.Actor" uid="60f23081-a038-41a0-bf81-24452a57d016"/>
+        <COMPID name="Doctor" mc="Standard.Actor" uid="4483b3f1-3c95-4188-b2c2-99c8b8f788e5"/>
+        <COMPID name="System" mc="Standard.Actor" uid="bfbdfd83-d702-477e-9a18-31146cfdc225"/>
+        <COMPID name="Login" mc="Standard.UseCase" uid="2c48829d-75e2-4fb8-88a0-87183136a7be"/>
+        <COMPID name="Logout" mc="Standard.UseCase" uid="2f499e30-8841-484b-a1b9-75afb15d9daa"/>
+        <COMPID name="Reset Password" mc="Standard.UseCase" uid="5f803ef6-81e8-4ce9-94a6-65e98e73cec4"/>
+        <COMPID name="Lock Account after Failed Attempts" mc="Standard.UseCase" uid="aa6416ef-0006-48ea-b51d-b6407923c173"/>
+        <COMPID name="Enforce Session Timeout" mc="Standard.UseCase" uid="5394fe96-9718-45ee-906b-5a7337f27e09"/>
+        <COMPID name="Enable Two-Factor Authentication (2FA)" mc="Standard.UseCase" uid="4f418130-dfa6-498c-a723-8bc8461820b5"/>
+        <COMPID name="Define User Roles" mc="Standard.UseCase" uid="174b8227-301a-4195-9e5d-8442fa7e7fd0"/>
+        <COMPID name="Assign User to Role" mc="Standard.UseCase" uid="b0b42085-a138-4755-a3b1-22d1b64082bf"/>
+        <COMPID name="Manage Permissions " mc="Standard.UseCase" uid="01e00e0d-c68e-41b9-aa6a-95bd6aac8dab"/>
+        <COMPID name="View Access Audit Log" mc="Standard.UseCase" uid="b5870b12-afe9-484e-a683-0c56dfe04de7"/>
+        <COMPID name="Validate Role-Based Access" mc="Standard.UseCase" uid="3ace965d-cf37-472e-a5e8-df6c70a22673"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use Case diagram" mc="Standard.UseCaseDiagram" uid="a295b688-3410-400c-b9ec-f9be759c5a44"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

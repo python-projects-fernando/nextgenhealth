@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="NextGenHealth" version="4">
+  <OBJECT>
+    <ID name="NextGenHealth" mc="Infrastructure.DiagramSet" uid="f4bef021-a231-45e7-8767-fe092425b840"/>
+    <PID name="NextGenHealth" mc="Standard.Project" uid="373efe13-8169-43d0-81bf-e2ce8d13ffa2"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[NextGenHealth]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

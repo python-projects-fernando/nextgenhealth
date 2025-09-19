@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Domain Layer" version="4">
+  <OBJECT>
+    <ID name="Domain Layer" mc="Standard.Package" uid="4f77da94-9992-47aa-b81a-aa05c1ff6e1f"/>
+    <PID name="01 - User Management" mc="Standard.Package" uid="56c8aab4-993e-4199-bc85-96df039d6df3"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Domain Layer]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="User" mc="Standard.Class" uid="e59fb43b-1aa3-41f3-8063-7331d31c4f37"/>
+        <COMPID name="UserRole" mc="Standard.Class" uid="af054f3e-1e08-45a3-9a1b-4809e8319c71"/>
+        <COMPID name="UserStatus" mc="Standard.Class" uid="6d24f037-5e92-4f5c-9209-f127fea70ea9"/>
+        <COMPID name="PatientProfile" mc="Standard.Class" uid="eba5597a-2a27-4f5f-99c8-bc57a55b0549"/>
+        <COMPID name="DoctorProfile" mc="Standard.Class" uid="e74816b0-c8fe-4a1a-b3ff-dfd498e9e577"/>
+        <COMPID name="NurseProfile" mc="Standard.Class" uid="1b2f94fb-159f-4d99-a604-9cf5bab12f2f"/>
+        <COMPID name="UserCredentials" mc="Standard.Class" uid="d62ad5f3-9c1f-40be-87f6-dd2e576ca586"/>
+        <COMPID name="AuditLogTrail" mc="Standard.Class" uid="e69f5837-d22a-47e1-97d3-e8be708f3703"/>
+        <COMPID name="UserRepository" mc="Standard.Interface" uid="f782a529-15b8-4141-b18d-702062808a9a"/>
+        <COMPID name="PatientProfileRepository" mc="Standard.Interface" uid="f3b0df07-91f1-44e2-94b1-79a85fedcbe2"/>
+        <COMPID name="DoctorProfileRepository" mc="Standard.Interface" uid="1a578724-f9af-4bbf-a20c-6c2977309539"/>
+        <COMPID name="NurseProfileRepository" mc="Standard.Interface" uid="c35ef883-5f02-49cd-8ae4-a2bccdd3e05b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Class diagram" mc="Standard.ClassDiagram" uid="55f3d118-44d2-4ef3-ba47-3a3b8740c122"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

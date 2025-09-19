@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="01 - User Management" version="4">
+  <OBJECT>
+    <ID name="01 - User Management" mc="Standard.Package" uid="01d86472-2976-48e2-90c4-008621ef96b9"/>
+    <PID name="02 - Domain Model Diagram" mc="Standard.Package" uid="2a19496d-7d45-4bcf-bb74-81bee0db8aba"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[01 - User Management]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="User" mc="Standard.Class" uid="207e68ce-24ff-4eda-9f56-d44a68013ad6"/>
+        <COMPID name="Patient" mc="Standard.Class" uid="9d59907c-2de9-459d-91dc-c04bd0ebc1af"/>
+        <COMPID name="Nurse" mc="Standard.Class" uid="491eb24d-c4ff-4907-b60b-de39b04f09eb"/>
+        <COMPID name="Doctor" mc="Standard.Class" uid="a7d15359-f2b4-4b60-87d8-aa3a3afc2cd8"/>
+        <COMPID name="Administrator" mc="Standard.Class" uid="285ad29b-1bdb-4eb3-9e1e-226b366176fc"/>
+        <COMPID name="UserCredentials" mc="Standard.Class" uid="d358e4c9-cd13-49c5-a467-fb53a4568661"/>
+        <COMPID name="AuditLogTrail" mc="Standard.Class" uid="f61ffd13-b31d-4b34-b3e3-2a481544d170"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Domain Model diagram" mc="Standard.ClassDiagram" uid="5038dcb2-db11-4471-ba59-c084b93b7b45"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

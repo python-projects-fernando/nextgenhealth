@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="01 - User Management" version="4">
+  <OBJECT>
+    <ID name="01 - User Management" mc="Standard.Package" uid="9bc35e1d-9e90-494f-ab15-53eee881e861"/>
+    <PID name="01 - Use Case Diagram" mc="Standard.Package" uid="a5ff1665-2115-46fc-82a6-52f6f4c2ee72"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[01 - User Management]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Patient" mc="Standard.Actor" uid="b85001b9-329f-44b8-8496-0b9088b17c14"/>
+        <COMPID name="Administrator" mc="Standard.Actor" uid="7e895859-3b4c-4791-96be-8d78437812cb"/>
+        <COMPID name="Nurse" mc="Standard.Actor" uid="76c59228-8187-45ef-bacf-aa0a73a7f1d4"/>
+        <COMPID name="Doctor" mc="Standard.Actor" uid="b3b1f9a7-a751-46de-b72d-d8eecb4f5b64"/>
+        <COMPID name="Register User" mc="Standard.UseCase" uid="daaaef8d-f7d7-4bba-9e90-9779d8b83a1b"/>
+        <COMPID name="View User Profile" mc="Standard.UseCase" uid="0384ce31-48c4-4d41-8391-59614e3ceb28"/>
+        <COMPID name="Update User Profile" mc="Standard.UseCase" uid="68a83687-78c2-495c-a78c-8061b5d6d7d0"/>
+        <COMPID name="Search User" mc="Standard.UseCase" uid="93d76528-5f66-43ab-ab4c-44ce417318f8"/>
+        <COMPID name="View Audit Trail" mc="Standard.UseCase" uid="95625729-75b2-4929-be45-bfae943f0ebf"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use Case diagram" mc="Standard.UseCaseDiagram" uid="3a9958d9-ecd8-4548-982f-222c97ea4eb2"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

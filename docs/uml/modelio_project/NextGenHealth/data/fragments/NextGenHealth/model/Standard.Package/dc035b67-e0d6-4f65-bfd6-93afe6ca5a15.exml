@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="05 - Reporting and Statistics" version="4">
+  <OBJECT>
+    <ID name="05 - Reporting and Statistics" mc="Standard.Package" uid="dc035b67-e0d6-4f65-bfd6-93afe6ca5a15"/>
+    <PID name="Use Case Diagram" mc="Standard.Package" uid="a5ff1665-2115-46fc-82a6-52f6f4c2ee72"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[05 - Reporting and Statistics]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Administrator" mc="Standard.Actor" uid="d74b7164-5497-4cdb-95f9-45dd3977e8c8"/>
+        <COMPID name="Nurse" mc="Standard.Actor" uid="3f7a95e3-3d24-49ad-a9e5-de6c7372e3a4"/>
+        <COMPID name="Doctor" mc="Standard.Actor" uid="9bdf9967-6f59-4d83-8092-79957a972588"/>
+        <COMPID name="Generate Appointment Report" mc="Standard.UseCase" uid="0efd50fc-e980-4748-968e-9d7467fdb1af"/>
+        <COMPID name="View Patient Demographics" mc="Standard.UseCase" uid="9b031d3f-fda0-4618-b2f2-a336fce20a21"/>
+        <COMPID name="Export Report to PDF or Excel" mc="Standard.UseCase" uid="e1babcd0-67be-41a4-b083-aeab99ce680d"/>
+        <COMPID name="View No-Show and Cancellation Rates" mc="Standard.UseCase" uid="5798846a-37d3-4850-a467-41bd583d2963"/>
+        <COMPID name="View Exam Completion Statistics" mc="Standard.UseCase" uid="7332fc02-2a82-45f0-b030-6d2c10a0041a"/>
+        <COMPID name="View System Usage Analytics" mc="Standard.UseCase" uid="0413b3a1-04fe-4241-a839-e660a3b6a958"/>
+        <COMPID name="Schedule Periodic Reports" mc="Standard.UseCase" uid="4eec4e17-e7e4-466d-973a-9000fb0438a1"/>
+        <COMPID name="View Treatment and Diagnosis Trends" mc="Standard.UseCase" uid="50e79068-7ef4-46b9-bbca-53d14acf865b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use Case diagram" mc="Standard.UseCaseDiagram" uid="6de9aebc-8187-447e-8648-8e9e035e8985"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

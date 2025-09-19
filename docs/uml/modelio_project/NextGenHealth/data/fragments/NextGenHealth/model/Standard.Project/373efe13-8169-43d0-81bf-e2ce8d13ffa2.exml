@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="NextGenHealth" version="4">
+  <OBJECT>
+    <ID name="NextGenHealth" mc="Standard.Project" uid="373efe13-8169-43d0-81bf-e2ce8d13ffa2"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[NextGenHealth]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="01 - Use Case Diagram" mc="Standard.Package" uid="a5ff1665-2115-46fc-82a6-52f6f4c2ee72"/>
+        <COMPID name="02 - Domain Model Diagram" mc="Standard.Package" uid="2a19496d-7d45-4bcf-bb74-81bee0db8aba"/>
+        <COMPID name="03 - Sequence Diagram" mc="Standard.Package" uid="1e93a319-8909-41c4-8e65-58ad4505eb0e"/>
+        <COMPID name="04 - Class Diagram" mc="Standard.Package" uid="eb23cfd6-50b0-4ca5-8e2f-9f7496ddbc49"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="NextGenHealth" mc="Infrastructure.DiagramSet" uid="f4bef021-a231-45e7-8767-fe092425b840"/>
+      </COMP>
+      <LINK relation="Extension">
+        <ID name="external" mc="Infrastructure.Stereotype" uid="56a99242-588a-49d0-a2ef-0fcabc27805a"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="04 - Class Diagram" version="4">
+  <OBJECT>
+    <ID name="04 - Class Diagram" mc="Standard.Package" uid="eb23cfd6-50b0-4ca5-8e2f-9f7496ddbc49"/>
+    <PID name="NextGenHealth" mc="Standard.Project" uid="373efe13-8169-43d0-81bf-e2ce8d13ffa2"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[04 - Class Diagram]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="01 - User Management" mc="Standard.Package" uid="56c8aab4-993e-4199-bc85-96df039d6df3"/>
+        <COMPID name="Data Types" mc="Standard.Package" uid="5d597890-c10f-4747-b31c-2bf676d1bd4c"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

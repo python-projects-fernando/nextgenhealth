@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="02 - Appointment Scheduling" version="4">
+  <OBJECT>
+    <ID name="02 - Appointment Scheduling" mc="Standard.Package" uid="62c2f2e2-88b9-4ed7-82b1-75445bdc608f"/>
+    <PID name="Use Case Diagram" mc="Standard.Package" uid="a5ff1665-2115-46fc-82a6-52f6f4c2ee72"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[02 - Appointment Scheduling]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Patient" mc="Standard.Actor" uid="e3aaa6c8-c936-4a9e-b65a-a0ce205f6066"/>
+        <COMPID name="Administrator" mc="Standard.Actor" uid="dfdf2da5-413d-4bed-a4d9-0762ff2f049e"/>
+        <COMPID name="Nurse" mc="Standard.Actor" uid="63ae349a-72ce-4b9f-a5cb-5fbc320a4530"/>
+        <COMPID name="Doctor" mc="Standard.Actor" uid="0a1ca0df-e62f-4a86-ba04-ab52cc81c96c"/>
+        <COMPID name="View Available Time Slots" mc="Standard.UseCase" uid="ba5dcecb-5ef7-47a9-9535-9f2497c9877e"/>
+        <COMPID name="Book Appointment" mc="Standard.UseCase" uid="aa8f8f77-c00b-40e3-97fb-59e86a9d041f"/>
+        <COMPID name="Reschedule Appointment" mc="Standard.UseCase" uid="0f290b51-5382-4b0f-bd90-d065d9ee81c7"/>
+        <COMPID name="Cancel Appointment" mc="Standard.UseCase" uid="308e3363-c8e2-488a-9b02-1a563552af65"/>
+        <COMPID name="View Appointment Schedule" mc="Standard.UseCase" uid="5a38f793-7887-4090-bced-a73a4082b7d4"/>
+        <COMPID name="Confirm Appointment" mc="Standard.UseCase" uid="195cce18-cf39-43b8-bdde-5d0b5fd89b82"/>
+        <COMPID name="Send Appointment Reminders" mc="Standard.UseCase" uid="ff66724d-e773-47c0-9fa4-e57254be11d1"/>
+        <COMPID name="Notify of Cancellations" mc="Standard.UseCase" uid="742980a1-43cb-47b9-97d3-5eb2426b1325"/>
+        <COMPID name="System" mc="Standard.Actor" uid="bd9955bb-b938-4486-bb6d-8b6d1ea22628"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use Case diagram" mc="Standard.UseCaseDiagram" uid="4a6a3946-a2a5-4a66-b41d-3daf4d0f75d3"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

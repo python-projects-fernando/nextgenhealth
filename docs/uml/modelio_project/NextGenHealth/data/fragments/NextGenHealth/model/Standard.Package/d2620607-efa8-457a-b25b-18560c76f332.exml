@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="02 - Appointment Scheduling" version="4">
+  <OBJECT>
+    <ID name="02 - Appointment Scheduling" mc="Standard.Package" uid="d2620607-efa8-457a-b25b-18560c76f332"/>
+    <PID name="Domain Model Diagram" mc="Standard.Package" uid="2a19496d-7d45-4bcf-bb74-81bee0db8aba"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[02 - Appointment Scheduling]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Nurse" mc="Standard.Class" uid="3a1bd411-dc14-4011-9582-4f4153a83dd6"/>
+        <COMPID name="AvailabilitySlot" mc="Standard.Class" uid="e7c83035-6e42-4f00-bf19-c32102273065"/>
+        <COMPID name="Administrator" mc="Standard.Class" uid="97df6769-4d43-4a41-9ac0-4462cd64935b"/>
+        <COMPID name="Appointment" mc="Standard.Class" uid="5ca35f38-e32c-4e51-bf95-b192136676aa"/>
+        <COMPID name="Patient" mc="Standard.Class" uid="fbbf0f48-ba8a-4cf6-adec-0173e379426d"/>
+        <COMPID name="Notification" mc="Standard.Class" uid="f6ee6725-3ac7-4fd9-94d8-b4be81b7c2d7"/>
+        <COMPID name="Doctor" mc="Standard.Class" uid="9157d5b6-e69d-4980-819a-dadd9b2a2634"/>
+        <COMPID name="AuditLogTrail" mc="Standard.Class" uid="86b111ef-424d-4c18-8136-d80be35cbb35"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Domain Model diagram" mc="Standard.ClassDiagram" uid="44ea8c05-de2f-417c-b526-05d5916b1544"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

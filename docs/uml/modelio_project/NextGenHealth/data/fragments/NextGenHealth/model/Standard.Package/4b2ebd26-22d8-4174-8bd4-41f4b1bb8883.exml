@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="01 - User Management" version="4">
+  <OBJECT>
+    <ID name="01 - User Management" mc="Standard.Package" uid="4b2ebd26-22d8-4174-8bd4-41f4b1bb8883"/>
+    <PID name="03 - Sequence Diagram" mc="Standard.Package" uid="1e93a319-8909-41c4-8e65-58ad4505eb0e"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[01 - User Management]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="01 - Register User" mc="Standard.Package" uid="059db004-2e41-420a-bc82-018811b4a418"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

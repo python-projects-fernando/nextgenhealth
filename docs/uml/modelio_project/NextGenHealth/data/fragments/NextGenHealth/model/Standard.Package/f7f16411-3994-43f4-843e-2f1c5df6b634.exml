@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="04 - Authentication and Access Control" version="4">
+  <OBJECT>
+    <ID name="04 - Authentication and Access Control" mc="Standard.Package" uid="f7f16411-3994-43f4-843e-2f1c5df6b634"/>
+    <PID name="Domain Model Diagram" mc="Standard.Package" uid="2a19496d-7d45-4bcf-bb74-81bee0db8aba"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[04 - Authentication and Access Control]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="UserCredentials" mc="Standard.Class" uid="65624066-9c11-4503-bb07-df0d18911476"/>
+        <COMPID name="Session" mc="Standard.Class" uid="2659a920-1520-40f7-9954-f0f6cade4640"/>
+        <COMPID name="Patient" mc="Standard.Class" uid="91d05988-c3fd-4c65-9341-a9de5c099f95"/>
+        <COMPID name="Nurse" mc="Standard.Class" uid="9a7c9dd6-009d-4977-87e8-1d5020cd2411"/>
+        <COMPID name="Doctor" mc="Standard.Class" uid="8e922239-9d3b-40f3-b44b-7f64d48ffeca"/>
+        <COMPID name="Administrator" mc="Standard.Class" uid="01e633c9-f4e7-4e31-8291-cc94c5d8ff4f"/>
+        <COMPID name="AuditLogAccess" mc="Standard.Class" uid="8c427e69-5fb8-46c9-ae77-91e510b13c3b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Domain Model diagram" mc="Standard.ClassDiagram" uid="23436d27-8385-4b6b-966b-cbd470c6577c"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

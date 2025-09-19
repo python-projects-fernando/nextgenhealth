@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="01 - User Management" version="4">
+  <OBJECT>
+    <ID name="01 - User Management" mc="Standard.Package" uid="56c8aab4-993e-4199-bc85-96df039d6df3"/>
+    <PID name="04 - Class Diagram" mc="Standard.Package" uid="eb23cfd6-50b0-4ca5-8e2f-9f7496ddbc49"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[01 - User Management]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Application Layer" mc="Standard.Package" uid="9ffb1f0a-6134-4599-8261-c038fec364a9"/>
+        <COMPID name="Domain Layer" mc="Standard.Package" uid="4f77da94-9992-47aa-b81a-aa05c1ff6e1f"/>
+        <COMPID name="Infrastructure Layer" mc="Standard.Package" uid="788c5480-ea65-4f70-addc-0f1bb3065024"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

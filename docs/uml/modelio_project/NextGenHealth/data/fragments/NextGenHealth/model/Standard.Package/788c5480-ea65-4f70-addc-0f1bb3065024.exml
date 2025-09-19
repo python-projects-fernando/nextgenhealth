@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Infrastructure Layer" version="4">
+  <OBJECT>
+    <ID name="Infrastructure Layer" mc="Standard.Package" uid="788c5480-ea65-4f70-addc-0f1bb3065024"/>
+    <PID name="01 - User Management" mc="Standard.Package" uid="56c8aab4-993e-4199-bc85-96df039d6df3"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Infrastructure Layer]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="PostgreSQLUserRepository" mc="Standard.Class" uid="431840a6-810c-4b30-ab8a-a84363e093ec"/>
+        <COMPID name="PostgreSQLPatientProfileRepository" mc="Standard.Class" uid="8a4ddcad-383a-4a5a-ab38-9bcebba2b9ce"/>
+        <COMPID name="PostgreSQLDoctorProfileRepository" mc="Standard.Class" uid="a5a14cae-4a75-4111-b2a4-c2ee3f4f3f20"/>
+        <COMPID name="PostgreSQLNurseProfileRepository" mc="Standard.Class" uid="8aca1577-83bf-4181-8b69-b310128828cb"/>
+        <COMPID name="RedisCacheAdapter" mc="Standard.Class" uid="62e84650-a6da-450e-9c83-b100fc71b07c"/>
+        <COMPID name="SendGridNotificationAdapter" mc="Standard.Class" uid="b53c11b1-a521-4341-bffd-de3df15e4a22"/>
+        <COMPID name="TwilioSMSServiceAdapter" mc="Standard.Class" uid="7723b916-de12-4714-bb73-abf2c6d63bbf"/>
+        <COMPID name="PostgreSQLAuditLogger" mc="Standard.Class" uid="842a8bed-bd06-462d-a9c1-b904a87af5f3"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Class diagram" mc="Standard.ClassDiagram" uid="0d670553-59dc-4d1b-b0bd-0dc796f0d1f3"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

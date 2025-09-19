@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="02 - Domain Model Diagram" version="4">
+  <OBJECT>
+    <ID name="02 - Domain Model Diagram" mc="Standard.Package" uid="2a19496d-7d45-4bcf-bb74-81bee0db8aba"/>
+    <PID name="NextGenHealth" mc="Standard.Project" uid="373efe13-8169-43d0-81bf-e2ce8d13ffa2"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[02 - Domain Model Diagram]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="01 - Patient Management" mc="Standard.Package" uid="01d86472-2976-48e2-90c4-008621ef96b9"/>
+        <COMPID name="04 - Authentication and Access Control" mc="Standard.Package" uid="f7f16411-3994-43f4-843e-2f1c5df6b634"/>
+        <COMPID name="02 - Appointment Scheduling" mc="Standard.Package" uid="d2620607-efa8-457a-b25b-18560c76f332"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

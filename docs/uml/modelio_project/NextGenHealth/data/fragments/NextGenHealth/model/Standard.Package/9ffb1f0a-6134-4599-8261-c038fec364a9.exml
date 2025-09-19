@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Application Layer" version="4">
+  <OBJECT>
+    <ID name="Application Layer" mc="Standard.Package" uid="9ffb1f0a-6134-4599-8261-c038fec364a9"/>
+    <PID name="01 - User Management" mc="Standard.Package" uid="56c8aab4-993e-4199-bc85-96df039d6df3"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Application Layer]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="RegisterUserUseCase" mc="Standard.Class" uid="0888a99d-01c7-4577-bb92-8487443159cd"/>
+        <COMPID name="PatientProfileService" mc="Standard.Class" uid="a6850f5e-7d5a-4283-a18a-bb37325b80f7"/>
+        <COMPID name="DoctorProfileService" mc="Standard.Class" uid="766b7480-27ea-4423-a6dc-5f1f105249dd"/>
+        <COMPID name="NurseProfileService" mc="Standard.Class" uid="cd6463c4-fd7a-4e86-92f7-3faf6cb1c408"/>
+        <COMPID name="UpdateUserProfileUseCase" mc="Standard.Class" uid="44733ef6-ba82-424a-aed1-ec18a8e4680a"/>
+        <COMPID name="SearchUsersUseCase" mc="Standard.Class" uid="d924fb3c-730d-4aed-af22-bf534137dea3"/>
+        <COMPID name="NotificationService" mc="Standard.Interface" uid="eba41f1e-33ea-45a2-922f-e88e02bd16dd"/>
+        <COMPID name="AuditService" mc="Standard.Interface" uid="d3c3a735-2053-40f4-9d43-43e609ea299b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Class diagram" mc="Standard.ClassDiagram" uid="104ae97d-bb1c-436e-bf5b-28cee518e064"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
