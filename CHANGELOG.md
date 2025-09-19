@@ -2,6 +2,81 @@
 
 This document tracks significant changes to project artifacts, including scope, requirements, architecture, and design decisions.
 
+## 2025-09-17: Documentation & CI/CD – Automated API Docs with Sphinx + GitHub Pages
+
+**Author**: Fernando Antunes de Magalhães  
+**Document Affected**: `docs/api/`, `.github/workflows/docs.yml`, `pyproject.toml`  
+**Change**:  
+- Implemented automated API documentation using **Sphinx**  
+- Structured source in `docs/api/source/` with proper `conf.py`, modules, and coverage integration  
+- Configured `pyproject.toml` to support package installation via `pip install -e .`  
+- Created GitHub Actions workflow (`docs.yml`) to deploy docs to `gh-pages` on every `git push`  
+- Public URL: https://python-projects-fernando.github.io/nextgenhealth/  
+- Added unit test coverage reporting via `pytest-cov` (87%+ overall, 100% in core domain)  
+- Integrated coverage into CI via `make coverage`  
+- Updated `README.md` with badge and live doc link  
+
+**Reason**:  
+To ensure the system remains self-documenting, audit-ready, and aligned with Clean Architecture principles. Manual documentation drifts; automated docs evolve with code. This setup guarantees traceability from requirement → implementation → test → documentation.
+
+**Impact**:  
+- Enables public visibility of technical rigor for portfolio/LinkedIn  
+- Supports onboarding and compliance audits  
+- Demonstrates mastery of modern Python tooling (Sphinx, CI/CD, pyproject.toml)
+
+---
+
+## 2025-09-16: Domain Implementation Complete – User Entity with Specification Pattern and Validation Chain
+
+**Author**: Fernando Antunes de Magalhães  
+**Document Affected**: `src/user_management/domain/`, `tests/unit/domain/user/`  
+**Change**:  
+- Implemented full `User` entity with UUID, email, name, phone (E.164), date of birth, role, status  
+- Applied **Specification Pattern** for business rules:
+  - `ValidEmailSpecification`
+  - `ValidNameSpecification`
+  - `ValidPhoneE164Specification`
+  - `ValidDateOfBirthSpecification`
+- Centralized validation via `UserValidator` using **Validation Chain** pattern  
+- Used **TDD** to drive implementation; all edge cases covered (invalid email, future DOB, malformed names)  
+- Achieved **87%+ test coverage**, 100% in critical modules (`User`, enums, exceptions)  
+- Organized domain with modular `__init__.py` exports for clean public API  
+- Prepared structure for upcoming `RegisterUserUseCase` and `UserCredentials`
+
+**Reason**:  
+To build a robust, maintainable, and compliant identity model that enforces business rules at the domain level — not just in forms or infrastructure. This aligns with DDD, Clean Architecture, and healthcare regulations (HIPAA/GDPR).
+
+**Impact**:  
+- Ensures data integrity by design  
+- Prevents invalid state before persistence  
+- Provides foundation for RBAC, audit trails, and secure authentication workflows
+
+---
+
+## 2025-09-15: Modeling & Traceability – Integrated Modelio UML into Versioned Documentation
+
+**Author**: Fernando Antunes de Magalhães  
+**Document Affected**: `docs/uml/modelio_project/`, `docs/uml/pngs/`  
+**Change**:  
+- Migrated Modelio project from `C:\Users\ferna\modelio\workspace\NextGenHealth` to `docs/uml/modelio_project/`  
+- Exported project as `.zip` and imported into Git-tracked folder to preserve integrity  
+- Generated PNG images of key diagrams:
+  - `User_Management_Class_Diagram.png`
+  - `Register_User_Sequence_Diagram.png`
+  - `User_Management_Use_Case_Diagram.png`
+- Stored PNGs in `docs/uml/pngs/` for easy viewing on GitHub  
+- Linked diagrams to `README.md` and future blog posts  
+
+**Reason**:  
+To ensure UML models are version-controlled, reproducible, and integrated into the SDLC. Isolated `.mdac` files outside the repo create risk of loss and inconsistency.
+
+**Impact**:  
+- Full traceability from use case → class diagram → code  
+- Visual documentation available directly on GitHub  
+- Professional presentation for portfolio, audits, and collaboration
+
+---
+
 ## 2025-09-12: Use Case Updated – Migrated from Register Patient to Register User with Role-Based Support
 
 **Author**: Fernando Antunes de Magalhães  
