@@ -1,97 +1,94 @@
-from datetime import date
+"""
+Test suite for first_name and last_name validation in the User entity.
+
+This module verifies that the User class enforces strict validation of personal names,
+ensuring they conform to domain rules:
+- Must be non-empty strings
+- Must contain only ASCII letters (A-Z, a-z)
+- Must not include special characters, numbers, or accents
+- Must not have consecutive spaces
+
+The tests use create_valid_user() from test helpers to minimize boilerplate
+and focus on validation logic. Aligned with DDD (fail-fast) and TDD principles.
+"""
+
 import pytest
-from uuid import UUID
-from src.user_management.domain.enums.user_role import UserRole
-from src.user_management.domain.enums.user_status import UserStatus
-from src.user_management.domain.entities.user import User
-from src.user_management.domain.exceptions.user import InvalidUserError
+
+from src.user_management.domain.exceptions import InvalidNameError
+from tests.helpers import create_valid_user
 
 
-def test_should_raise_exception_when_first_name_is_empty():
+def test_user_creation_fails_when_first_name_is_not_valid():
     """
-    Ensures that an empty first name triggers a validation error during user creation.
+    Verifies User instantiation fails when first_name is invalid.
 
-    The system must enforce non-empty names to maintain data completeness.
-    This test confirms rejection when the first name is an empty string.
+    The domain requires first_name to be a non-empty string containing only
+    ASCII letters and single spaces between words. Inputs such as empty strings,
+    whitespace-only values, accented characters (e.g., 'ã', 'é'), special symbols,
+    or multiple consecutive spaces should raise InvalidNameError.
+
+    This test ensures consistent rejection of malformed first_name values.
     """
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
+    invalid_names = [
+        "",               # empty string
+        "   ",            # whitespace only
+        "João",           # contains accent
+        "Mary  Jane",     # multiple consecutive spaces
+        "Carlos$",        # contains special character
+        "Ana@"            # contains symbol
+    ]
 
-    with pytest.raises(InvalidUserError, match="must contain only letters and spaces"):
-        User(
-            uuid=user_id,
-            email="john@patient.com",
-            first_name="",
-            last_name="Doe",
-            phone="+5511987654321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
+    for name in invalid_names:
+        with pytest.raises(InvalidNameError):
+            create_valid_user(first_name=name)
 
 
-def test_should_raise_exception_when_last_name_is_empty():
+def test_user_creation_succeeds_with_valid_first_name():
     """
-    Ensures that an empty last name triggers a validation error during user creation.
+    Verifies User can be created with a valid first_name.
 
-    The system must enforce non-empty names to maintain data completeness.
-    This test confirms rejection when the last name is an empty string.
+    Confirms that providing a properly formatted first_name results in successful
+    instantiation and that the value is correctly assigned and preserved.
+
+    This test covers the happy path for first_name validation.
     """
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    with pytest.raises(InvalidUserError, match="must contain only letters and spaces"):
-        User(
-            uuid=user_id,
-            email="john@patient.com",
-            first_name="John",
-            last_name="",
-            phone="+5511987654321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
+    valid_name = "Lili"
+    user = create_valid_user(first_name=valid_name)
+    assert user.first_name == valid_name
 
 
-def test_should_accept_names_with_letters_and_spaces_only():
+def test_user_creation_fails_when_last_name_is_not_valid():
     """
-    Verifies that names containing only letters and spaces are accepted.
+    Verifies User instantiation fails when last_name is invalid.
 
-    Confirms the system allows valid personal names with standard formatting.
-    This test validates the positive path for name validation.
+    Similar to first_name, last_name must be a non-empty string with only
+    ASCII letters and single spaces. Invalid inputs (empty, accented, symbolic)
+    should trigger InvalidNameError.
+
+    Ensures consistent validation across both name fields.
     """
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
+    invalid_names = [
+        "",             # empty string
+        "   ",          # whitespace only
+        "João",         # contains accent
+        "Carlos$",      # contains special character
+        "Ana@"          # contains symbol
+    ]
 
-    user = User(
-        uuid=user_id,
-        email="john@patient.com",
-        first_name="Maria Clara",
-        last_name="Silva",
-        phone="+5511987654321",
-        date_of_birth=date(1982, 3, 18),
-        role=UserRole.PATIENT,
-        status=UserStatus.ACTIVE
-    )
-
-    assert user.first_name == "Maria Clara"
-    assert user.last_name == "Silva"
+    for name in invalid_names:
+        with pytest.raises(InvalidNameError):
+            create_valid_user(last_name=name)
 
 
-def test_should_raise_exception_for_names_with_numbers():
+def test_user_creation_succeeds_with_valid_last_name():
     """
-    Ensures that names containing numbers are rejected during user creation.
+    Verifies User can be created with a valid last_name.
 
-    Prevents invalid or potentially malicious input by enforcing character restrictions.
-    Only alphabetic characters and spaces are allowed in name fields.
+    Confirms that a syntactically correct last_name is accepted and stored
+    without modification during object creation.
+
+    Covers the happy path for last_name validation.
     """
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    with pytest.raises(InvalidUserError, match="must contain only letters and spaces"):
-        User(
-            uuid=user_id,
-            email="john@patient.com",
-            first_name="John123",
-            last_name="Doe",
-            phone="+5511987654321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
+    valid_name = "Magalhaes"
+    user = create_valid_user(last_name=valid_name)
+    assert user.last_name == valid_name

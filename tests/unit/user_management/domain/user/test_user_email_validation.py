@@ -1,57 +1,70 @@
-from datetime import date
-import pytest
+"""
+Test suite for email validation in the User entity.
+
+This module verifies that the User class enforces strict validation of the 'email' field
+during instantiation, rejecting malformed or invalid values and only allowing properly
+formatted email addresses.
+
+Tests include:
+- Rejection of non-string types (None, int, dict, bytes, etc.)
+- Rejection of syntactically invalid strings (missing '@', domain issues, etc.)
+- Acceptance of valid email strings
+
+The tests use create_valid_user() from test helpers to minimize boilerplate
+and focus on the validation logic. Aligned with TDD and DDD (fail-fast) principles.
+"""
+
 from uuid import UUID
-from src.user_management.domain.enums.user_role import UserRole
-from src.user_management.domain.enums.user_status import UserStatus
-from src.user_management.domain.entities.user import User
-from src.user_management.domain.exceptions.user import InvalidEmailError
+import pytest
+
+from src.user_management.domain.entities import User
+from src.user_management.domain.exceptions import InvalidEmailError
+from tests.helpers import create_valid_user
 
 
-def test_should_raise_exception_for_invalid_email():
+def test_user_creation_fails_when_email_is_not_valid():
     """
-    Ensures that an invalid email format triggers a validation error during user creation.
+    Verifies that User instantiation fails when email is invalid.
 
-    The system must reject malformed email addresses (e.g., missing '@', invalid domain).
-    This test confirms the enforcement of standard email syntax rules.
+    The domain requires that the email field be a non-empty string conforming to
+    basic email syntax (e.g., contains '@' and valid domain). Inputs such as None,
+    empty strings, invalid formats, or non-string types should raise InvalidEmailError.
+
+    This test checks a comprehensive list of invalid values to ensure robust validation.
     """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
+    invalid_emails = [
+        None,
+        "",
+        "   ",
+        "not-an-email",
+        "xpto@",
+        "@domain.com",
+        "user@",
+        "user@@domain.com",
+        "user@domain",
+        "user@.com",
+        "user..name@domain.com",
+        123,
+        {},
+        [],
+        True,
+        b"raw-bytes"
+    ]
 
-    # Act & Assert
-    with pytest.raises(InvalidEmailError, match="Invalid email format"):
-        User(
-            uuid=user_id,
-            email="invalid-email",
-            first_name="John",
-            last_name="Doe",
-            phone="+5511987654321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
+    for email in invalid_emails:
+        with pytest.raises(InvalidEmailError):
+            create_valid_user(email=email)
 
 
-def test_should_accept_valid_email():
+def test_user_creation_succeeds_with_valid_email():
     """
-    Verifies that a correctly formatted email address is accepted during user creation.
+    Verifies that User can be instantiated with a valid email address.
 
-    Confirms the system allows valid email addresses following the standard format.
-    This test validates the positive path for email validation.
+    Confirms that providing a syntactically correct email results in successful creation
+    and that the email value is correctly assigned and preserved in the instance.
+
+    This test covers the happy path and ensures data integrity during construction.
     """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    # Act
-    user = User(
-        uuid=user_id,
-        email="john@patient.com",
-        first_name="John",
-        last_name="Doe",
-        phone="+5511987654321",
-        date_of_birth=date(1982, 3, 18),
-        role=UserRole.PATIENT,
-        status=UserStatus.ACTIVE
-    )
-
-    # Assert
-    assert user.email == "john@patient.com"
+    email = "contact@fmbyteshiftsoftware.com"
+    user = create_valid_user(email=email)
+    assert user.email == email

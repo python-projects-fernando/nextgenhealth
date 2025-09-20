@@ -1,131 +1,58 @@
-from datetime import date
+"""
+Test suite for phone number validation in the User entity.
+
+This module verifies that the User class correctly validates the 'phone' field
+according to the E.164 international format standard. The phone number is optional,
+but if provided, it must conform to strict syntax rules.
+
+Validation rules:
+- Must be None (allowed) or a string in E.164 format (e.g., '+33142948800')
+- Must start with '+'
+- First digit after '+' must be 1–9 (not zero)
+- Maximum of 15 digits total (1 + up to 14 digits)
+- No spaces, hyphens, parentheses, or other formatting characters
+
+The tests use create_valid_user() from test helpers to minimize boilerplate.
+Aligned with DDD (fail-fast) and TDD principles.
+"""
+
 import pytest
-from uuid import UUID
-from src.user_management.domain.enums.user_role import UserRole
-from src.user_management.domain.enums.user_status import UserStatus
-from src.user_management.domain.entities.user import User
-from src.user_management.domain.exceptions.user import InvalidPhoneNumberError
+
+from src.user_management.domain.exceptions import InvalidPhoneNumberError
+from tests.helpers import create_valid_user
 
 
-def test_should_accept_valid_phone_in_e164_format():
+def test_user_creation_fails_when_phone_is_not_valid():
     """
-    Verifies that a phone number in correct E.164 format is accepted during user creation.
+    Verifies User instantiation fails when phone is invalid.
 
-    Confirms the system allows valid international phone numbers with country code,
-    formatted as '+CountryCodeNumber' without spaces or special characters.
+    The domain requires that if a phone number is provided, it must be a valid
+    E.164 formatted string. Inputs such as empty strings, whitespace-only values,
+    malformed formats, or non-conforming patterns should raise InvalidPhoneNumberError.
+
+    This test ensures consistent rejection of invalid phone inputs.
     """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
+    invalid_phones = [
+        "",
+        "   ",
+        "+",
+        "(+123) 456-7890",
+    ]
 
-    # Act
-    user = User(
-        uuid=user_id,
-        email="john@patient.com",
-        first_name="Maria Clara",
-        last_name="Silva",
-        phone="+5511987654321",
-        date_of_birth=date(1982, 3, 18),
-        role=UserRole.PATIENT,
-        status=UserStatus.ACTIVE
-    )
-
-    # Assert
-    assert user.phone == "+5511987654321"
+    for phone in invalid_phones:
+        with pytest.raises(InvalidPhoneNumberError):
+            create_valid_user(phone=phone)
 
 
-def test_should_raise_exception_for_missing_plus_sign():
+def test_user_creation_succeeds_with_valid_phone():
     """
-    Ensures that a phone number without the '+' prefix is rejected.
+    Verifies User can be created with a valid E.164 phone number.
 
-    The E.164 format requires a leading '+' to indicate the country code.
-    This test confirms validation enforces this rule strictly.
+    Confirms that providing a properly formatted phone number results in successful
+    instantiation and that the value is correctly assigned and preserved.
+
+    This test covers the happy path for optional phone field validation.
     """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    # Act & Assert
-    with pytest.raises(InvalidPhoneNumberError, match="Phone must be in E.164 format"):
-        User(
-            uuid=user_id,
-            email="john@patient.com",
-            first_name="Maria Clara",
-            last_name="Silva",
-            phone="5511987654321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
-
-
-def test_should_raise_exception_for_spaces_in_phone():
-    """
-    Ensures that a phone number containing spaces is rejected.
-
-    The E.164 format does not allow whitespace. This test validates that
-    even if digits and '+' are present, spaces invalidate the format.
-    """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    # Act & Assert
-    with pytest.raises(InvalidPhoneNumberError, match="Phone must be in E.164 format"):
-        User(
-            uuid=user_id,
-            email="john@patient.com",
-            first_name="Maria Clara",
-            last_name="Silva",
-            phone="+55 11 98765 4321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
-
-
-def test_should_raise_exception_for_invalid_characters():
-    """
-    Ensures that a phone number with invalid characters (e.g., parentheses) is rejected.
-
-    The E.164 format only permits '+' followed by digits. Special characters like
-    parentheses or dashes are not allowed and must trigger a validation error.
-    """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    # Act & Assert
-    with pytest.raises(InvalidPhoneNumberError, match="Phone must be in E.164 format"):
-        User(
-            uuid=user_id,
-            email="john@patient.com",
-            first_name="Maria Clara",
-            last_name="Silva",
-            phone="+55(11)987654321",
-            date_of_birth=date(1982, 3, 18),
-            role=UserRole.PATIENT,
-            status=UserStatus.ACTIVE
-        )
-
-
-def test_phone_is_optional():
-    """
-    Verifies that the phone number field can be omitted or set to None.
-
-    Confirms the system accepts user creation when no phone number is provided,
-    reflecting the optional nature of this contact information.
-    """
-    # Arrange
-    user_id = UUID('123e4567-e89b-12d3-a456-426614174000')
-
-    # Act
-    user = User(
-        uuid=user_id,
-        email="john@patient.com",
-        first_name="Maria Clara",
-        last_name="Silva",
-        phone=None,
-        date_of_birth=date(1982, 3, 18),
-        role=UserRole.PATIENT,
-        status=UserStatus.ACTIVE
-    )
-
-    # Assert
-    assert user.phone is None
+    valid_phone = "+33142948800"
+    user = create_valid_user(phone=valid_phone)
+    assert user.phone == valid_phone

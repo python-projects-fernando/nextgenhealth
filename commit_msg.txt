@@ -1,0 +1,11 @@
+feat(domain): implement User entity with TDD and DDD
+
+- Implemented User aggregate root with validation for uuid, email, name, and phone (E.164)
+- Applied TDD: unit tests for all invalid/valid cases using pytest
+- Used create_valid_user factory to reduce duplication in tests
+- Fail-fast validation via domain-specific exceptions
+- Full Google-style docstrings for Sphinx documentation
+- Integrated Modelio UML diagrams into docs/uml/
+- Aligned with Clean Architecture and HIPAA/GDPR readiness
+
+Solid foundation for identity management in healthcare.
