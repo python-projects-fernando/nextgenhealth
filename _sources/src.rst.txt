@@ -1,5 +1,5 @@
-user\_management package
-========================
+src package
+===========
 
 Subpackages
 -----------
@@ -7,12 +7,12 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   user_management.domain
+   src.user_management
 
 Module contents
 ---------------
 
-.. automodule:: user_management
+.. automodule:: src
    :members:
    :show-inheritance:
    :undoc-members:

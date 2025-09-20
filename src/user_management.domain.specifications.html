@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="user_management.domain.specifications.user package" href="user_management.domain.specifications.user.html" />
-    <link rel="prev" title="user_management.domain.exceptions.user package" href="user_management.domain.exceptions.user.html" /> 
+    <link rel="prev" title="user_management.domain.exceptions package" href="user_management.domain.exceptions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,14 +44,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">User Management</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">user_management package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="user_management.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="user_management.domain.html">user_management.domain package</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="user_management.domain.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.html#module-user_management.domain">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html#module-user_management">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -70,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="user_management.html">User Management</a></li>
+          <li class="breadcrumb-item"><a href="user_management.html">user_management package</a></li>
           <li class="breadcrumb-item"><a href="user_management.domain.html">user_management.domain package</a></li>
       <li class="breadcrumb-item active">user_management.domain.specifications package</li>
       <li class="wy-breadcrumbs-aside">
@@ -82,12 +84,303 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-user_management.domain.specifications">
-<span id="user-management-domain-specifications-package"></span><h1>user_management.domain.specifications package<a class="headerlink" href="#module-user_management.domain.specifications" title="Link to this heading"></a></h1>
+  <section id="user-management-domain-specifications-package">
+<h1>user_management.domain.specifications package<a class="headerlink" href="#user-management-domain-specifications-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_management.domain.specifications.user.html">user_management.domain.specifications.user package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.date_of_birth">user_management.domain.specifications.user.date_of_birth module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.email">user_management.domain.specifications.user.email module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.email.ValidEmailSpecification"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.email.ValidEmailSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.name">user_management.domain.specifications.user.name module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.name.ValidNameSpecification"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.name.ValidNameSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.phone">user_management.domain.specifications.user.phone module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.phone.ValidPhoneE164Specification"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.phone.ValidPhoneE164Specification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidDateOfBirthSpecification"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidDateOfBirthSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidEmailSpecification"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidEmailSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidNameSpecification"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidNameSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidPhoneE164Specification"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidPhoneE164Specification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification.is_satisfied_by()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_management.domain.specifications.and_specification">
+<span id="user-management-domain-specifications-and-specification-module"></span><h2>user_management.domain.specifications.and_specification module<a class="headerlink" href="#module-user_management.domain.specifications.and_specification" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.and_specification.AndSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.and_specification.</span></span><span class="sig-name descname"><span class="pre">AndSpecification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/and_specification.html#AndSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.and_specification.AndSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>Composes multiple specifications using logical AND.</p>
+<p>This specification is satisfied only if all composed specifications
+are satisfied by the candidate object. Useful for enforcing multiple
+business rules simultaneously during validation workflows.</p>
+<p class="rubric">Example</p>
+<p>combined = ValidEmailSpecification().and_(ValidNameSpecification())
+combined.is_satisfied_by(user_data)  # True only if both pass</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.and_specification.AndSpecification.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/and_specification.html#AndSpecification.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.and_specification.AndSpecification.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the composite specification with one or more child specifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*specs</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – One or more specifications to combine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.and_specification.AndSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/and_specification.html#AndSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.and_specification.AndSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Evaluates whether the candidate satisfies all composed specifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to validate against all specifications.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if all specifications are satisfied; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications.not_specification">
+<span id="user-management-domain-specifications-not-specification-module"></span><h2>user_management.domain.specifications.not_specification module<a class="headerlink" href="#module-user_management.domain.specifications.not_specification" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.not_specification.NotSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.not_specification.</span></span><span class="sig-name descname"><span class="pre">NotSpecification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/not_specification.html#NotSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.not_specification.NotSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>Composes a specification with logical negation (NOT).</p>
+<p>This specification is satisfied if the wrapped specification is NOT satisfied.
+Useful for expressing rules like “user must not be locked” or “email must not be blacklisted”.</p>
+<p class="rubric">Example</p>
+<p>active_user_spec = NotSpecification(IsLockedSpecification())
+if active_user_spec.is_satisfied_by(user):</p>
+<blockquote>
+<div><p>grant_access()</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.not_specification.NotSpecification.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/not_specification.html#NotSpecification.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.not_specification.NotSpecification.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the negated specification with a child specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>spec</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – The specification to negate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.not_specification.NotSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/not_specification.html#NotSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.not_specification.NotSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Evaluates whether the candidate does NOT satisfy the wrapped specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to validate against the negated rule.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the original specification fails; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications.or_specification">
+<span id="user-management-domain-specifications-or-specification-module"></span><h2>user_management.domain.specifications.or_specification module<a class="headerlink" href="#module-user_management.domain.specifications.or_specification" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.or_specification.OrSpecification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.or_specification.</span></span><span class="sig-name descname"><span class="pre">OrSpecification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/or_specification.html#OrSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.or_specification.OrSpecification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>Composes multiple specifications using logical OR.</p>
+<p>This specification is satisfied if at least one of the composed specifications
+is satisfied by the candidate object. Useful for defining alternative valid states
+or flexible business rules during validation workflows.</p>
+<p class="rubric">Example</p>
+<p>eligible_role = IsDoctorSpecification().or_(IsNurseSpecification())
+if eligible_role.is_satisfied_by(user):</p>
+<blockquote>
+<div><p>assign_to_unit()</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.or_specification.OrSpecification.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/or_specification.html#OrSpecification.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.or_specification.OrSpecification.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the composite specification with one or more child specifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*specs</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – One or more specifications to combine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.or_specification.OrSpecification.is_satisfied_by">
+<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/or_specification.html#OrSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.or_specification.OrSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Evaluates whether the candidate satisfies at least one of the composed specifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to validate against the specifications.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if any specification is satisfied; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications.specification">
+<span id="user-management-domain-specifications-specification-module"></span><h2>user_management.domain.specifications.specification module<a class="headerlink" href="#module-user_management.domain.specifications.specification" title="Link to this heading"></a></h2>
+<p>Base Specification pattern implementation.</p>
+<p>Defines an abstract interface for business rule specifications,
+enabling validation and composition of domain rules through logical operations
+such as AND, OR, and NOT. Supports the creation of complex, reusable, and testable
+business logic in a clean and expressive way.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.specification.</span></span><span class="sig-name descname"><span class="pre">Specification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class for domain rule specifications.</p>
+<p>Represents a business rule that evaluates whether a candidate object
+satisfies a given condition. Specifications can be composed using logical
+operators (<a href="#id1"><span class="problematic" id="id2">and_</span></a>, <a href="#id3"><span class="problematic" id="id4">or_</span></a>, <a href="#id5"><span class="problematic" id="id6">not_</span></a>) to build more complex validation logic.</p>
+<p>This pattern promotes high cohesion, reusability, and clarity in enforcing
+domain invariants across different use cases.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.and_">
+<span class="sig-name descname"><span class="pre">and_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#user_management.domain.specifications.and_specification.AndSpecification" title="user_management.domain.specifications.and_specification.AndSpecification"><span class="pre">AndSpecification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.and_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.and_" title="Link to this definition"></a></dt>
+<dd><p>Composes this specification with another using logical AND.</p>
+<p>The resulting specification is satisfied only if both this and the
+provided specification are satisfied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – Another specification to combine.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new composite specification.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#user_management.domain.specifications.and_specification.AndSpecification" title="user_management.domain.specifications.and_specification.AndSpecification">AndSpecification</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.is_satisfied_by">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.is_satisfied_by" title="Link to this definition"></a></dt>
+<dd><p>Determines whether the candidate satisfies this specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to evaluate against the rule.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the rule is satisfied; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.not_">
+<span class="sig-name descname"><span class="pre">not_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#user_management.domain.specifications.not_specification.NotSpecification" title="user_management.domain.specifications.not_specification.NotSpecification"><span class="pre">NotSpecification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.not_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.not_" title="Link to this definition"></a></dt>
+<dd><p>Negates this specification using logical NOT.</p>
+<p>The resulting specification is satisfied if this specification
+is NOT satisfied by the candidate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new negated specification.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#user_management.domain.specifications.not_specification.NotSpecification" title="user_management.domain.specifications.not_specification.NotSpecification">NotSpecification</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.or_">
+<span class="sig-name descname"><span class="pre">or_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#user_management.domain.specifications.or_specification.OrSpecification" title="user_management.domain.specifications.or_specification.OrSpecification"><span class="pre">OrSpecification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.or_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.or_" title="Link to this definition"></a></dt>
+<dd><p>Composes this specification with another using logical OR.</p>
+<p>The resulting specification is satisfied if at least one of the
+two specifications is satisfied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – Another specification to combine.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new composite specification.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#user_management.domain.specifications.or_specification.OrSpecification" title="user_management.domain.specifications.or_specification.OrSpecification">OrSpecification</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.specifications">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_management.domain.specifications" title="Link to this heading"></a></h2>
 <p>Public API for the Specification pattern in the domain layer.</p>
 <p>This module provides the foundational building blocks for expressing and composing
 business rules as reusable, testable objects. It enables logical composition via
-<a href="#id1"><span class="problematic" id="id2">and_</span></a>, <a href="#id3"><span class="problematic" id="id4">or_</span></a>, and <a href="#id5"><span class="problematic" id="id6">not_</span></a> methods, supporting complex validation workflows in a clean,
+<a href="#id7"><span class="problematic" id="id8">and_</span></a>, <a href="#id9"><span class="problematic" id="id10">or_</span></a>, and <a href="#id11"><span class="problematic" id="id12">not_</span></a> methods, supporting complex validation workflows in a clean,
 readable way.</p>
 <p>Import specification base classes directly using:
 from .specification import Specification
@@ -230,7 +523,7 @@ if eligible_role.is_satisfied_by(user):</p>
 <p>Abstract base class for domain rule specifications.</p>
 <p>Represents a business rule that evaluates whether a candidate object
 satisfies a given condition. Specifications can be composed using logical
-operators (<a href="#id7"><span class="problematic" id="id8">and_</span></a>, <a href="#id9"><span class="problematic" id="id10">or_</span></a>, <a href="#id11"><span class="problematic" id="id12">not_</span></a>) to build more complex validation logic.</p>
+operators (<a href="#id13"><span class="problematic" id="id14">and_</span></a>, <a href="#id15"><span class="problematic" id="id16">or_</span></a>, <a href="#id17"><span class="problematic" id="id18">not_</span></a>) to build more complex validation logic.</p>
 <p>This pattern promotes high cohesion, reusability, and clarity in enforcing
 domain invariants across different use cases.</p>
 <dl class="py method">
@@ -306,291 +599,6 @@ two specifications is satisfied.</p>
 
 </dd></dl>
 
-<section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="user_management.domain.specifications.user.html">user_management.domain.specifications.user package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidDateOfBirthSpecification"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidDateOfBirthSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidEmailSpecification"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidEmailSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidNameSpecification"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidNameSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidPhoneE164Specification"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidPhoneE164Specification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.date_of_birth">user_management.domain.specifications.user.date_of_birth module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidDateOfBirthSpecification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.email">user_management.domain.specifications.user.email module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.email.ValidEmailSpecification"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.email.ValidEmailSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidEmailSpecification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.name">user_management.domain.specifications.user.name module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.name.ValidNameSpecification"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.name.ValidNameSpecification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidNameSpecification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.specifications.user.html#module-user_management.domain.specifications.user.phone">user_management.domain.specifications.user.phone module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.phone.ValidPhoneE164Specification"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="user_management.domain.specifications.user.html#user_management.domain.specifications.user.phone.ValidPhoneE164Specification.is_satisfied_by"><code class="docutils literal notranslate"><span class="pre">ValidPhoneE164Specification.is_satisfied_by()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-user_management.domain.specifications.and_specification">
-<span id="user-management-domain-specifications-and-specification-module"></span><h2>user_management.domain.specifications.and_specification module<a class="headerlink" href="#module-user_management.domain.specifications.and_specification" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.specifications.and_specification.AndSpecification">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.and_specification.</span></span><span class="sig-name descname"><span class="pre">AndSpecification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/and_specification.html#AndSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.and_specification.AndSpecification" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
-<p>Composes multiple specifications using logical AND.</p>
-<p>This specification is satisfied only if all composed specifications
-are satisfied by the candidate object. Useful for enforcing multiple
-business rules simultaneously during validation workflows.</p>
-<p class="rubric">Example</p>
-<p>combined = ValidEmailSpecification().and_(ValidNameSpecification())
-combined.is_satisfied_by(user_data)  # True only if both pass</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.and_specification.AndSpecification.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/and_specification.html#AndSpecification.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.and_specification.AndSpecification.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the composite specification with one or more child specifications.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>*specs</strong> (<a class="reference internal" href="#user_management.domain.specifications.Specification" title="user_management.domain.specifications.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – One or more specifications to combine.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.and_specification.AndSpecification.is_satisfied_by">
-<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/and_specification.html#AndSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.and_specification.AndSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
-<dd><p>Evaluates whether the candidate satisfies all composed specifications.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to validate against all specifications.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if all specifications are satisfied; False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-user_management.domain.specifications.not_specification">
-<span id="user-management-domain-specifications-not-specification-module"></span><h2>user_management.domain.specifications.not_specification module<a class="headerlink" href="#module-user_management.domain.specifications.not_specification" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.specifications.not_specification.NotSpecification">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.not_specification.</span></span><span class="sig-name descname"><span class="pre">NotSpecification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/not_specification.html#NotSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.not_specification.NotSpecification" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
-<p>Composes a specification with logical negation (NOT).</p>
-<p>This specification is satisfied if the wrapped specification is NOT satisfied.
-Useful for expressing rules like “user must not be locked” or “email must not be blacklisted”.</p>
-<p class="rubric">Example</p>
-<p>active_user_spec = NotSpecification(IsLockedSpecification())
-if active_user_spec.is_satisfied_by(user):</p>
-<blockquote>
-<div><p>grant_access()</p>
-</div></blockquote>
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.not_specification.NotSpecification.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/not_specification.html#NotSpecification.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.not_specification.NotSpecification.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the negated specification with a child specification.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>spec</strong> (<a class="reference internal" href="#user_management.domain.specifications.Specification" title="user_management.domain.specifications.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – The specification to negate.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.not_specification.NotSpecification.is_satisfied_by">
-<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/not_specification.html#NotSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.not_specification.NotSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
-<dd><p>Evaluates whether the candidate does NOT satisfy the wrapped specification.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to validate against the negated rule.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the original specification fails; False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-user_management.domain.specifications.or_specification">
-<span id="user-management-domain-specifications-or-specification-module"></span><h2>user_management.domain.specifications.or_specification module<a class="headerlink" href="#module-user_management.domain.specifications.or_specification" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.specifications.or_specification.OrSpecification">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.or_specification.</span></span><span class="sig-name descname"><span class="pre">OrSpecification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/or_specification.html#OrSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.or_specification.OrSpecification" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Specification</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
-<p>Composes multiple specifications using logical OR.</p>
-<p>This specification is satisfied if at least one of the composed specifications
-is satisfied by the candidate object. Useful for defining alternative valid states
-or flexible business rules during validation workflows.</p>
-<p class="rubric">Example</p>
-<p>eligible_role = IsDoctorSpecification().or_(IsNurseSpecification())
-if eligible_role.is_satisfied_by(user):</p>
-<blockquote>
-<div><p>assign_to_unit()</p>
-</div></blockquote>
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.or_specification.OrSpecification.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/specifications/or_specification.html#OrSpecification.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.or_specification.OrSpecification.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the composite specification with one or more child specifications.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>*specs</strong> (<a class="reference internal" href="#user_management.domain.specifications.Specification" title="user_management.domain.specifications.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – One or more specifications to combine.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.or_specification.OrSpecification.is_satisfied_by">
-<span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/or_specification.html#OrSpecification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.or_specification.OrSpecification.is_satisfied_by" title="Link to this definition"></a></dt>
-<dd><p>Evaluates whether the candidate satisfies at least one of the composed specifications.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to validate against the specifications.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if any specification is satisfied; False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-user_management.domain.specifications.specification">
-<span id="user-management-domain-specifications-specification-module"></span><h2>user_management.domain.specifications.specification module<a class="headerlink" href="#module-user_management.domain.specifications.specification" title="Link to this heading"></a></h2>
-<p>Base Specification pattern implementation.</p>
-<p>Defines an abstract interface for business rule specifications,
-enabling validation and composition of domain rules through logical operations
-such as AND, OR, and NOT. Supports the creation of complex, reusable, and testable
-business logic in a clean and expressive way.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.specifications.specification.</span></span><span class="sig-name descname"><span class="pre">Specification</span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>Abstract base class for domain rule specifications.</p>
-<p>Represents a business rule that evaluates whether a candidate object
-satisfies a given condition. Specifications can be composed using logical
-operators (<a href="#id13"><span class="problematic" id="id14">and_</span></a>, <a href="#id15"><span class="problematic" id="id16">or_</span></a>, <a href="#id17"><span class="problematic" id="id18">not_</span></a>) to build more complex validation logic.</p>
-<p>This pattern promotes high cohesion, reusability, and clarity in enforcing
-domain invariants across different use cases.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.and_">
-<span class="sig-name descname"><span class="pre">and_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#user_management.domain.specifications.AndSpecification" title="user_management.domain.specifications.AndSpecification"><span class="pre">AndSpecification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.and_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.and_" title="Link to this definition"></a></dt>
-<dd><p>Composes this specification with another using logical AND.</p>
-<p>The resulting specification is satisfied only if both this and the
-provided specification are satisfied.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – Another specification to combine.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A new composite specification.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#user_management.domain.specifications.AndSpecification" title="user_management.domain.specifications.AndSpecification">AndSpecification</a>[T]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.is_satisfied_by">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_satisfied_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.is_satisfied_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.is_satisfied_by" title="Link to this definition"></a></dt>
-<dd><p>Determines whether the candidate satisfies this specification.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>candidate</strong> (<em>T</em>) – The object to evaluate against the rule.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the rule is satisfied; False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.not_">
-<span class="sig-name descname"><span class="pre">not_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#user_management.domain.specifications.NotSpecification" title="user_management.domain.specifications.NotSpecification"><span class="pre">NotSpecification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.not_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.not_" title="Link to this definition"></a></dt>
-<dd><p>Negates this specification using logical NOT.</p>
-<p>The resulting specification is satisfied if this specification
-is NOT satisfied by the candidate.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A new negated specification.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#user_management.domain.specifications.NotSpecification" title="user_management.domain.specifications.NotSpecification">NotSpecification</a>[T]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.specifications.specification.Specification.or_">
-<span class="sig-name descname"><span class="pre">or_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><span class="pre">Specification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#user_management.domain.specifications.OrSpecification" title="user_management.domain.specifications.OrSpecification"><span class="pre">OrSpecification</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/user_management/domain/specifications/specification.html#Specification.or_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.specifications.specification.Specification.or_" title="Link to this definition"></a></dt>
-<dd><p>Composes this specification with another using logical OR.</p>
-<p>The resulting specification is satisfied if at least one of the
-two specifications is satisfied.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#user_management.domain.specifications.specification.Specification" title="user_management.domain.specifications.specification.Specification"><em>Specification</em></a><em>[</em><em>T</em><em>]</em>) – Another specification to combine.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A new composite specification.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#user_management.domain.specifications.OrSpecification" title="user_management.domain.specifications.OrSpecification">OrSpecification</a>[T]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 </section>
 
@@ -598,7 +606,7 @@ two specifications is satisfied.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="user_management.domain.exceptions.user.html" class="btn btn-neutral float-left" title="user_management.domain.exceptions.user package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_management.domain.exceptions.html" class="btn btn-neutral float-left" title="user_management.domain.exceptions package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="user_management.domain.specifications.user.html" class="btn btn-neutral float-right" title="user_management.domain.specifications.user package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

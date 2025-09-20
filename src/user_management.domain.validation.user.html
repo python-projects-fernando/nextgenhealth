@@ -43,14 +43,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">User Management</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">user_management package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="user_management.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="user_management.domain.html">user_management.domain package</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="user_management.domain.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.html#module-user_management.domain">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html#module-user_management">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -69,7 +71,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="user_management.html">User Management</a></li>
+          <li class="breadcrumb-item"><a href="user_management.html">user_management package</a></li>
           <li class="breadcrumb-item"><a href="user_management.domain.html">user_management.domain package</a></li>
           <li class="breadcrumb-item"><a href="user_management.domain.validation.html">user_management.domain.validation package</a></li>
       <li class="breadcrumb-item active">user_management.domain.validation.user package</li>
@@ -82,8 +84,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-user_management.domain.validation.user">
-<span id="user-management-domain-validation-user-package"></span><h1>user_management.domain.validation.user package<a class="headerlink" href="#module-user_management.domain.validation.user" title="Link to this heading"></a></h1>
+  <section id="user-management-domain-validation-user-package">
+<h1>user_management.domain.validation.user package<a class="headerlink" href="#user-management-domain-validation-user-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_management.domain.validation.user.user_validator">
+<span id="user-management-domain-validation-user-user-validator-module"></span><h2>user_management.domain.validation.user.user_validator module<a class="headerlink" href="#module-user_management.domain.validation.user.user_validator" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.validation.user.user_validator.UserValidator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.validation.user.user_validator.</span></span><span class="sig-name descname"><span class="pre">UserValidator</span></span><a class="reference internal" href="../_modules/user_management/domain/validation/user/user_validator.html#UserValidator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.validation.user.user_validator.UserValidator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Centralized validator for User entity creation and updates.</p>
+<p>Applies domain rules through reusable Specification objects to ensure data integrity.
+This class encapsulates all validation logic, enabling clean separation from the User entity
+and promoting testability, reuse, and maintainability.</p>
+<p>Validation includes:
+- UUID format
+- Email validity
+- Name character constraints
+- Phone number in E.164 format
+- Realistic and non-future date of birth
+- Valid role and status enums</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_management.domain.validation.user.user_validator.UserValidator.validate">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_of_birth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_role.UserRole" title="user_management.domain.enums.user_role.UserRole"><span class="pre">UserRole</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_status.UserStatus" title="user_management.domain.enums.user_status.UserStatus"><span class="pre">UserStatus</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/user_management/domain/validation/user/user_validator.html#UserValidator.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.validation.user.user_validator.UserValidator.validate" title="Link to this definition"></a></dt>
+<dd><p>Validates user data against domain rules before entity creation.</p>
+<p>Executes a series of checks using Specifications. Raises specific domain exceptions
+if any validation fails. All validations are executed sequentially.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uuid</strong> (<em>UUID</em>) – Unique identifier; must be a valid UUID instance.</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – Email address; must be properly formatted.</p></li>
+<li><p><strong>first_name</strong> (<em>str</em>) – First name; must contain only letters and spaces.</p></li>
+<li><p><strong>last_name</strong> (<em>str</em>) – Last name; must contain only letters and spaces.</p></li>
+<li><p><strong>phone</strong> (<em>str</em><em>, </em><em>optional</em>) – Phone number in E.164 format (e.g., +1234567890).
+May be None.</p></li>
+<li><p><strong>date_of_birth</strong> (<em>date</em>) – Date of birth; must not be in the future or unrealistic.</p></li>
+<li><p><strong>role</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_role.UserRole" title="user_management.domain.enums.user_role.UserRole"><em>UserRole</em></a>) – Assigned role; must be a valid UserRole enum member.</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_status.UserStatus" title="user_management.domain.enums.user_status.UserStatus"><em>UserStatus</em></a>) – Account status; must be a valid UserStatus enum member.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><strong>InvalidUserError</strong></a> – If UUID, names, role, status, or date of birth are invalid.</p></li>
+<li><p><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidEmailError" title="user_management.domain.exceptions.user.InvalidEmailError"><strong>InvalidEmailError</strong></a> – If email format is invalid.</p></li>
+<li><p><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidPhoneNumberError" title="user_management.domain.exceptions.user.InvalidPhoneNumberError"><strong>InvalidPhoneNumberError</strong></a> – If phone is provided but not in E.164 format.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.validation.user">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_management.domain.validation.user" title="Link to this heading"></a></h2>
 <p>Public API for User validation services.</p>
 <p>This module provides the UserValidator class for enforcing domain rules
 during user creation and updates. It encapsulates all validation logic,
@@ -122,67 +179,15 @@ if any validation fails. All validations are executed sequentially.</p>
 <li><p><strong>phone</strong> (<em>str</em><em>, </em><em>optional</em>) – Phone number in E.164 format (e.g., +1234567890).
 May be None.</p></li>
 <li><p><strong>date_of_birth</strong> (<em>date</em>) – Date of birth; must not be in the future or unrealistic.</p></li>
-<li><p><strong>role</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.UserRole" title="user_management.domain.enums.UserRole"><em>UserRole</em></a>) – Assigned role; must be a valid UserRole enum member.</p></li>
-<li><p><strong>status</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.UserStatus" title="user_management.domain.enums.UserStatus"><em>UserStatus</em></a>) – Account status; must be a valid UserStatus enum member.</p></li>
+<li><p><strong>role</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_role.UserRole" title="user_management.domain.enums.user_role.UserRole"><em>UserRole</em></a>) – Assigned role; must be a valid UserRole enum member.</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_status.UserStatus" title="user_management.domain.enums.user_status.UserStatus"><em>UserStatus</em></a>) – Account status; must be a valid UserStatus enum member.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidUserError" title="user_management.domain.exceptions.InvalidUserError"><strong>InvalidUserError</strong></a> – If UUID, names, role, status, or date of birth are invalid.</p></li>
-<li><p><a class="reference internal" href="user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidEmailError" title="user_management.domain.exceptions.InvalidEmailError"><strong>InvalidEmailError</strong></a> – If email format is invalid.</p></li>
-<li><p><a class="reference internal" href="user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidPhoneNumberError" title="user_management.domain.exceptions.InvalidPhoneNumberError"><strong>InvalidPhoneNumberError</strong></a> – If phone is provided but not in E.164 format.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-user_management.domain.validation.user.user_validator">
-<span id="user-management-domain-validation-user-user-validator-module"></span><h2>user_management.domain.validation.user.user_validator module<a class="headerlink" href="#module-user_management.domain.validation.user.user_validator" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.validation.user.user_validator.UserValidator">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.validation.user.user_validator.</span></span><span class="sig-name descname"><span class="pre">UserValidator</span></span><a class="reference internal" href="../_modules/user_management/domain/validation/user/user_validator.html#UserValidator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.validation.user.user_validator.UserValidator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Centralized validator for User entity creation and updates.</p>
-<p>Applies domain rules through reusable Specification objects to ensure data integrity.
-This class encapsulates all validation logic, enabling clean separation from the User entity
-and promoting testability, reuse, and maintainability.</p>
-<p>Validation includes:
-- UUID format
-- Email validity
-- Name character constraints
-- Phone number in E.164 format
-- Realistic and non-future date of birth
-- Valid role and status enums</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="user_management.domain.validation.user.user_validator.UserValidator.validate">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_of_birth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_role.UserRole" title="user_management.domain.enums.user_role.UserRole"><span class="pre">UserRole</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.user_status.UserStatus" title="user_management.domain.enums.user_status.UserStatus"><span class="pre">UserStatus</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/user_management/domain/validation/user/user_validator.html#UserValidator.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.validation.user.user_validator.UserValidator.validate" title="Link to this definition"></a></dt>
-<dd><p>Validates user data against domain rules before entity creation.</p>
-<p>Executes a series of checks using Specifications. Raises specific domain exceptions
-if any validation fails. All validations are executed sequentially.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>uuid</strong> (<em>UUID</em>) – Unique identifier; must be a valid UUID instance.</p></li>
-<li><p><strong>email</strong> (<em>str</em>) – Email address; must be properly formatted.</p></li>
-<li><p><strong>first_name</strong> (<em>str</em>) – First name; must contain only letters and spaces.</p></li>
-<li><p><strong>last_name</strong> (<em>str</em>) – Last name; must contain only letters and spaces.</p></li>
-<li><p><strong>phone</strong> (<em>str</em><em>, </em><em>optional</em>) – Phone number in E.164 format (e.g., +1234567890).
-May be None.</p></li>
-<li><p><strong>date_of_birth</strong> (<em>date</em>) – Date of birth; must not be in the future or unrealistic.</p></li>
-<li><p><strong>role</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.UserRole" title="user_management.domain.enums.UserRole"><em>UserRole</em></a>) – Assigned role; must be a valid UserRole enum member.</p></li>
-<li><p><strong>status</strong> (<a class="reference internal" href="user_management.domain.enums.html#user_management.domain.enums.UserStatus" title="user_management.domain.enums.UserStatus"><em>UserStatus</em></a>) – Account status; must be a valid UserStatus enum member.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidUserError" title="user_management.domain.exceptions.InvalidUserError"><strong>InvalidUserError</strong></a> – If UUID, names, role, status, or date of birth are invalid.</p></li>
-<li><p><a class="reference internal" href="user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidEmailError" title="user_management.domain.exceptions.InvalidEmailError"><strong>InvalidEmailError</strong></a> – If email format is invalid.</p></li>
-<li><p><a class="reference internal" href="user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidPhoneNumberError" title="user_management.domain.exceptions.InvalidPhoneNumberError"><strong>InvalidPhoneNumberError</strong></a> – If phone is provided but not in E.164 format.</p></li>
+<li><p><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><strong>InvalidUserError</strong></a> – If UUID, names, role, status, or date of birth are invalid.</p></li>
+<li><p><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidEmailError" title="user_management.domain.exceptions.user.InvalidEmailError"><strong>InvalidEmailError</strong></a> – If email format is invalid.</p></li>
+<li><p><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidPhoneNumberError" title="user_management.domain.exceptions.user.InvalidPhoneNumberError"><strong>InvalidPhoneNumberError</strong></a> – If phone is provided but not in E.164 format.</p></li>
 </ul>
 </dd>
 </dl>

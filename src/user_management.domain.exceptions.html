@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="user_management.domain.exceptions.user package" href="user_management.domain.exceptions.user.html" />
+    <link rel="next" title="user_management.domain.specifications package" href="user_management.domain.specifications.html" />
     <link rel="prev" title="user_management.domain.enums package" href="user_management.domain.enums.html" /> 
 </head>
 
@@ -44,14 +44,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">User Management</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">user_management package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="user_management.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="user_management.domain.html">user_management.domain package</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="user_management.domain.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.html#module-user_management.domain">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html#module-user_management">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -70,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="user_management.html">User Management</a></li>
+          <li class="breadcrumb-item"><a href="user_management.html">user_management package</a></li>
           <li class="breadcrumb-item"><a href="user_management.domain.html">user_management.domain package</a></li>
       <li class="breadcrumb-item active">user_management.domain.exceptions package</li>
       <li class="wy-breadcrumbs-aside">
@@ -82,8 +84,126 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-user_management.domain.exceptions">
-<span id="user-management-domain-exceptions-package"></span><h1>user_management.domain.exceptions package<a class="headerlink" href="#module-user_management.domain.exceptions" title="Link to this heading"></a></h1>
+  <section id="user-management-domain-exceptions-package">
+<h1>user_management.domain.exceptions package<a class="headerlink" href="#user-management-domain-exceptions-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_management.domain.exceptions.base">
+<span id="user-management-domain-exceptions-base-module"></span><h2>user_management.domain.exceptions.base module<a class="headerlink" href="#module-user_management.domain.exceptions.base" title="Link to this heading"></a></h2>
+<p>Base domain exceptions for the NextGenHealth system.
+All other domain-specific errors inherit from these.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.base.DomainError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.base.</span></span><span class="sig-name descname"><span class="pre">DomainError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/base.html#DomainError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.base.DomainError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base exception class for all business rule violations in the domain.</p>
+<p>This is not raised directly, but serves as the parent for all domain exceptions.
+Helps with broad exception handling at higher layers.</p>
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.exceptions.credentials">
+<span id="user-management-domain-exceptions-credentials-module"></span><h2>user_management.domain.exceptions.credentials module<a class="headerlink" href="#module-user_management.domain.exceptions.credentials" title="Link to this heading"></a></h2>
+<p>Exceptions related to user credentials (password, authentication).</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.credentials.InvalidCredentialsError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.credentials.</span></span><span class="sig-name descname"><span class="pre">InvalidCredentialsError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/credentials.html#InvalidCredentialsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.credentials.InvalidCredentialsError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.base.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
+<p>Base exception for credential-related validation failures.</p>
+<p class="rubric">Examples</p>
+<ul class="simple">
+<li><p>Weak password</p></li>
+<li><p>Password reuse</p></li>
+<li><p>Failed verification attempts</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.credentials.InvalidPasswordError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.credentials.</span></span><span class="sig-name descname"><span class="pre">InvalidPasswordError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/credentials.html#InvalidPasswordError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.credentials.InvalidPasswordError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.credentials.InvalidCredentialsError" title="user_management.domain.exceptions.credentials.InvalidCredentialsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidCredentialsError</span></code></a></p>
+<p>Raised when a password does not meet security requirements.</p>
+<dl class="simple">
+<dt>Rules:</dt><dd><ul class="simple">
+<li><p>At least 8 characters</p></li>
+<li><p>Not commonly used (e.g., ‘123456’)</p></li>
+<li><p>Not empty or whitespace-only</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.exceptions.user">
+<span id="user-management-domain-exceptions-user-module"></span><h2>user_management.domain.exceptions.user module<a class="headerlink" href="#module-user_management.domain.exceptions.user" title="Link to this heading"></a></h2>
+<p>Exceptions related to User entity validation and business rules.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidDateOfBirthError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidDateOfBirthError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidDateOfBirthError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidDateOfBirthError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when date of birth is in the future or unrealistically old.</p>
+<p>Example: born in 2050 or 1800.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidEmailError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidEmailError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidEmailError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidEmailError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when an email does not conform to RFC-like formatting rules.</p>
+<p>Example: ‘invalid-email’, ‘user&#64;’, <a class="reference external" href="mailto:'&#37;&#52;&#48;domain&#46;com">‘<span>&#64;</span>domain<span>&#46;</span>com</a>’</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidNameError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidNameError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidNameError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidNameError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when first_name or last_name contains non-alphabetic characters.</p>
+<p>Only letters and spaces are allowed.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidPhoneNumberError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidPhoneNumberError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidPhoneNumberError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidPhoneNumberError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when phone number is provided but not in E.164 format.</p>
+<p>Example: ‘+1234567890’ is valid; ‘123-456-7890’ is invalid.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidUUIDError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidUUIDError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUUIDError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidUUIDError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when the provided UUID is not a valid UUID instance.</p>
+<dl class="simple">
+<dt>This includes:</dt><dd><ul class="simple">
+<li><p>None</p></li>
+<li><p>Empty string</p></li>
+<li><p>Malformed string</p></li>
+<li><p>Wrong type (e.g., int, dict)</p></li>
+</ul>
+</dd>
+</dl>
+<p>The User entity requires a valid UUID object for identity integrity.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidUserError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidUserError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidUserError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.base.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
+<p>Raised when a User violates core identity rules.</p>
+<p class="rubric">Examples</p>
+<ul class="simple">
+<li><p>Invalid UUID format</p></li>
+<li><p>Malformed email</p></li>
+<li><p>Name with invalid characters</p></li>
+<li><p>Future date of birth</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.exceptions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_management.domain.exceptions" title="Link to this heading"></a></h2>
 <p>Public API for domain exceptions.
 Allows clean imports across the project.</p>
 <dl class="py exception">
@@ -98,7 +218,7 @@ Helps with broad exception handling at higher layers.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidCredentialsError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidCredentialsError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/credentials.html#InvalidCredentialsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidCredentialsError" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.base.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
 <p>Base exception for credential-related validation failures.</p>
 <p class="rubric">Examples</p>
 <ul class="simple">
@@ -135,7 +255,7 @@ Helps with broad exception handling at higher layers.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidPasswordError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidPasswordError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/credentials.html#InvalidPasswordError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidPasswordError" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.InvalidCredentialsError" title="user_management.domain.exceptions.credentials.InvalidCredentialsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidCredentialsError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.credentials.InvalidCredentialsError" title="user_management.domain.exceptions.credentials.InvalidCredentialsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidCredentialsError</span></code></a></p>
 <p>Raised when a password does not meet security requirements.</p>
 <dl class="simple">
 <dt>Rules:</dt><dd><ul class="simple">
@@ -175,7 +295,7 @@ Helps with broad exception handling at higher layers.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidUserError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidUserError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidUserError" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.base.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
 <p>Raised when a User violates core identity rules.</p>
 <p class="rubric">Examples</p>
 <ul class="simple">
@@ -186,23 +306,6 @@ Helps with broad exception handling at higher layers.</p>
 </ul>
 </dd></dl>
 
-<section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="user_management.domain.exceptions.user.html">user_management.domain.exceptions.user package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidDateOfBirthError"><code class="docutils literal notranslate"><span class="pre">InvalidDateOfBirthError</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidEmailError"><code class="docutils literal notranslate"><span class="pre">InvalidEmailError</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidNameError"><code class="docutils literal notranslate"><span class="pre">InvalidNameError</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidPhoneNumberError"><code class="docutils literal notranslate"><span class="pre">InvalidPhoneNumberError</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUUIDError"><code class="docutils literal notranslate"><span class="pre">InvalidUUIDError</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError"><code class="docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_management.domain.exceptions.user.html#user-management-domain-exceptions-user-user-exceptions-module">user_management.domain.exceptions.user.user_exceptions module</a></li>
-</ul>
-</li>
-</ul>
-</div>
 </section>
 </section>
 
@@ -211,7 +314,7 @@ Helps with broad exception handling at higher layers.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="user_management.domain.enums.html" class="btn btn-neutral float-left" title="user_management.domain.enums package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="user_management.domain.exceptions.user.html" class="btn btn-neutral float-right" title="user_management.domain.exceptions.user package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="user_management.domain.specifications.html" class="btn btn-neutral float-right" title="user_management.domain.specifications package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

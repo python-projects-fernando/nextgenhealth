@@ -44,14 +44,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">User Management</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_management.html">user_management package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="user_management.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="user_management.domain.html">user_management.domain package</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="user_management.domain.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_management.domain.html#module-user_management.domain">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html#module-user_management">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -70,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="user_management.html">User Management</a></li>
+          <li class="breadcrumb-item"><a href="user_management.html">user_management package</a></li>
           <li class="breadcrumb-item"><a href="user_management.domain.html">user_management.domain package</a></li>
       <li class="breadcrumb-item active">user_management.domain.enums package</li>
       <li class="wy-breadcrumbs-aside">
@@ -82,63 +84,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-user_management.domain.enums">
-<span id="user-management-domain-enums-package"></span><h1>user_management.domain.enums package<a class="headerlink" href="#module-user_management.domain.enums" title="Link to this heading"></a></h1>
-<p>Public API for domain enums.
-Import core enumeration types directly from this package.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserRole">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.enums.</span></span><span class="sig-name descname"><span class="pre">UserRole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/enums/user_role.html#UserRole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.enums.UserRole" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<p>Enumeration of user roles in the system.</p>
-<p>These roles define the scope of actions and data access for each authenticated user.
-Used throughout the domain to enforce authorization rules and tailor workflows.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.ADMINISTRATOR">
-<span class="sig-name descname"><span class="pre">ADMINISTRATOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Administrator'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.ADMINISTRATOR" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.DOCTOR">
-<span class="sig-name descname"><span class="pre">DOCTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Doctor'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.DOCTOR" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.NURSE">
-<span class="sig-name descname"><span class="pre">NURSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nurse'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.NURSE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.PATIENT">
-<span class="sig-name descname"><span class="pre">PATIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Patient'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.PATIENT" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.enums.</span></span><span class="sig-name descname"><span class="pre">UserStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/enums/user_status.html#UserStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.enums.UserStatus" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<p>Enumeration of user account statuses.</p>
-<p>Represents the current lifecycle state of a user account,
-influencing authentication, permissions, and system behavior.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus.ACTIVE">
-<span class="sig-name descname"><span class="pre">ACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Active'</span></em><a class="headerlink" href="#user_management.domain.enums.UserStatus.ACTIVE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus.INACTIVE">
-<span class="sig-name descname"><span class="pre">INACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Inactive'</span></em><a class="headerlink" href="#user_management.domain.enums.UserStatus.INACTIVE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus.LOCKED">
-<span class="sig-name descname"><span class="pre">LOCKED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Locked'</span></em><a class="headerlink" href="#user_management.domain.enums.UserStatus.LOCKED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <section id="user-management-domain-enums-package">
+<h1>user_management.domain.enums package<a class="headerlink" href="#user-management-domain-enums-package" title="Link to this heading"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
@@ -202,6 +149,64 @@ influencing authentication, permissions, and system behavior.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="user_management.domain.enums.user_status.UserStatus.LOCKED">
 <span class="sig-name descname"><span class="pre">LOCKED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Locked'</span></em><a class="headerlink" href="#user_management.domain.enums.user_status.UserStatus.LOCKED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_management.domain.enums">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_management.domain.enums" title="Link to this heading"></a></h2>
+<p>Public API for domain enums.
+Import core enumeration types directly from this package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserRole">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.enums.</span></span><span class="sig-name descname"><span class="pre">UserRole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/enums/user_role.html#UserRole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.enums.UserRole" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enumeration of user roles in the system.</p>
+<p>These roles define the scope of actions and data access for each authenticated user.
+Used throughout the domain to enforce authorization rules and tailor workflows.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.ADMINISTRATOR">
+<span class="sig-name descname"><span class="pre">ADMINISTRATOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Administrator'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.ADMINISTRATOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.DOCTOR">
+<span class="sig-name descname"><span class="pre">DOCTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Doctor'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.DOCTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.NURSE">
+<span class="sig-name descname"><span class="pre">NURSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nurse'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.NURSE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserRole.PATIENT">
+<span class="sig-name descname"><span class="pre">PATIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Patient'</span></em><a class="headerlink" href="#user_management.domain.enums.UserRole.PATIENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.enums.</span></span><span class="sig-name descname"><span class="pre">UserStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/user_management/domain/enums/user_status.html#UserStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.enums.UserStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enumeration of user account statuses.</p>
+<p>Represents the current lifecycle state of a user account,
+influencing authentication, permissions, and system behavior.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus.ACTIVE">
+<span class="sig-name descname"><span class="pre">ACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Active'</span></em><a class="headerlink" href="#user_management.domain.enums.UserStatus.ACTIVE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus.INACTIVE">
+<span class="sig-name descname"><span class="pre">INACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Inactive'</span></em><a class="headerlink" href="#user_management.domain.enums.UserStatus.INACTIVE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_management.domain.enums.UserStatus.LOCKED">
+<span class="sig-name descname"><span class="pre">LOCKED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Locked'</span></em><a class="headerlink" href="#user_management.domain.enums.UserStatus.LOCKED" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
