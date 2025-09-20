@@ -19,7 +19,7 @@ from uuid import UUID
 import pytest
 
 from src.user_management.domain.entities import User
-from src.user_management.domain.exceptions import InvalidUUIDError
+from user_management.domain.exceptions import InvalidUUIDError
 from tests.helpers import create_valid_user
 
 

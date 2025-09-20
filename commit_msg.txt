@@ -1,8 +1,11 @@
-fix(ci): correct test workflow to support multiple unit tests
+docs: restructure Sphinx documentation and update project configuration
 
-- Updated test.yml to properly install the package in editable mode with 'pip install -e .'
-- Ensured all unit tests are discovered and executed by make test
-- Fixed missing dependency installation that caused import errors in CI
-- Maintains compatibility with src/ layout and absolute imports
+- Updated pyproject.toml to support package discovery with include = [\"*\"] for future modules
+- Fixed imports in domain layer to remove 'src.' prefix, aligning with pip install -e . structure
+- Regenerated Sphinx .rst files via sphinx-apidoc to reflect correct module paths
+- Added missing toctree entries: modules.rst and src.rst for proper navigation
+- Corrected auto-generated filenames (e.g., user_management.domain.rst → src_user_management.domain.rst)
+- Updated __init__.py exports in entities package for clean public API
+- Improved validation test clarity in email, name, phone, and UUID tests
 
-Now runs all user validation tests (UUID, email, name, phone) on every push/pull request.
+Ensures documentation is accurate, importable, and scalable for new bounded contexts.

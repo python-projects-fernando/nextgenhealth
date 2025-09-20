@@ -1,11 +1,6 @@
 user\_management.domain.specifications package
 ==============================================
 
-.. automodule:: user_management.domain.specifications
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
@@ -45,6 +40,14 @@ user\_management.domain.specifications.specification module
 -----------------------------------------------------------
 
 .. automodule:: user_management.domain.specifications.specification
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: user_management.domain.specifications
    :members:
    :show-inheritance:
    :undoc-members:

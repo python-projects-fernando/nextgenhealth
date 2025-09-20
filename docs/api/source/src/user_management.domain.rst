@@ -1,11 +1,6 @@
 user\_management.domain package
 ===============================
 
-.. automodule:: user_management.domain
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
@@ -17,3 +12,11 @@ Subpackages
    user_management.domain.exceptions
    user_management.domain.specifications
    user_management.domain.validation
+
+Module contents
+---------------
+
+.. automodule:: user_management.domain
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,11 +1,25 @@
+"""
+        Aggregate Root representing a user in the NextGenHealth system.
+
+        Central entity for identity management, enforcing validation,
+        security, and auditability.
+"""
+
 import re
 from uuid import UUID
-from src.user_management.domain.exceptions import InvalidUUIDError, InvalidEmailError
-from src.user_management.domain.exceptions import InvalidNameError
-from src.user_management.domain.exceptions import InvalidPhoneNumberError
+from user_management.domain.exceptions import InvalidUUIDError, InvalidEmailError
+from user_management.domain.exceptions import InvalidNameError
+from user_management.domain.exceptions import InvalidPhoneNumberError
 
 
 class User:
+    """
+        Aggregate Root representing a user in the NextGenHealth system.
+
+        Central entity for identity management, enforcing validation,
+        security, and auditability.
+    """
+
     def __init__(self,
                  uuid: UUID,
                  email: str,
