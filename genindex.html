@@ -74,15 +74,12 @@
  <a href="#_"><strong>_</strong></a>
  | <a href="#A"><strong>A</strong></a>
  | <a href="#D"><strong>D</strong></a>
- | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
@@ -91,13 +88,9 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.__init__">__init__() (user_management.domain.entities.User method)</a>
+      <li><a href="src/user_management.domain.specifications.html#user_management.domain.specifications.and_specification.AndSpecification.__init__">__init__() (user_management.domain.specifications.and_specification.AndSpecification method)</a>
 
       <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.__init__">(user_management.domain.entities.user.User method)</a>
-</li>
-        <li><a href="src/user_management.domain.specifications.html#user_management.domain.specifications.and_specification.AndSpecification.__init__">(user_management.domain.specifications.and_specification.AndSpecification method)</a>
-</li>
         <li><a href="src/user_management.domain.specifications.html#user_management.domain.specifications.AndSpecification.__init__">(user_management.domain.specifications.AndSpecification method)</a>
 </li>
         <li><a href="src/user_management.domain.specifications.html#user_management.domain.specifications.not_specification.NotSpecification.__init__">(user_management.domain.specifications.not_specification.NotSpecification method)</a>
@@ -147,14 +140,6 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.date_of_birth">date_of_birth (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.date_of_birth">(user_management.domain.entities.user.User attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/user_management.domain.enums.html#user_management.domain.enums.user_role.UserRole.DOCTOR">DOCTOR (user_management.domain.enums.user_role.UserRole attribute)</a>
 
       <ul>
@@ -162,29 +147,9 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="E">E</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.email">email (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.email">(user_management.domain.entities.user.User attribute)</a>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.DomainError">DomainError</a>
 </li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.first_name">first_name (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.first_name">(user_management.domain.entities.user.User attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -197,11 +162,21 @@
         <li><a href="src/user_management.domain.enums.html#user_management.domain.enums.UserStatus.INACTIVE">(user_management.domain.enums.UserStatus attribute)</a>
 </li>
       </ul></li>
-      <li><a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.user_exceptions.InvalidEmailError">InvalidEmailError</a>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidCredentialsError">InvalidCredentialsError</a>
 </li>
-      <li><a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.user_exceptions.InvalidPhoneNumberError">InvalidPhoneNumberError</a>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidDateOfBirthError">InvalidDateOfBirthError</a>, <a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidDateOfBirthError">[1]</a>
 </li>
-      <li><a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.user_exceptions.InvalidUserError">InvalidUserError</a>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidEmailError">InvalidEmailError</a>, <a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidEmailError">[1]</a>
+</li>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidNameError">InvalidNameError</a>, <a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidNameError">[1]</a>
+</li>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidPasswordError">InvalidPasswordError</a>
+</li>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidPhoneNumberError">InvalidPhoneNumberError</a>, <a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidPhoneNumberError">[1]</a>
+</li>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidUserError">InvalidUserError</a>, <a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError">[1]</a>
+</li>
+      <li><a href="src/user_management.domain.exceptions.html#user_management.domain.exceptions.InvalidUUIDError">InvalidUUIDError</a>, <a href="src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUUIDError">[1]</a>
 </li>
       <li><a href="src/user_management.domain.specifications.html#user_management.domain.specifications.and_specification.AndSpecification.is_satisfied_by">is_satisfied_by() (user_management.domain.specifications.and_specification.AndSpecification method)</a>
 
@@ -243,14 +218,6 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.last_name">last_name (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.last_name">(user_management.domain.entities.user.User attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/user_management.domain.enums.html#user_management.domain.enums.user_status.UserStatus.LOCKED">LOCKED (user_management.domain.enums.user_status.UserStatus attribute)</a>
 
       <ul>
@@ -269,10 +236,6 @@
       <ul>
         <li><a href="src/user_management.domain.html#module-user_management.domain">user_management.domain</a>
 </li>
-        <li><a href="src/user_management.domain.entities.html#module-user_management.domain.entities">user_management.domain.entities</a>
-</li>
-        <li><a href="src/user_management.domain.entities.html#module-user_management.domain.entities.user">user_management.domain.entities.user</a>
-</li>
         <li><a href="src/user_management.domain.enums.html#module-user_management.domain.enums">user_management.domain.enums</a>
 </li>
         <li><a href="src/user_management.domain.enums.html#module-user_management.domain.enums.user_role">user_management.domain.enums.user_role</a>
@@ -282,8 +245,6 @@
         <li><a href="src/user_management.domain.exceptions.html#module-user_management.domain.exceptions">user_management.domain.exceptions</a>
 </li>
         <li><a href="src/user_management.domain.exceptions.user.html#module-user_management.domain.exceptions.user">user_management.domain.exceptions.user</a>
-</li>
-        <li><a href="src/user_management.domain.exceptions.user.html#module-user_management.domain.exceptions.user.user_exceptions">user_management.domain.exceptions.user.user_exceptions</a>
 </li>
         <li><a href="src/user_management.domain.specifications.html#module-user_management.domain.specifications">user_management.domain.specifications</a>
 </li>
@@ -371,26 +332,6 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.phone">phone (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.phone">(user_management.domain.entities.user.User attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.role">role (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.role">(user_management.domain.entities.user.User attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
@@ -403,44 +344,16 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.status">status (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.status">(user_management.domain.entities.user.User attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
 </tr></table>
 
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User">User (class in user_management.domain.entities)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User">(class in user_management.domain.entities.user)</a>
-</li>
-      </ul></li>
       <li>
     user_management.domain
 
       <ul>
         <li><a href="src/user_management.domain.html#module-user_management.domain">module</a>
-</li>
-      </ul></li>
-      <li>
-    user_management.domain.entities
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#module-user_management.domain.entities">module</a>
-</li>
-      </ul></li>
-      <li>
-    user_management.domain.entities.user
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#module-user_management.domain.entities.user">module</a>
 </li>
       </ul></li>
       <li>
@@ -479,13 +392,6 @@
 </li>
       </ul></li>
       <li>
-    user_management.domain.exceptions.user.user_exceptions
-
-      <ul>
-        <li><a href="src/user_management.domain.exceptions.user.html#module-user_management.domain.exceptions.user.user_exceptions">module</a>
-</li>
-      </ul></li>
-      <li>
     user_management.domain.specifications
 
       <ul>
@@ -513,8 +419,6 @@
         <li><a href="src/user_management.domain.specifications.html#module-user_management.domain.specifications.or_specification">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     user_management.domain.specifications.specification
 
@@ -522,6 +426,8 @@
         <li><a href="src/user_management.domain.specifications.html#module-user_management.domain.specifications.specification">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     user_management.domain.specifications.user
 
@@ -594,12 +500,6 @@
 
       <ul>
         <li><a href="src/user_management.domain.validation.user.html#user_management.domain.validation.user.user_validator.UserValidator">(class in user_management.domain.validation.user.user_validator)</a>
-</li>
-      </ul></li>
-      <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.User.uuid">uuid (user_management.domain.entities.User attribute)</a>
-
-      <ul>
-        <li><a href="src/user_management.domain.entities.html#user_management.domain.entities.user.User.uuid">(user_management.domain.entities.user.User attribute)</a>
 </li>
       </ul></li>
   </ul></td>
