@@ -14,6 +14,10 @@ from .user import (
     InvalidNameError,
     InvalidPhoneNumberError,
     InvalidDateOfBirthError,
+    InvalidUserRoleError,
+    InvalidUserStatusError,
+    InvalidCreatedAtError,
+    InvalidUpdatedAtError,
 )
 
 
@@ -30,6 +34,10 @@ __all__ = [
     "InvalidNameError",
     "InvalidPhoneNumberError",
     "InvalidDateOfBirthError",
+    "InvalidUserRoleError",
+    "InvalidUserStatusError",
+    "InvalidCreatedAtError",
+    "InvalidUpdatedAtError",
     "InvalidCredentialsError",
     "InvalidPasswordError",
 ]

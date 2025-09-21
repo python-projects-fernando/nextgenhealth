@@ -10,13 +10,22 @@ test:
 	python -m pytest tests/unit/user_management/domain/ -v
 
 # Run tests with coverage report (console and HTML)
-coverage:
+coverage: ensure-cov
 	python -m pytest \
 		--cov=src/user_management \
 		--cov-report=term \
 		--cov-report=html:coverage_html \
 		--cov-config=.coveragerc \
 		tests/unit/user_management/domain/user/
+
+ensure-cov:
+	@echo "🔍 Checking virtual environment..."
+	@if ! python -c "import pytest_cov" 2>/dev/null; then \
+		echo "⚠️ Installing pytest-cov..."; \
+		pip install pytest-cov; \
+	else \
+		echo "✅ pytest-cov is installed"; \
+	fi
 
 # Install dependencies
 setup:

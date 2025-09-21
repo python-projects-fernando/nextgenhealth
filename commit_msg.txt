@@ -1,11 +1,21 @@
-docs: restructure Sphinx documentation and update project configuration
+feat(user): add comprehensive validation tests for User entity audit and identity fields
 
-- Updated pyproject.toml to support package discovery with include = [\"*\"] for future modules
-- Fixed imports in domain layer to remove 'src.' prefix, aligning with pip install -e . structure
-- Regenerated Sphinx .rst files via sphinx-apidoc to reflect correct module paths
-- Added missing toctree entries: modules.rst and src.rst for proper navigation
-- Corrected auto-generated filenames (e.g., user_management.domain.rst → src_user_management.domain.rst)
-- Updated __init__.py exports in entities package for clean public API
-- Improved validation test clarity in email, name, phone, and UUID tests
+- Added unit tests for created_at and updated_at timestamp validation:
+  - Ensures timestamps are timezone-aware (UTC)
+  - Rejects naive datetimes, non-UTC zones, future dates
+  - Validates correct type and format
+- Implemented test_user_date_of_birth_validation.py:
+  - Validates realistic birth dates
+  - Rejects future, malformed, and invalid types
+- Added test_user_role_validation.py and test_user_status_validation.py:
+  - Ensures UserRole and UserStatus enums are correctly enforced
+  - Rejects invalid values, strings, None, etc.
+- Updated User entity to validate:
+  - created_at and updated_at individually before comparing them
+  - date_of_birth, role, and status with fail-fast logic
+- Enhanced test helpers:
+  - Improved create_valid_user factory with valid default timestamps
+- Fixed docs.yml to ensure stable documentation build
+- Updated exception hierarchy for better domain error handling
 
-Ensures documentation is accurate, importable, and scalable for new bounded contexts.
+All changes support HIPAA/GDPR compliance through strict domain validation and auditability.

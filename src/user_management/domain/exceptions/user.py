@@ -67,3 +67,19 @@ class InvalidDateOfBirthError(InvalidUserError):
     Example: born in 2050 or 1800.
     """
     pass
+
+class InvalidUserRoleError(InvalidUserError):
+
+    pass
+
+class InvalidUserStatusError(InvalidUserError):
+
+    pass
+
+class InvalidCreatedAtError(InvalidUserError):
+
+    pass
+
+class InvalidUpdatedAtError(InvalidUserError):
+
+    pass
