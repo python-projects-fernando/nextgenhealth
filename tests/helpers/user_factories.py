@@ -27,7 +27,7 @@ def create_valid_user(**kwargs):
 
     defaults = {
         "uuid": UUID("12345678-1234-5678-1234-567812345678"),
-        "email": "validexample.com",
+        "email": "valid@example.com",
         "first_name": "Fernando",
         "last_name": "Magalhaes",
         "phone": "+81312345678",

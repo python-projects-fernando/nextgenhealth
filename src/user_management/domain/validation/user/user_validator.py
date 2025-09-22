@@ -1,9 +1,15 @@
-from datetime import date
+from datetime import date, datetime
 from uuid import UUID
 
 from ...enums.user_role import UserRole
 from ...enums.user_status import UserStatus
-from ...exceptions.user import InvalidEmailError, InvalidUserError, InvalidPhoneNumberError
+from ...exceptions import InvalidUUIDError, InvalidNameError, InvalidDateOfBirthError, InvalidUserRoleError, \
+    InvalidCreatedAtError, InvalidUpdatedAtError
+from ...exceptions.user import InvalidEmailError, InvalidUserError, InvalidPhoneNumberError, InvalidUserStatusError
+from ...specifications.user import ValidUserStatusSpecification, ValidCreatedAtSpecification, \
+    ValidUpdatedAtSpecification
+from ...specifications.user.user_role_is_valid import ValidUserRoleSpecification
+from ...specifications.user.uuid_is_valid import ValidUUIDSpecification
 
 from ....domain.specifications.user import (
     ValidEmailSpecification,
@@ -39,7 +45,9 @@ class UserValidator:
         phone,
         date_of_birth,
         role: UserRole,
-        status: UserStatus
+        status: UserStatus,
+        created_at: datetime,
+        updated_at: datetime
     ) -> None:
         """
         Validates user data against domain rules before entity creation.
@@ -63,30 +71,33 @@ class UserValidator:
             InvalidEmailError: If email format is invalid.
             InvalidPhoneNumberError: If phone is provided but not in E.164 format.
         """
-        if not isinstance(uuid, UUID):
-            raise InvalidUserError("User ID must be a valid UUID")
+
+        if not ValidUUIDSpecification().is_satisfied_by(uuid):
+            raise InvalidUUIDError("Invalid uuid")
 
         if not ValidEmailSpecification().is_satisfied_by(email):
             raise InvalidEmailError("Invalid email format")
 
         if not ValidNameSpecification().is_satisfied_by(first_name):
-            raise InvalidUserError("Name must contain only letters and spaces")
+            raise InvalidNameError("Name must contain only letters and spaces")
 
         if not ValidNameSpecification().is_satisfied_by(last_name):
-            raise InvalidUserError("Name must contain only letters and spaces")
+            raise InvalidNameError("Name must contain only letters and spaces")
 
         if not ValidPhoneE164Specification().is_satisfied_by(phone):
             raise InvalidPhoneNumberError("Phone must be in E.164 format")
 
         if not ValidDateOfBirthSpecification().is_satisfied_by(date_of_birth):
-            if date_of_birth is None:
-                raise InvalidUserError("Date of birth is required")
-            if date_of_birth > date.today():
-                raise InvalidUserError("Date of birth cannot be in the future")
-            raise InvalidUserError("Unrealistic age detected")
+            raise InvalidDateOfBirthError("Invalid date of birth")
 
-        if not isinstance(role, UserRole):
-            raise InvalidUserError("Invalid user role")
+        if not ValidUserRoleSpecification().is_satisfied_by(role):
+            raise InvalidUserRoleError("Invalid user role")
 
-        if not isinstance(status, UserStatus):
-            raise InvalidUserError("Invalid user status")
+        if not ValidUserStatusSpecification().is_satisfied_by(status):
+            raise InvalidUserStatusError("Invalid user role")
+
+        if not ValidCreatedAtSpecification().is_satisfied_by(created_at):
+            raise InvalidCreatedAtError("Invalid created at date")
+
+        if not ValidUpdatedAtSpecification().is_satisfied_by(updated_at):
+            raise InvalidUpdatedAtError("Invalid update at date")
