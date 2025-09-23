@@ -50,8 +50,7 @@ def test_update_basic_profile_fails_when_first_name_is_invalid():
     user = create_valid_user()
     with pytest.raises(InvalidNameError):
         user.update_basic_profile(
-            # first_name="",
-            first_name="Teste",
+            first_name="",
             last_name="Valid",
             email="valid@example.com",
             phone="+1234567890",
