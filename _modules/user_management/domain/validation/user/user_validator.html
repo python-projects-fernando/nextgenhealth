@@ -69,12 +69,18 @@
            <div itemprop="articleBody">
              
   <h1>Source code for user_management.domain.validation.user.user_validator</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">UUID</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">...enums.user_role</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserRole</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">...enums.user_status</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserStatus</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions.user</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidEmailError</span><span class="p">,</span> <span class="n">InvalidUserError</span><span class="p">,</span> <span class="n">InvalidPhoneNumberError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidUUIDError</span><span class="p">,</span> <span class="n">InvalidNameError</span><span class="p">,</span> <span class="n">InvalidDateOfBirthError</span><span class="p">,</span> <span class="n">InvalidUserRoleError</span><span class="p">,</span> \
+    <span class="n">InvalidCreatedAtError</span><span class="p">,</span> <span class="n">InvalidUpdatedAtError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions.user</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidEmailError</span><span class="p">,</span> <span class="n">InvalidUserError</span><span class="p">,</span> <span class="n">InvalidPhoneNumberError</span><span class="p">,</span> <span class="n">InvalidUserStatusError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...specifications.user</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidUserStatusSpecification</span><span class="p">,</span> <span class="n">ValidCreatedAtSpecification</span><span class="p">,</span> \
+    <span class="n">ValidUpdatedAtSpecification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...specifications.user.user_role_is_valid</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidUserRoleSpecification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...specifications.user.uuid_is_valid</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidUUIDSpecification</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">....domain.specifications.user</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">ValidEmailSpecification</span><span class="p">,</span>
@@ -114,7 +120,9 @@
         <span class="n">phone</span><span class="p">,</span>
         <span class="n">date_of_birth</span><span class="p">,</span>
         <span class="n">role</span><span class="p">:</span> <span class="n">UserRole</span><span class="p">,</span>
-        <span class="n">status</span><span class="p">:</span> <span class="n">UserStatus</span>
+        <span class="n">status</span><span class="p">:</span> <span class="n">UserStatus</span><span class="p">,</span>
+        <span class="n">created_at</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+        <span class="n">updated_at</span><span class="p">:</span> <span class="n">datetime</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates user data against domain rules before entity creation.</span>
@@ -138,33 +146,36 @@
 <span class="sd">            InvalidEmailError: If email format is invalid.</span>
 <span class="sd">            InvalidPhoneNumberError: If phone is provided but not in E.164 format.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">UUID</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;User ID must be a valid UUID&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidUUIDSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">uuid</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUUIDError</span><span class="p">(</span><span class="s2">&quot;Invalid uuid&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidEmailSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">InvalidEmailError</span><span class="p">(</span><span class="s2">&quot;Invalid email format&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidNameSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">first_name</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Name must contain only letters and spaces&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">InvalidNameError</span><span class="p">(</span><span class="s2">&quot;Name must contain only letters and spaces&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidNameSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">last_name</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Name must contain only letters and spaces&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">InvalidNameError</span><span class="p">(</span><span class="s2">&quot;Name must contain only letters and spaces&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidPhoneE164Specification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">phone</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">InvalidPhoneNumberError</span><span class="p">(</span><span class="s2">&quot;Phone must be in E.164 format&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidDateOfBirthSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">date_of_birth</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">date_of_birth</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Date of birth is required&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">date_of_birth</span> <span class="o">&gt;</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">():</span>
-                <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Date of birth cannot be in the future&quot;</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Unrealistic age detected&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">InvalidDateOfBirthError</span><span class="p">(</span><span class="s2">&quot;Invalid date of birth&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">UserRole</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Invalid user role&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidUserRoleSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">role</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserRoleError</span><span class="p">(</span><span class="s2">&quot;Invalid user role&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">UserStatus</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserError</span><span class="p">(</span><span class="s2">&quot;Invalid user status&quot;</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidUserStatusSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserStatusError</span><span class="p">(</span><span class="s2">&quot;Invalid user role&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidCreatedAtSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">created_at</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidCreatedAtError</span><span class="p">(</span><span class="s2">&quot;Invalid created at date&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidUpdatedAtSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">updated_at</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUpdatedAtError</span><span class="p">(</span><span class="s2">&quot;Invalid update at date&quot;</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

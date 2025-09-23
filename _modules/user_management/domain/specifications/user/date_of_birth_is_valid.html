@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>user_management.domain.specifications.user.date_of_birth &mdash; NextGenHealth 0.1.0 documentation</title>
+  <title>user_management.domain.specifications.user.date_of_birth_is_valid &mdash; NextGenHealth 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -59,7 +59,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">user_management.domain.specifications.user.date_of_birth</li>
+      <li class="breadcrumb-item active">user_management.domain.specifications.user.date_of_birth_is_valid</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -68,33 +68,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for user_management.domain.specifications.user.date_of_birth</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+  <h1>Source code for user_management.domain.specifications.user.date_of_birth_is_valid</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Specification that validates whether a given date of birth is valid.</span>
+
+<span class="sd">A valid date of birth must:</span>
+<span class="sd">- Be a date object (not string or datetime)</span>
+<span class="sd">- Not be None</span>
+<span class="sd">- Not be in the future</span>
+<span class="sd">- Represent a realistic human lifespan (e.g., not before 1900 or older than ~150 years)</span>
+
+<span class="sd">This rule ensures data integrity, compliance with personal data standards,</span>
+<span class="sd">and consistency across healthcare workflows (e.g., patient registration).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">Specification</span>
 
 
 <div class="viewcode-block" id="ValidDateOfBirthSpecification">
-<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ValidDateOfBirthSpecification</span><span class="p">(</span><span class="n">Specification</span><span class="p">[</span><span class="n">date</span><span class="p">]):</span>
+<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidDateOfBirthSpecification">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidDateOfBirthSpecification</span><span class="p">(</span><span class="n">Specification</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Specification that validates whether a given date of birth is valid.</span>
+<span class="sd">    Specification to validate that a date of birth is realistic and properly formatted.</span>
 
-<span class="sd">    A valid date of birth must:</span>
-<span class="sd">    - Not be None</span>
-<span class="sd">    - Not be in the future (after today)</span>
-<span class="sd">    - Represent a realistic human age (not older than 150 years)</span>
-
-<span class="sd">    This rule is enforced during user creation and profile updates to ensure data integrity.</span>
+<span class="sd">    Enforces domain invariants for user age during creation and updates.</span>
+<span class="sd">    Used within the User aggregate to prevent invalid or impossible dates.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ValidDateOfBirthSpecification.is_satisfied_by">
-<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.date_of_birth.ValidDateOfBirthSpecification.is_satisfied_by">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dob</span><span class="p">:</span> <span class="n">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidDateOfBirthSpecification.is_satisfied_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dob</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Checks if the provided date of birth satisfies all validation rules.</span>
+<span class="sd">        Checks if the provided value is a valid date of birth.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            dob (date): The date of birth to validate. Can be None.</span>
+<span class="sd">            dob: The value to validate. Expected to be a `datetime.date` object.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            bool: True if the date is valid; False otherwise.</span>
@@ -102,10 +111,14 @@
         <span class="k">if</span> <span class="n">dob</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
         <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">dob</span> <span class="o">&gt;</span> <span class="n">today</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
+        <span class="c1"># Minimum allowed date: ~150 years back (accounts for leap years)</span>
         <span class="n">min_allowed_date</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">150</span> <span class="o">*</span> <span class="mf">365.25</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dob</span> <span class="o">&gt;=</span> <span class="n">min_allowed_date</span></div>
 </div>

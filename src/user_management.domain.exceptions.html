@@ -138,18 +138,39 @@ Helps with broad exception handling at higher layers.</p>
 <section id="module-user_management.domain.exceptions.user">
 <span id="user-management-domain-exceptions-user-module"></span><h2>user_management.domain.exceptions.user module<a class="headerlink" href="#module-user_management.domain.exceptions.user" title="Link to this heading"></a></h2>
 <p>Exceptions related to User entity validation and business rules.</p>
+<p>Each exception represents a specific violation of domain invariants,
+enabling precise error handling and meaningful feedback during user management operations.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidCreatedAtError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidCreatedAtError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidCreatedAtError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidCreatedAtError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when created_at timestamp is invalid.</p>
+<dl class="simple">
+<dt>A valid created_at must:</dt><dd><ul class="simple">
+<li><p>Be a timezone-aware datetime object</p></li>
+<li><p>Use UTC timezone</p></li>
+<li><p>Not be in the future</p></li>
+<li><p>Not be unrealistically old</p></li>
+</ul>
+</dd>
+</dl>
+<p>Critical for audit trails and compliance (e.g., HIPAA/GDPR).</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidDateOfBirthError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidDateOfBirthError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidDateOfBirthError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidDateOfBirthError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
-<p>Raised when date of birth is in the future or unrealistically old.</p>
-<p>Example: born in 2050 or 1800.</p>
+<p>Raised when date of birth is in the future or unrealistically far in the past.</p>
+<dl class="simple">
+<dt>Business rule: date of birth must be:</dt><dd><ul class="simple">
+<li><p>A valid date object</p></li>
+<li><p>Not in the future</p></li>
+<li><p>Not before 1900 (or configurable minimum)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example violations: born in 2050 or 1800.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -157,15 +178,31 @@ Helps with broad exception handling at higher layers.</p>
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidEmailError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidEmailError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidEmailError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
 <p>Raised when an email does not conform to RFC-like formatting rules.</p>
-<p>Example: ‘invalid-email’, ‘user&#64;’, <a class="reference external" href="mailto:'&#37;&#52;&#48;domain&#46;com">‘<span>&#64;</span>domain<span>&#46;</span>com</a>’</p>
+<dl class="simple">
+<dt>Valid emails must:</dt><dd><ul class="simple">
+<li><p>Be a non-empty string</p></li>
+<li><p>Contain exactly one ‘&#64;’</p></li>
+<li><p>Have valid local-part and domain structure</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example invalid values: ‘invalid-email’, ‘user&#64;’, <a class="reference external" href="mailto:'&#37;&#52;&#48;domain&#46;com">‘<span>&#64;</span>domain<span>&#46;</span>com</a>’</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidNameError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidNameError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidNameError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidNameError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
-<p>Raised when first_name or last_name contains non-alphabetic characters.</p>
-<p>Only letters and spaces are allowed.</p>
+<p>Raised when first_name or last_name contains invalid characters.</p>
+<dl class="simple">
+<dt>Names must:</dt><dd><ul class="simple">
+<li><p>Be non-empty strings</p></li>
+<li><p>Contain only alphabetic characters (A-Z, a-z) and single spaces</p></li>
+<li><p>Not include numbers, symbols, accents, or consecutive spaces</p></li>
+</ul>
+</dd>
+</dl>
+<p>Ensures consistency and compliance in personal data representation.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -173,7 +210,16 @@ Helps with broad exception handling at higher layers.</p>
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidPhoneNumberError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidPhoneNumberError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidPhoneNumberError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
 <p>Raised when phone number is provided but not in E.164 format.</p>
-<p>Example: ‘+1234567890’ is valid; ‘123-456-7890’ is invalid.</p>
+<p>Valid format: ‘+’ followed by 1–15 digits (e.g., ‘+1234567890’).</p>
+<dl class="simple">
+<dt>Example invalid values:</dt><dd><ul class="simple">
+<li><p>‘123-456-7890’ (formatted)</p></li>
+<li><p>‘1234567890’ (missing +)</p></li>
+<li><p>‘+12’ (too short)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Aligns with international telephony standards for global systems.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -185,31 +231,44 @@ Helps with broad exception handling at higher layers.</p>
 <dt>This includes:</dt><dd><ul class="simple">
 <li><p>None</p></li>
 <li><p>Empty string</p></li>
-<li><p>Malformed string</p></li>
-<li><p>Wrong type (e.g., int, dict)</p></li>
+<li><p>Malformed string (e.g., ‘not-a-uuid’)</p></li>
+<li><p>Wrong type (e.g., int, dict, list)</p></li>
 </ul>
 </dd>
 </dl>
-<p>The User entity requires a valid UUID object for identity integrity.</p>
+<p>The User entity requires a valid UUID object for identity integrity and auditability.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidUpdatedAtError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidUpdatedAtError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUpdatedAtError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidUpdatedAtError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when updated_at timestamp is invalid.</p>
+<dl class="simple">
+<dt>A valid updated_at must:</dt><dd><ul class="simple">
+<li><p>Be a timezone-aware datetime object</p></li>
+<li><p>Use UTC timezone</p></li>
+<li><p>Not be in the future</p></li>
+<li><p>Not be earlier than created_at</p></li>
+</ul>
+</dd>
+</dl>
+<p>Enforces chronological consistency in user record history.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidUserError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidUserError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidUserError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.base.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
-<p>Raised when a User violates core identity rules.</p>
+<p>Base exception raised when a User violates identity or business rules.</p>
+<p>Serves as the parent class for all user-related validation errors.
+Helps enable broad exception handling at higher layers while preserving specificity.</p>
 <p class="rubric">Examples</p>
 <ul class="simple">
 <li><p>Invalid UUID format</p></li>
-<li><p>Malformed email</p></li>
-<li><p>Name with invalid characters</p></li>
-<li><p>Future date of birth</p></li>
+<li><p>Malformed email address</p></li>
+<li><p>Name containing invalid characters</p></li>
+<li><p>Date of birth in the future</p></li>
 </ul>
 </dd></dl>
 
@@ -217,12 +276,18 @@ Helps with broad exception handling at higher layers.</p>
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidUserRoleError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidUserRoleError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserRoleError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidUserRoleError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when the assigned role is not a valid UserRole enum member.</p>
+<p>The system only accepts predefined roles like PATIENT, DOCTOR, NURSE, ADMINISTRATOR.</p>
+<p>Prevents unauthorized access levels due to invalid or malformed roles.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.user.InvalidUserStatusError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.user.</span></span><span class="sig-name descname"><span class="pre">InvalidUserStatusError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserStatusError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.user.InvalidUserStatusError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when the user status is not a valid UserStatus enum member.</p>
+<p>Only ACTIVE, INACTIVE, and LOCKED are allowed.</p>
+<p>Ensures account lifecycle state is always consistent and auditable.</p>
 </dd></dl>
 
 </section>
@@ -243,6 +308,17 @@ Helps with broad exception handling at higher layers.</p>
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidCreatedAtError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidCreatedAtError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidCreatedAtError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidCreatedAtError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when created_at timestamp is invalid.</p>
+<dl class="simple">
+<dt>A valid created_at must:</dt><dd><ul class="simple">
+<li><p>Be a timezone-aware datetime object</p></li>
+<li><p>Use UTC timezone</p></li>
+<li><p>Not be in the future</p></li>
+<li><p>Not be unrealistically old</p></li>
+</ul>
+</dd>
+</dl>
+<p>Critical for audit trails and compliance (e.g., HIPAA/GDPR).</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -262,8 +338,16 @@ Helps with broad exception handling at higher layers.</p>
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidDateOfBirthError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidDateOfBirthError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidDateOfBirthError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidDateOfBirthError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
-<p>Raised when date of birth is in the future or unrealistically old.</p>
-<p>Example: born in 2050 or 1800.</p>
+<p>Raised when date of birth is in the future or unrealistically far in the past.</p>
+<dl class="simple">
+<dt>Business rule: date of birth must be:</dt><dd><ul class="simple">
+<li><p>A valid date object</p></li>
+<li><p>Not in the future</p></li>
+<li><p>Not before 1900 (or configurable minimum)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example violations: born in 2050 or 1800.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -271,15 +355,31 @@ Helps with broad exception handling at higher layers.</p>
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidEmailError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidEmailError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidEmailError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
 <p>Raised when an email does not conform to RFC-like formatting rules.</p>
-<p>Example: ‘invalid-email’, ‘user&#64;’, <a class="reference external" href="mailto:'&#37;&#52;&#48;domain&#46;com">‘<span>&#64;</span>domain<span>&#46;</span>com</a>’</p>
+<dl class="simple">
+<dt>Valid emails must:</dt><dd><ul class="simple">
+<li><p>Be a non-empty string</p></li>
+<li><p>Contain exactly one ‘&#64;’</p></li>
+<li><p>Have valid local-part and domain structure</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example invalid values: ‘invalid-email’, ‘user&#64;’, <a class="reference external" href="mailto:'&#37;&#52;&#48;domain&#46;com">‘<span>&#64;</span>domain<span>&#46;</span>com</a>’</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidNameError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidNameError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidNameError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidNameError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
-<p>Raised when first_name or last_name contains non-alphabetic characters.</p>
-<p>Only letters and spaces are allowed.</p>
+<p>Raised when first_name or last_name contains invalid characters.</p>
+<dl class="simple">
+<dt>Names must:</dt><dd><ul class="simple">
+<li><p>Be non-empty strings</p></li>
+<li><p>Contain only alphabetic characters (A-Z, a-z) and single spaces</p></li>
+<li><p>Not include numbers, symbols, accents, or consecutive spaces</p></li>
+</ul>
+</dd>
+</dl>
+<p>Ensures consistency and compliance in personal data representation.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -302,7 +402,16 @@ Helps with broad exception handling at higher layers.</p>
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidPhoneNumberError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidPhoneNumberError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidPhoneNumberError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
 <p>Raised when phone number is provided but not in E.164 format.</p>
-<p>Example: ‘+1234567890’ is valid; ‘123-456-7890’ is invalid.</p>
+<p>Valid format: ‘+’ followed by 1–15 digits (e.g., ‘+1234567890’).</p>
+<dl class="simple">
+<dt>Example invalid values:</dt><dd><ul class="simple">
+<li><p>‘123-456-7890’ (formatted)</p></li>
+<li><p>‘1234567890’ (missing +)</p></li>
+<li><p>‘+12’ (too short)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Aligns with international telephony standards for global systems.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -314,31 +423,44 @@ Helps with broad exception handling at higher layers.</p>
 <dt>This includes:</dt><dd><ul class="simple">
 <li><p>None</p></li>
 <li><p>Empty string</p></li>
-<li><p>Malformed string</p></li>
-<li><p>Wrong type (e.g., int, dict)</p></li>
+<li><p>Malformed string (e.g., ‘not-a-uuid’)</p></li>
+<li><p>Wrong type (e.g., int, dict, list)</p></li>
 </ul>
 </dd>
 </dl>
-<p>The User entity requires a valid UUID object for identity integrity.</p>
+<p>The User entity requires a valid UUID object for identity integrity and auditability.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidUpdatedAtError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidUpdatedAtError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUpdatedAtError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidUpdatedAtError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when updated_at timestamp is invalid.</p>
+<dl class="simple">
+<dt>A valid updated_at must:</dt><dd><ul class="simple">
+<li><p>Be a timezone-aware datetime object</p></li>
+<li><p>Use UTC timezone</p></li>
+<li><p>Not be in the future</p></li>
+<li><p>Not be earlier than created_at</p></li>
+</ul>
+</dd>
+</dl>
+<p>Enforces chronological consistency in user record history.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidUserError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidUserError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidUserError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#user_management.domain.exceptions.base.DomainError" title="user_management.domain.exceptions.base.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
-<p>Raised when a User violates core identity rules.</p>
+<p>Base exception raised when a User violates identity or business rules.</p>
+<p>Serves as the parent class for all user-related validation errors.
+Helps enable broad exception handling at higher layers while preserving specificity.</p>
 <p class="rubric">Examples</p>
 <ul class="simple">
 <li><p>Invalid UUID format</p></li>
-<li><p>Malformed email</p></li>
-<li><p>Name with invalid characters</p></li>
-<li><p>Future date of birth</p></li>
+<li><p>Malformed email address</p></li>
+<li><p>Name containing invalid characters</p></li>
+<li><p>Date of birth in the future</p></li>
 </ul>
 </dd></dl>
 
@@ -346,12 +468,18 @@ Helps with broad exception handling at higher layers.</p>
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidUserRoleError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidUserRoleError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserRoleError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidUserRoleError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when the assigned role is not a valid UserRole enum member.</p>
+<p>The system only accepts predefined roles like PATIENT, DOCTOR, NURSE, ADMINISTRATOR.</p>
+<p>Prevents unauthorized access levels due to invalid or malformed roles.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="user_management.domain.exceptions.InvalidUserStatusError">
 <em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_management.domain.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidUserStatusError</span></span><a class="reference internal" href="../_modules/user_management/domain/exceptions/user.html#InvalidUserStatusError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user_management.domain.exceptions.InvalidUserStatusError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError" title="user_management.domain.exceptions.user.InvalidUserError"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidUserError</span></code></a></p>
+<p>Raised when the user status is not a valid UserStatus enum member.</p>
+<p>Only ACTIVE, INACTIVE, and LOCKED are allowed.</p>
+<p>Ensures account lifecycle state is always consistent and auditable.</p>
 </dd></dl>
 
 </section>

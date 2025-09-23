@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>user_management.domain.specifications.user.phone &mdash; NextGenHealth 0.1.0 documentation</title>
+  <title>user_management.domain.specifications.user.user_status_is_valid &mdash; NextGenHealth 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -59,7 +59,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">user_management.domain.specifications.user.phone</li>
+      <li class="breadcrumb-item active">user_management.domain.specifications.user.user_status_is_valid</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -68,43 +68,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for user_management.domain.specifications.user.phone</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+  <h1>Source code for user_management.domain.specifications.user.user_status_is_valid</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Specification that validates whether a given value is a valid UserStatus.</span>
+
+<span class="sd">A valid user status must:</span>
+<span class="sd">- Be an instance of the UserStatus enum</span>
+<span class="sd">- Match one of the predefined statuses (e.g., ACTIVE, INACTIVE, LOCKED)</span>
+
+<span class="sd">This rule ensures consistent account lifecycle management, supports security workflows,</span>
+<span class="sd">and prevents invalid state transitions in compliance-sensitive healthcare systems.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">Specification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserStatus</span>
 
 
-<div class="viewcode-block" id="ValidPhoneE164Specification">
-<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.phone.ValidPhoneE164Specification">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ValidPhoneE164Specification</span><span class="p">(</span><span class="n">Specification</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+<div class="viewcode-block" id="ValidUserStatusSpecification">
+<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidUserStatusSpecification">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidUserStatusSpecification</span><span class="p">(</span><span class="n">Specification</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Specification that validates whether a given phone number follows the E.164 format.</span>
+<span class="sd">    Specification to validate that a user status is a valid enum member.</span>
 
-<span class="sd">    A valid phone number must:</span>
-<span class="sd">    - Be None (optional field) or a non-empty string</span>
-<span class="sd">    - Start with &#39;+&#39; followed by country code and subscriber number</span>
-<span class="sd">    - Contain only digits after the &#39;+&#39;</span>
-<span class="sd">    - Have 1 to 15 digits in total (country code + number)</span>
-
-<span class="sd">    This rule is enforced during user creation and profile updates to ensure interoperability</span>
-<span class="sd">    with communication services such as SMS and calling platforms.</span>
+<span class="sd">    Enforces domain integrity by rejecting strings, None, or invalid types</span>
+<span class="sd">    during User creation or status updates. Ensures only approved states are assigned.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ValidPhoneE164Specification.is_satisfied_by">
-<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.phone.ValidPhoneE164Specification.is_satisfied_by">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phone</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="ValidUserStatusSpecification.is_satisfied_by">
+<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidUserStatusSpecification.is_satisfied_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_status</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Checks if the provided phone number satisfies the E.164 format requirements.</span>
+<span class="sd">        Checks if the provided value is a valid UserStatus enum member.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            phone (str): The phone number to validate. Can be None or a string.</span>
+<span class="sd">            user_status: The value to validate. Expected to be a UserStatus instance.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            bool: True if the phone number is None or correctly formatted; False otherwise.</span>
+<span class="sd">            bool: True if the status is a valid enum member; False otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">phone</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\+[1-9]\d{1,14}$&quot;</span>
-        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_status</span><span class="p">,</span> <span class="n">UserStatus</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

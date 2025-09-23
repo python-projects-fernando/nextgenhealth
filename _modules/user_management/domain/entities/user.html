@@ -88,7 +88,17 @@
                                                <span class="n">InvalidUserRoleError</span><span class="p">,</span>
                                                <span class="n">InvalidUserStatusError</span><span class="p">,</span>
                                                <span class="n">InvalidCreatedAtError</span><span class="p">,</span>
-                                               <span class="n">InvalidUpdatedAtError</span><span class="p">)</span>
+                                               <span class="n">InvalidUpdatedAtError</span><span class="p">,</span> <span class="n">InvalidPasswordError</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">user_management.domain.validation.user</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserValidator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">user_management.domain.value_objects</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserCredentials</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">user_management.domain.specifications.user</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ValidNameSpecification</span><span class="p">,</span>
+    <span class="n">ValidEmailSpecification</span><span class="p">,</span>
+    <span class="n">ValidPhoneE164Specification</span><span class="p">,</span>
+    <span class="n">ValidDateOfBirthSpecification</span>
+<span class="p">)</span>
+
 
 <div class="viewcode-block" id="User">
 <a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.user.User">[docs]</a>
@@ -113,42 +123,12 @@
                  <span class="n">user_status</span><span class="p">:</span> <span class="n">UserStatus</span><span class="p">,</span>
                  <span class="n">created_at</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                  <span class="n">updated_at</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+                 <span class="n">credentials</span><span class="p">:</span> <span class="n">UserCredentials</span>
                  <span class="p">):</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">UUID</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUUIDError</span><span class="p">(</span><span class="s2">&quot;Invalid UUID&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidEmailError</span><span class="p">(</span><span class="s2">&quot;Email must be a string.&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidEmailError</span><span class="p">(</span><span class="s2">&quot;Invalid email&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidNameError</span><span class="p">(</span><span class="s2">&quot;Invalid first name&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_name</span><span class="p">(</span><span class="n">last_name</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidNameError</span><span class="p">(</span><span class="s2">&quot;Invalid last name&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_phone</span><span class="p">(</span><span class="n">phone</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidPhoneNumberError</span><span class="p">(</span><span class="s2">&quot;Invalid phone number&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_date_of_birth</span><span class="p">(</span><span class="n">date_of_birth</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidDateOfBirthError</span><span class="p">(</span><span class="s2">&quot;Invalid date of birth&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_user_role</span><span class="p">(</span><span class="n">user_role</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserRoleError</span><span class="p">(</span><span class="s2">&quot;Invalid user role&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_user_status</span><span class="p">(</span><span class="n">user_status</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUserStatusError</span><span class="p">(</span><span class="s2">&quot;Invalid user status&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_created_at</span><span class="p">(</span><span class="n">created_at</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidCreatedAtError</span><span class="p">(</span><span class="s2">&quot;created_at must be a valid UTC datetime, not in the future&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_updated_at</span><span class="p">(</span><span class="n">updated_at</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidUpdatedAtError</span><span class="p">(</span><span class="s2">&quot;updated_at must be a valid UTC datetime, not in the future&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">updated_at</span>
-
+        <span class="n">UserValidator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span>
+                               <span class="n">phone</span><span class="p">,</span> <span class="n">date_of_birth</span><span class="p">,</span> <span class="n">user_role</span><span class="p">,</span> <span class="n">user_status</span><span class="p">,</span> <span class="n">created_at</span><span class="p">,</span> <span class="n">updated_at</span><span class="p">)</span>
 
 
         <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span>
@@ -160,97 +140,120 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">user_role</span> <span class="o">=</span> <span class="n">user_role</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_status</span> <span class="o">=</span> <span class="n">user_status</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">created_at</span> <span class="o">=</span> <span class="n">created_at</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">updated_at</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">updated_at</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_credentials</span> <span class="o">=</span> <span class="n">credentials</span></div>
 
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_updated_at</span><span class="p">(</span><span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">tzinfo</span> <span class="o">!=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">dt</span> <span class="o">&lt;=</span> <span class="n">now</span>  <span class="c1"># Not in the future</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_created_at</span><span class="p">(</span><span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">tzinfo</span> <span class="o">!=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">dt</span> <span class="o">&lt;=</span> <span class="n">now</span>  <span class="c1"># Not in the future</span>
+<div class="viewcode-block" id="User.is_password_valid">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.user.User.is_password_valid">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_password_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provided</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_credentials</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">provided</span><span class="p">)</span></div>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_user_status</span><span class="p">(</span><span class="n">user_status</span><span class="p">:</span> <span class="n">UserStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_status</span><span class="p">,</span> <span class="n">UserStatus</span><span class="p">)</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_user_role</span><span class="p">(</span><span class="n">user_role</span><span class="p">:</span> <span class="n">UserRole</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_role</span><span class="p">,</span> <span class="n">UserRole</span><span class="p">)</span>
+<div class="viewcode-block" id="User.change_password">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.user.User.change_password">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">change_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Changes the user&#39;s password if the current password is correct</span>
+<span class="sd">        and the new password is valid and different.</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_date_of_birth</span><span class="p">(</span><span class="n">dob</span><span class="p">:</span> <span class="n">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">dob</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+<span class="sd">        Args:</span>
+<span class="sd">            current_password (str): The user&#39;s current password</span>
+<span class="sd">            new_password (str): The desired new password</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            InvalidPasswordError: If current password is wrong or new password is invalid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_password_valid</span><span class="p">(</span><span class="n">current_password</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidPasswordError</span><span class="p">(</span><span class="s2">&quot;Current password is incorrect&quot;</span><span class="p">)</span>
 
-        <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">dob</span> <span class="o">&gt;</span> <span class="n">today</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="n">min_allowed_date</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">150</span> <span class="o">*</span> <span class="mf">365.25</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">dob</span> <span class="o">&gt;=</span> <span class="n">min_allowed_date</span>
+        <span class="n">new_credentials</span> <span class="o">=</span> <span class="n">UserCredentials</span><span class="o">.</span><span class="n">with_new_password</span><span class="p">(</span><span class="n">current_password</span><span class="p">,</span> <span class="n">new_password</span><span class="p">)</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_phone</span><span class="p">(</span><span class="n">phone</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">phone</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\+[1-9]\d{1,14}$&quot;</span>
-        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="c1"># pattern = r&quot;^[A-Za-z\s]+$&quot;</span>
-        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^[A-Za-z]+(?: [A-Za-z]+)*$&quot;</span>
-        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_credentials</span> <span class="o">=</span> <span class="n">new_credentials</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span></div>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_email</span><span class="p">(</span><span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="s2">&quot; &quot;</span> <span class="ow">in</span> <span class="n">email</span> <span class="ow">or</span> <span class="s2">&quot;..&quot;</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">email</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">email</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="s2">&quot;@@&quot;</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">email</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">local</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+<div class="viewcode-block" id="User.change_user_role">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.user.User.change_user_role">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">change_user_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_role</span><span class="p">:</span> <span class="n">UserRole</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Changes the user&#39;s role to a new valid role.</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">local</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">domain</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">local</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">local</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">domain</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">domain</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">domain</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+<span class="sd">        This method ensures the new role is a valid UserRole enum member.</span>
+<span class="sd">        The decision of *who* can perform this action belongs to the Use Case layer.</span>
 
-        <span class="k">return</span> <span class="kc">True</span></div>
+<span class="sd">        Args:</span>
+<span class="sd">            new_role (UserRole): The new role to assign</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            InvalidUserRoleError: If the role is invalid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_role</span><span class="p">,</span> <span class="n">UserRole</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserRoleError</span><span class="p">(</span><span class="s2">&quot;Invalid user role&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_role</span> <span class="o">=</span> <span class="n">new_role</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="User.change_user_status">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.user.User.change_user_status">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">change_user_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_status</span><span class="p">:</span> <span class="n">UserStatus</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_status</span><span class="p">,</span> <span class="n">UserStatus</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidUserStatusError</span><span class="p">(</span><span class="s2">&quot;Invalid user status&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_status</span> <span class="o">=</span> <span class="n">new_status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="User.update_basic_profile">
+<a class="viewcode-back" href="../../../../src/user_management.domain.entities.html#user_management.domain.entities.user.User.update_basic_profile">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_basic_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">phone</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date_of_birth</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the user&#39;s basic profile information using domain specifications.</span>
+
+<span class="sd">        Validates inputs via Specification Pattern before applying changes.</span>
+<span class="sd">        Updates updated_at timestamp on success.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            first_name (str): New first name</span>
+<span class="sd">            last_name (str): New last name</span>
+<span class="sd">            email (str): New email address</span>
+<span class="sd">            phone (str): New phone number in E.164 format</span>
+<span class="sd">            date_of_birth (date): New date of birth</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            InvalidNameError: If first or last name fails specification</span>
+<span class="sd">            InvalidEmailError: If email fails specification</span>
+<span class="sd">            InvalidPhoneNumberError: If phone fails specification</span>
+<span class="sd">            InvalidDateOfBirthError: If date_of_birth fails specification</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Validate using specifications</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidNameSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">first_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidNameError</span><span class="p">(</span><span class="s2">&quot;First name does not satisfy naming rules&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidNameSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">last_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidNameError</span><span class="p">(</span><span class="s2">&quot;Last name does not satisfy naming rules&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidEmailSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidEmailError</span><span class="p">(</span><span class="s2">&quot;Email does not satisfy format rules&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidPhoneE164Specification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">phone</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidPhoneNumberError</span><span class="p">(</span><span class="s2">&quot;Phone number does not follow E.164 format&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ValidDateOfBirthSpecification</span><span class="p">()</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">date_of_birth</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidDateOfBirthError</span><span class="p">(</span><span class="s2">&quot;Date of birth is not valid&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Apply changes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phone</span> <span class="o">=</span> <span class="n">phone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_of_birth</span> <span class="o">=</span> <span class="n">date_of_birth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 

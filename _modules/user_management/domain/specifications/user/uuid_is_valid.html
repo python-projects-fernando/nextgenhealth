@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>user_management.domain.specifications.user.email &mdash; NextGenHealth 0.1.0 documentation</title>
+  <title>user_management.domain.specifications.user.uuid_is_valid &mdash; NextGenHealth 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -59,7 +59,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">user_management.domain.specifications.user.email</li>
+      <li class="breadcrumb-item active">user_management.domain.specifications.user.uuid_is_valid</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -68,41 +68,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for user_management.domain.specifications.user.email</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+  <h1>Source code for user_management.domain.specifications.user.uuid_is_valid</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Specification that validates whether a given value is a valid UUID.</span>
+
+<span class="sd">A valid UUID must:</span>
+<span class="sd">- Be an instance of Python&#39;s uuid.UUID class</span>
+<span class="sd">- Not be None, string, int, or any other type</span>
+
+<span class="sd">This rule ensures global identity integrity within the domain,</span>
+<span class="sd">preventing invalid or spoofed identifiers in audit trails and entity references.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">UUID</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">Specification</span>
 
 
-<div class="viewcode-block" id="ValidEmailSpecification">
-<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.email.ValidEmailSpecification">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ValidEmailSpecification</span><span class="p">(</span><span class="n">Specification</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+<div class="viewcode-block" id="ValidUUIDSpecification">
+<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidUUIDSpecification">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidUUIDSpecification</span><span class="p">(</span><span class="n">Specification</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Specification that validates whether a given string is a valid email address.</span>
+<span class="sd">    Specification to validate that a UUID is a properly typed identity object.</span>
 
-<span class="sd">    A valid email must:</span>
-<span class="sd">    - Not be empty or None</span>
-<span class="sd">    - Follow the general format local-part@domain.tld</span>
-<span class="sd">    - Contain valid characters and proper domain structure</span>
-
-<span class="sd">    This rule is enforced during user creation and profile updates to ensure data integrity.</span>
+<span class="sd">    Enforces strict type checking to ensure only valid UUID instances are accepted</span>
+<span class="sd">    during User aggregate creation. Prevents common errors like passing strings</span>
+<span class="sd">    or None as identifiers in critical healthcare workflows.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ValidEmailSpecification.is_satisfied_by">
-<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.email.ValidEmailSpecification.is_satisfied_by">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="ValidUUIDSpecification.is_satisfied_by">
+<a class="viewcode-back" href="../../../../../src/user_management.domain.specifications.user.html#user_management.domain.specifications.user.ValidUUIDSpecification.is_satisfied_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Checks if the provided string satisfies the email format requirements.</span>
+<span class="sd">        Checks if the provided value is a valid UUID instance.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            email (str): The email address to validate. Can be None or empty.</span>
+<span class="sd">            uuid: The value to validate. Expected to be a uuid.UUID object.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            bool: True if the email is valid; False otherwise.</span>
+<span class="sd">            bool: True if the value is a valid UUID; False otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$&quot;</span>
-        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">UUID</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

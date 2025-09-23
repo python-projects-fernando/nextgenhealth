@@ -71,23 +71,28 @@
   <h1>Source code for user_management.domain.exceptions.user</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Exceptions related to User entity validation and business rules.</span>
+
+<span class="sd">Each exception represents a specific violation of domain invariants,</span>
+<span class="sd">enabling precise error handling and meaningful feedback during user management operations.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainError</span>
-
 
 
 <div class="viewcode-block" id="InvalidUserError">
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidUserError</span><span class="p">(</span><span class="n">DomainError</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Raised when a User violates core identity rules.</span>
+<span class="sd">    Base exception raised when a User violates identity or business rules.</span>
+
+<span class="sd">    Serves as the parent class for all user-related validation errors.</span>
+<span class="sd">    Helps enable broad exception handling at higher layers while preserving specificity.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        - Invalid UUID format</span>
-<span class="sd">        - Malformed email</span>
-<span class="sd">        - Name with invalid characters</span>
-<span class="sd">        - Future date of birth</span>
+<span class="sd">        - Malformed email address</span>
+<span class="sd">        - Name containing invalid characters</span>
+<span class="sd">        - Date of birth in the future</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
@@ -102,12 +107,13 @@
 <span class="sd">    This includes:</span>
 <span class="sd">        - None</span>
 <span class="sd">        - Empty string</span>
-<span class="sd">        - Malformed string</span>
-<span class="sd">        - Wrong type (e.g., int, dict)</span>
+<span class="sd">        - Malformed string (e.g., &#39;not-a-uuid&#39;)</span>
+<span class="sd">        - Wrong type (e.g., int, dict, list)</span>
 
-<span class="sd">    The User entity requires a valid UUID object for identity integrity.</span>
+<span class="sd">    The User entity requires a valid UUID object for identity integrity and auditability.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 
 <div class="viewcode-block" id="InvalidEmailError">
@@ -116,7 +122,12 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raised when an email does not conform to RFC-like formatting rules.</span>
 
-<span class="sd">    Example: &#39;invalid-email&#39;, &#39;user@&#39;, &#39;@domain.com&#39;</span>
+<span class="sd">    Valid emails must:</span>
+<span class="sd">        - Be a non-empty string</span>
+<span class="sd">        - Contain exactly one &#39;@&#39;</span>
+<span class="sd">        - Have valid local-part and domain structure</span>
+
+<span class="sd">    Example invalid values: &#39;invalid-email&#39;, &#39;user@&#39;, &#39;@domain.com&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
@@ -126,9 +137,14 @@
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidNameError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidNameError</span><span class="p">(</span><span class="n">InvalidUserError</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Raised when first_name or last_name contains non-alphabetic characters.</span>
+<span class="sd">    Raised when first_name or last_name contains invalid characters.</span>
 
-<span class="sd">    Only letters and spaces are allowed.</span>
+<span class="sd">    Names must:</span>
+<span class="sd">        - Be non-empty strings</span>
+<span class="sd">        - Contain only alphabetic characters (A-Z, a-z) and single spaces</span>
+<span class="sd">        - Not include numbers, symbols, accents, or consecutive spaces</span>
+
+<span class="sd">    Ensures consistency and compliance in personal data representation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
@@ -140,7 +156,14 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raised when phone number is provided but not in E.164 format.</span>
 
-<span class="sd">    Example: &#39;+1234567890&#39; is valid; &#39;123-456-7890&#39; is invalid.</span>
+<span class="sd">    Valid format: &#39;+&#39; followed by 1–15 digits (e.g., &#39;+1234567890&#39;).</span>
+
+<span class="sd">    Example invalid values:</span>
+<span class="sd">        - &#39;123-456-7890&#39; (formatted)</span>
+<span class="sd">        - &#39;1234567890&#39; (missing +)</span>
+<span class="sd">        - &#39;+12&#39; (too short)</span>
+
+<span class="sd">    Aligns with international telephony standards for global systems.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
@@ -150,39 +173,81 @@
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidDateOfBirthError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidDateOfBirthError</span><span class="p">(</span><span class="n">InvalidUserError</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Raised when date of birth is in the future or unrealistically old.</span>
+<span class="sd">    Raised when date of birth is in the future or unrealistically far in the past.</span>
 
-<span class="sd">    Example: born in 2050 or 1800.</span>
+<span class="sd">    Business rule: date of birth must be:</span>
+<span class="sd">        - A valid date object</span>
+<span class="sd">        - Not in the future</span>
+<span class="sd">        - Not before 1900 (or configurable minimum)</span>
+
+<span class="sd">    Example violations: born in 2050 or 1800.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 
 <div class="viewcode-block" id="InvalidUserRoleError">
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserRoleError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidUserRoleError</span><span class="p">(</span><span class="n">InvalidUserError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when the assigned role is not a valid UserRole enum member.</span>
 
+<span class="sd">    The system only accepts predefined roles like PATIENT, DOCTOR, NURSE, ADMINISTRATOR.</span>
+
+<span class="sd">    Prevents unauthorized access levels due to invalid or malformed roles.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 
 <div class="viewcode-block" id="InvalidUserStatusError">
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUserStatusError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidUserStatusError</span><span class="p">(</span><span class="n">InvalidUserError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when the user status is not a valid UserStatus enum member.</span>
 
+<span class="sd">    Only ACTIVE, INACTIVE, and LOCKED are allowed.</span>
+
+<span class="sd">    Ensures account lifecycle state is always consistent and auditable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 
 <div class="viewcode-block" id="InvalidCreatedAtError">
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidCreatedAtError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidCreatedAtError</span><span class="p">(</span><span class="n">InvalidUserError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when created_at timestamp is invalid.</span>
 
+<span class="sd">    A valid created_at must:</span>
+<span class="sd">        - Be a timezone-aware datetime object</span>
+<span class="sd">        - Use UTC timezone</span>
+<span class="sd">        - Not be in the future</span>
+<span class="sd">        - Not be unrealistically old</span>
+
+<span class="sd">    Critical for audit trails and compliance (e.g., HIPAA/GDPR).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 
 <div class="viewcode-block" id="InvalidUpdatedAtError">
 <a class="viewcode-back" href="../../../../src/user_management.domain.exceptions.user.html#user_management.domain.exceptions.user.InvalidUpdatedAtError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvalidUpdatedAtError</span><span class="p">(</span><span class="n">InvalidUserError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when updated_at timestamp is invalid.</span>
 
+<span class="sd">    A valid updated_at must:</span>
+<span class="sd">        - Be a timezone-aware datetime object</span>
+<span class="sd">        - Use UTC timezone</span>
+<span class="sd">        - Not be in the future</span>
+<span class="sd">        - Not be earlier than created_at</span>
+
+<span class="sd">    Enforces chronological consistency in user record history.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 </pre></div>
 
