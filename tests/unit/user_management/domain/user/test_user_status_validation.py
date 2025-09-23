@@ -61,3 +61,41 @@ def test_user_creation_succeeded_when_user_status_is_a_valid_user_status_instanc
     """
     user = create_valid_user(user_status=UserStatus.INACTIVE)
     assert user.user_status == UserStatus.INACTIVE
+
+
+
+def test_change_user_status_succeeds_with_valid_status():
+    user = create_valid_user(user_status=UserStatus.ACTIVE)
+
+    user.change_user_status(UserStatus.LOCKED)
+
+    assert user.user_status == UserStatus.LOCKED
+    assert user.updated_at > user.created_at
+
+
+def test_change_user_status_fails_when_invalid_status():
+    invalid_status = [
+        None,
+        "",
+        "   ",
+        "Active",  # string instead of enum
+        "ACTIVE",  # wrong case
+        "Locked",  # string
+        "invalid_status",  # not in enum
+        "user",
+        123,
+        {},
+        [],
+        True,
+        b"raw-bytes",
+        0,
+        -1,
+    ]
+
+    user = create_valid_user(user_status=UserStatus.ACTIVE)
+
+    for status in invalid_status:
+        with pytest.raises(InvalidUserStatusError):
+            user.change_user_status(status)
+
+

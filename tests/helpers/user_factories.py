@@ -7,6 +7,7 @@ from uuid import UUID
 
 from user_management.domain.enums import UserRole, UserStatus
 from src.user_management.domain.entities.user import User
+from user_management.domain.value_objects import UserCredentials
 
 
 def create_valid_user(**kwargs):
@@ -36,6 +37,7 @@ def create_valid_user(**kwargs):
         "user_status": UserStatus.ACTIVE,
         "created_at": one_month_ago,
         "updated_at": now,
+        "credentials": UserCredentials.create("DefaultPass123!")
     }
 
     defaults.update(kwargs)

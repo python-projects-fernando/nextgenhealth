@@ -147,3 +147,4 @@ class InvalidUpdatedAtError(InvalidUserError):
     Enforces chronological consistency in user record history.
     """
     pass
+

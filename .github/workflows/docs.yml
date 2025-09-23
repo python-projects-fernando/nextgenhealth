@@ -1,9 +1,100 @@
+name: Deploy Documentation to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test-and-deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pytest
+          pip install -e .
+
+      - name: Run unit tests
+        run: |
+          set -e
+          make test
+
+      - name: Install documentation dependencies
+        run: |
+          pip install sphinx sphinx-rtd-theme
+
+      - name: Build documentation
+        run: |
+          cd docs/api
+          make html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/api/build/html
+          publish_branch: gh-pages
+          commit_message: "docs: update generated documentation"
+
+##name: Deploy Documentation to GitHub Pages
+##
+##on:
+##  push:
+##    branches: [main]
+##
+##
+##permissions:
+##  contents: write
+##  pages: write
+##  id-token: write
+##
+##jobs:
+##  deploy:
+##    runs-on: ubuntu-latest
+##    steps:
+##      - name: Checkout code
+##        uses: actions/checkout@v4
+##
+##      - name: Setup Python
+##        uses: actions/setup-python@v4
+##        with:
+##          python-version: '3.11'
+##
+##      - name: Install dependencies
+##        run: |
+##          pip install sphinx sphinx-rtd-theme
+##
+##      - name: Build documentation
+##        run: |
+##          cd docs/api
+##          make html
+##
+##      - name: Deploy to GitHub Pages
+##        uses: peaceiris/actions-gh-pages@v3
+##        with:
+##          github_token: ${{ secrets.GITHUB_TOKEN }}
+##          publish_dir: docs/api/build/html
+##          publish_branch: gh-pages
+##          commit_message: "docs: update generated documentation"
+#
 #name: Deploy Documentation to GitHub Pages
 #
 #on:
 #  push:
 #    branches: [main]
-#
 #
 #permissions:
 #  contents: write
@@ -11,7 +102,14 @@
 #  id-token: write
 #
 #jobs:
+#  test:
+
+
+#    name: Run Unit Tests
+#    uses: ./.github/workflows/test.yml
+#
 #  deploy:
+#    needs: test  # ← Wait for tests to pass
 #    runs-on: ubuntu-latest
 #    steps:
 #      - name: Checkout code
@@ -38,48 +136,3 @@
 #          publish_dir: docs/api/build/html
 #          publish_branch: gh-pages
 #          commit_message: "docs: update generated documentation"
-
-name: Deploy Documentation to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-jobs:
-  test:
-    name: Run Unit Tests
-    uses: ./.github/workflows/test.yml
-
-  deploy:
-    needs: test  # ← Wait for tests to pass
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          pip install sphinx sphinx-rtd-theme
-
-      - name: Build documentation
-        run: |
-          cd docs/api
-          make html
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/api/build/html
-          publish_branch: gh-pages
-          commit_message: "docs: update generated documentation"

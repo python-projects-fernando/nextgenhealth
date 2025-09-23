@@ -1,24 +1,22 @@
-feat(user): implement Specification Pattern for User entity validation
+feat(user): implement UserCredentials VO and profile update functionality
 
-- Introduced domain specifications for all User fields:
-  - ValidUUIDSpecification
-  - ValidEmailSpecification
-  - ValidNameSpecification
-  - ValidPhoneE164Specification
-  - ValidDateOfBirthSpecification
-  - ValidUserRoleSpecification
-  - ValidUserStatusSpecification
-  - ValidCreatedAtSpecification
-  - ValidUpdatedAtSpecification
-- Renamed specification files for consistency: `{field}.py` → `{field}_is_valid.py`
-- Organized public API via __init__.py for clean imports
-- Updated User entity to use specifications instead of inline if-statements
-- Enhanced test suite:
-  - Improved docstrings and clarity in timestamp and role/status validation tests
-  - Ensured factory defaults are valid and consistent
-- Refactored UserValidator to delegate to specifications
-- Updated helpers and exception hierarchy for better domain integrity
+- Introduced UserCredentials Value Object to securely handle password hashing and validation
+  - Immutable design using @dataclass(frozen=True)
+  - Encapsulates hash logic and prevents direct password exposure
+- Added test suite for password validation:
+  - Covers correct/incorrect passwords, edge cases
+  - Ensures domain security rules are enforced
+- Implemented change_password method on User:
+  - Validates current password before allowing change
+  - Updates updated_at timestamp
+- Added update_basic_profile method to safely edit user information:
+  - Supports first_name, last_name, email, phone, date_of_birth
+  - Uses Specification Pattern for field validation
+- Added test_user_update_basic_profile_validation.py
+- Created new test suite for UserCredentials validation
+- Updated create_valid_user factory to support credential injection
+- Enhanced User entity with behavior-driven methods aligned with DDD principles
 
-This change improves code maintainability, aligns with DDD principles, and enables future composition of rules (e.g., AND/OR).
+All changes follow TDD: RED → GREEN → REFACTOR cycle.
 
-Supports auditability, compliance (HIPAA/GDPR), and long-term scalability.
+Improves domain encapsulation, auditability, and compliance readiness (HIPAA/GDPR).

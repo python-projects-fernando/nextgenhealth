@@ -65,3 +65,24 @@ def test_user_creation_succeeded_when_user_role_is_a_valid_user_role_instance():
     """
     user = create_valid_user(user_role=UserRole.DOCTOR)
     assert user.user_role == UserRole.DOCTOR
+
+
+def test_change_user_role_succeeds_with_valid_role():
+    """Should update role when new role is valid."""
+    user = create_valid_user(user_role=UserRole.NURSE)
+
+    user.change_user_role(UserRole.DOCTOR)
+
+    assert user.user_role == UserRole.DOCTOR
+    assert user.updated_at > user.created_at
+
+
+def test_change_user_role_fails_when_invalid_role():
+    """Should raise error when invalid role is provided."""
+    user = create_valid_user()
+
+    invalid_values = [None, "", "Doctor", 123, {}, [], True, b"raw"]
+
+    for value in invalid_values:
+        with pytest.raises(InvalidUserRoleError):
+            user.change_user_role(value)

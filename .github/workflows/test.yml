@@ -1,6 +1,10 @@
 name: Run Unit Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   test:
@@ -18,9 +22,37 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install pytest          
+          pip install pytest
           pip install -e .
 
       - name: Run all unit tests
         run: |
+          set -e  # Fail immediately on any error
           make test
+
+#name: Run Unit Tests
+#
+#on: [push, pull_request]
+#
+#jobs:
+#  test:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up Python
+#        uses: actions/setup-python@v4
+#        with:
+#          python-version: '3.11'
+#
+#      - name: Install dependencies
+#        run: |
+#          pip install --upgrade pip
+#          pip install pytest
+#          pip install -e .
+#
+#      - name: Run all unit tests
+#        run: |
+#          make test
