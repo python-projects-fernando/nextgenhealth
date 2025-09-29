@@ -6,7 +6,7 @@ from datetime import date, datetime, timezone, timedelta
 from uuid import UUID
 
 from user_management.domain.enums import UserRole, UserStatus
-from src.user_management.domain.entities.user import User
+from src.user_management.domain.entities import User
 from user_management.domain.value_objects import UserCredentials
 
 

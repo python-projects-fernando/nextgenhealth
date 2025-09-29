@@ -20,6 +20,17 @@ from .user import (
     InvalidUpdatedAtError,
 )
 
+from .patient_profile import (
+    InvalidPatientProfileUserUUIDError,
+    InvalidPatientProfileEmergencyContactNameError,
+    InvalidPatientProfileEmergencyContactPhoneError,
+    InvalidPatientProfileInsuranceInfoError,
+    InvalidPatientProfilePreferredLanguageError,
+    InvalidPatientProfileMedicalHistorySummaryError,
+    InvalidPatientProfileCreatedAtError,
+    InvalidPatientProfileUpdatedAtError,
+)
+
 
 from .credentials import (
     InvalidCredentialsError,
@@ -40,4 +51,12 @@ __all__ = [
     "InvalidUpdatedAtError",
     "InvalidCredentialsError",
     "InvalidPasswordError",
+    "InvalidPatientProfileUserUUIDError",
+    "InvalidPatientProfileEmergencyContactNameError",
+    "InvalidPatientProfileEmergencyContactPhoneError",
+    "InvalidPatientProfileInsuranceInfoError",
+    "InvalidPatientProfilePreferredLanguageError",
+    "InvalidPatientProfileMedicalHistorySummaryError",
+    "InvalidPatientProfileCreatedAtError",
+    "InvalidPatientProfileUpdatedAtError"
 ]

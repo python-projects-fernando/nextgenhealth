@@ -15,7 +15,7 @@ and focus on validation logic. Aligned with DDD (fail-fast) and TDD principles.
 import pytest
 
 from user_management.domain.exceptions import InvalidNameError
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 
 
 def test_user_creation_fails_when_first_name_is_not_valid():

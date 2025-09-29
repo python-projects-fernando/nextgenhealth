@@ -8,7 +8,7 @@ Follows TDD: RED → GREEN → REFACTOR.
 
 import pytest
 
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 from user_management.domain.exceptions import InvalidPasswordError
 from user_management.domain.value_objects import UserCredentials
 

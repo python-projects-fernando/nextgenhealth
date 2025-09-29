@@ -13,7 +13,7 @@ Aligned with DDD (fail-fast) and TDD principles.
 
 import pytest
 
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 from user_management.domain.enums import UserRole
 from user_management.domain.exceptions import InvalidUserRoleError
 

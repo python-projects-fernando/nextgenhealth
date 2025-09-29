@@ -15,7 +15,7 @@ import pytest
 
 from user_management.domain.enums import UserStatus
 from user_management.domain.exceptions import InvalidUserStatusError
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 
 
 def test_user_creation_fails_when_user_status_is_not_a_valid_user_status_instance():

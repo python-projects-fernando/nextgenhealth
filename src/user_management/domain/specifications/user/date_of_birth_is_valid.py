@@ -8,7 +8,7 @@ A valid date of birth must:
 - Represent a realistic human lifespan (e.g., not before 1900 or older than ~150 years)
 
 This rule ensures data integrity, compliance with personal data standards,
-and consistency across healthcare workflows (e.g., patient registration).
+and consistency across healthcare workflows (e.g., patient_profile registration).
 """
 
 from datetime import date, timedelta

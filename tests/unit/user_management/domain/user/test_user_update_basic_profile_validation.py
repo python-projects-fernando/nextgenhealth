@@ -9,7 +9,7 @@ Follows TDD: RED → GREEN → REFACTOR.
 import pytest
 from datetime import datetime, timezone, date, timedelta
 
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 from user_management.domain.exceptions import (
     InvalidNameError,
     InvalidEmailError,

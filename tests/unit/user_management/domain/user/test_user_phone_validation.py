@@ -19,7 +19,7 @@ Aligned with DDD (fail-fast) and TDD principles.
 import pytest
 
 from user_management.domain.exceptions import InvalidPhoneNumberError
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 
 
 def test_user_creation_fails_when_phone_is_not_valid():

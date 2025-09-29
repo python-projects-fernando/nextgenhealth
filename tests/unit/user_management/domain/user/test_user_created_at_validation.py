@@ -11,7 +11,7 @@ from datetime import datetime, timezone, date, timedelta
 import pytest
 
 from user_management.domain.exceptions import InvalidCreatedAtError
-from tests.helpers import create_valid_user
+from tests.helpers.domain import create_valid_user
 
 
 def test_user_creation_fails_when_created_at_is_not_a_datetime():

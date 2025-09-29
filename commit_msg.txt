@@ -1,22 +1,28 @@
-feat(user): implement UserCredentials VO and profile update functionality
+feat(user): implement PatientProfile aggregate and RegisterUserUseCase
 
-- Introduced UserCredentials Value Object to securely handle password hashing and validation
-  - Immutable design using @dataclass(frozen=True)
-  - Encapsulates hash logic and prevents direct password exposure
-- Added test suite for password validation:
-  - Covers correct/incorrect passwords, edge cases
-  - Ensures domain security rules are enforced
-- Implemented change_password method on User:
-  - Validates current password before allowing change
-  - Updates updated_at timestamp
-- Added update_basic_profile method to safely edit user information:
-  - Supports first_name, last_name, email, phone, date_of_birth
-  - Uses Specification Pattern for field validation
-- Added test_user_update_basic_profile_validation.py
-- Created new test suite for UserCredentials validation
-- Updated create_valid_user factory to support credential injection
-- Enhanced User entity with behavior-driven methods aligned with DDD principles
+This commit introduces significant enhancements to the user management domain,
+laying the groundwork for a robust healthcare system aligned with DDD and TDD.
 
-All changes follow TDD: RED → GREEN → REFACTOR cycle.
+Key Additions:
+- New 'PatientProfile' Aggregate Root:
+  - Comprehensive entity with medical history, insurance, emergency contact.
+  - Dedicated Value Objects, Specifications, Validator, and Exceptions.
+  - Full suite of unit tests for validation logic.
+- 'RegisterUserUseCase' Implementation:
+  - Application service to orchestrate user registration.
+  - Uses Pydantic 'RegisterUserCommand' for input validation.
+  - Leverages 'UserFactory' for domain entity creation.
+- Architectural Layers Established/Expanded:
+  - Application Layer: Use cases and command DTOs.
+  - Domain Layer: Entities, Value Objects, Aggregates, Specifications, Factories.
+  - Infrastructure Layer: Initial in-memory repository.
+  - Test Helpers: Factories for 'User' and 'PatientProfile' for easier testing.
+- Dependency Updates: Added Pydantic for robust data validation.
 
-Improves domain encapsulation, auditability, and compliance readiness (HIPAA/GDPR).
+This change represents a major milestone towards a fully-featured MVP,
+supporting core functionalities for patient data management within a secure,
+auditable, and well-architected system. It reinforces the project's adherence
+to Clean Architecture, DDD, and HIPAA/GDPR compliance principles.
+
+All new code follows TDD: RED -> GREEN -> REFACTOR.
+Documentation and CI pipelines updated accordingly.
