@@ -39,7 +39,7 @@ class RegisterUserUseCase:
         self.user_repository = user_repository
         logger.debug("RegisterUserUseCase initialized with repository: %s", type(user_repository).__name__)
 
-    def execute(self, command): # Type hint: RegisterUserCommand -> User
+    async def execute(self, command): # Type hint: RegisterUserCommand -> User
         """
         Executes the user registration workflow.
 
@@ -66,6 +66,7 @@ class RegisterUserUseCase:
         try:
             user = UserFactory.create_from_command(command)
             logger.debug("User entity successfully created with UUID: %s", user.uuid)
+            logger.debug("------->>>>>>>>>>>>>>>User entity successfully created: %s", user)
         except Exception as e:
             logger.error("Failed to create User entity from command for email %s: %s", command.email, e)
             # Re-raise any domain-specific or validation errors encountered during creation
@@ -74,7 +75,7 @@ class RegisterUserUseCase:
         # --- STEP 2: Persist the user using the injected repository ---
         logger.debug("Saving user with UUID: %s to the repository", user.uuid)
         try:
-            self.user_repository.save(user)
+            await self.user_repository.save(user)
             logger.info("User with UUID: %s successfully saved to the repository", user.uuid)
         except Exception as e:
             logger.error("Failed to save user with UUID: %s to the repository: %s", user.uuid, e)

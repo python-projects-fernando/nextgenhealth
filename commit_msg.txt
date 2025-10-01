@@ -1,28 +1,29 @@
-feat(user): implement PatientProfile aggregate and RegisterUserUseCase
+feat(api): implement API layer with PostgreSQL integration and FindUser use case
 
-This commit introduces significant enhancements to the user management domain,
-laying the groundwork for a robust healthcare system aligned with DDD and TDD.
+- Added Presentation Layer (FastAPI):
+  - Created main application entry point (src/api/main.py)
+  - Defined user routes (POST /users, GET /users/{email}) in src/api/routes/user_routes.py
+  - Set up dependency injection for repositories via src/api/dependencies.py
+  - Added package markers (__init__.py) for API modules
 
-Key Additions:
-- New 'PatientProfile' Aggregate Root:
-  - Comprehensive entity with medical history, insurance, emergency contact.
-  - Dedicated Value Objects, Specifications, Validator, and Exceptions.
-  - Full suite of unit tests for validation logic.
-- 'RegisterUserUseCase' Implementation:
-  - Application service to orchestrate user registration.
-  - Uses Pydantic 'RegisterUserCommand' for input validation.
-  - Leverages 'UserFactory' for domain entity creation.
-- Architectural Layers Established/Expanded:
-  - Application Layer: Use cases and command DTOs.
-  - Domain Layer: Entities, Value Objects, Aggregates, Specifications, Factories.
-  - Infrastructure Layer: Initial in-memory repository.
-  - Test Helpers: Factories for 'User' and 'PatientProfile' for easier testing.
-- Dependency Updates: Added Pydantic for robust data validation.
+- Enhanced Application Layer:
+  - Implemented FindUserByEmailUseCase and its Command
+  - Refactored RegisterUserUseCase for async/await compatibility
+  - Updated repository interface (UserRepository) to support async operations
 
-This change represents a major milestone towards a fully-featured MVP,
-supporting core functionalities for patient data management within a secure,
-auditable, and well-architected system. It reinforces the project's adherence
-to Clean Architecture, DDD, and HIPAA/GDPR compliance principles.
+- Implemented Infrastructure Layer - Database:
+  - Defined ORM models (UserModel, UserCredentialsModel) using SQLAlchemy
+  - Created PostgresUserRepository implementing UserRepository interface
+  - Included async session management for database interactions
+  - Ensured User and UserCredentials are persisted atomically via the repository
 
-All new code follows TDD: RED -> GREEN -> REFACTOR.
-Documentation and CI pipelines updated accordingly.
+- Updated Domain and Factories:
+  - Minor updates to UserRole and UserStatus enums
+  - Adjusted UserFactory for new domain requirements
+
+- Improved Project Configuration:
+  - Added necessary dependencies to requirements.txt (fastapi, sqlalchemy, asyncpg, etc.)
+  - Ensured project structure supports both in-memory and PostgreSQL repositories
+
+This establishes the core API endpoints and connects them to a persistent database backend,
+enabling user registration and retrieval flows with a robust, asynchronous architecture.

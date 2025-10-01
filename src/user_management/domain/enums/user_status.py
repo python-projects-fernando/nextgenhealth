@@ -15,6 +15,6 @@ class UserStatus(Enum):
     Represents the current lifecycle state of a user account,
     influencing authentication, permissions, and system behavior.
     """
-    ACTIVE = "Active"
-    INACTIVE = "Inactive"
-    LOCKED = "Locked"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    LOCKED = "LOCKED"

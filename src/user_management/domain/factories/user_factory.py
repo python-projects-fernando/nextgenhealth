@@ -63,7 +63,7 @@ class UserFactory:
         # 2. Convert string to UserRole enum
         # The command validator should have normalized this, but we ensure it here too.
         try:
-            role_enum = UserRole(command.user_role.upper())
+            role_enum = UserRole(command.user_role)
             logger.debug("Converted user role '%s' to enum: %s", command.user_role, role_enum)
         except ValueError as e:
             logger.error("Failed to convert user role '%s' to enum: %s", command.user_role, e)

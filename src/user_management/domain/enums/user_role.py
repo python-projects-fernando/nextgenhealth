@@ -15,7 +15,7 @@ class UserRole(Enum):
     These roles define the scope of actions and data access for each authenticated user.
     Used throughout the domain to enforce authorization rules and tailor workflows.
     """
-    PATIENT = "Patient"
-    NURSE = "Nurse"
-    DOCTOR = "Doctor"
-    ADMINISTRATOR = "Administrator"
+    PATIENT = "PATIENT"
+    NURSE = "NURSE"
+    DOCTOR = "DOCTOR"
+    ADMINISTRATOR = "ADMINISTRATOR"

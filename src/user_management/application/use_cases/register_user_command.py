@@ -9,6 +9,7 @@ those generated internally (uuid, created_at, updated_at).
 from datetime import date
 from pydantic import BaseModel, Field, field_validator
 
+from user_management.domain.enums import UserRole
 # Importing domain specifications and exceptions for reuse
 from user_management.domain.specifications.user import (
     ValidNameSpecification,
@@ -45,7 +46,7 @@ class RegisterUserCommand(BaseModel):
     date_of_birth: date = Field(..., description="User's date of birth (YYYY-MM-DD)")
 
     # --- Access Control ---
-    user_role: str = Field(..., description="String representation of the user's role (e.g., PATIENT, DOCTOR)")
+    user_role: UserRole = Field(..., description="String representation of the user's role (e.g., PATIENT, DOCTOR)")
 
     # --- Security ---
     password: str = Field(..., description="User's chosen password")
@@ -144,10 +145,10 @@ class RegisterUserCommand(BaseModel):
             InvalidUserRoleError: If the user role is not a recognized value.
         """
         # Normalize input first to check against specification
-        normalized_v = v.upper()
-        if not ValidUserRoleSpecification().is_satisfied_by(normalized_v):
+        # normalized_v = v.upper()
+        if not ValidUserRoleSpecification().is_satisfied_by(v):
              raise InvalidUserRoleError(f"Invalid user role: {v}")
-        return normalized_v # Return the normalized version
+        return v # Return the normalized version
 
     @field_validator('password')
     @classmethod
