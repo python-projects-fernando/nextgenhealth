@@ -8,16 +8,12 @@ the internal structure of the User constructor from the application layer
 and generating system-controlled values like UUIDs and timestamps.
 """
 
-import logging
 from datetime import datetime, timezone
 from uuid import uuid4
 
 from user_management.domain.entities import User
 from user_management.domain.enums import UserRole, UserStatus
 from user_management.domain.value_objects import UserCredentials
-
-logger = logging.getLogger(__name__)
-
 
 class UserFactory:
     """
@@ -51,37 +47,28 @@ class UserFactory:
             InvalidPasswordError: If the password doesn't meet requirements (raised by UserCredentials.create).
             # Other exceptions from User constructor if validation fails unexpectedly.
         """
-        logger.debug("Starting creation of User from command for email: %s", command.email)
 
         # 1. Generate ID and timestamps
         user_id = uuid4()
-        logger.debug("Generated UUID for new user: %s", user_id)
-
         now = datetime.now(timezone.utc)
-        logger.debug("Set creation/update timestamp to: %s", now.isoformat())
 
         # 2. Convert string to UserRole enum
         # The command validator should have normalized this, but we ensure it here too.
         try:
             role_enum = UserRole(command.user_role)
-            logger.debug("Converted user role '%s' to enum: %s", command.user_role, role_enum)
         except ValueError as e:
-            logger.error("Failed to convert user role '%s' to enum: %s", command.user_role, e)
             # Re-raise with a clear message
             raise ValueError(f"Invalid user role provided during factory creation: {command.user_role}") from e
 
         # 3. Create credentials (handles password validation internally)
-        logger.debug("Creating UserCredentials from provided password (length: %d)", len(command.password))
         try:
             credentials = UserCredentials.create(command.password)
         except Exception as e:
-            logger.error("Failed to create UserCredentials: %s", e)
             # Re-raise the domain-specific exception
             raise
 
         # 4. Instantiate the User entity
         # The User constructor should ideally only accept validated data.
-        logger.debug("Instantiating User entity with UUID: %s", user_id)
         try:
             user = User(
                 uuid=user_id,
@@ -97,9 +84,7 @@ class UserFactory:
                 credentials=credentials
             )
         except Exception as e:
-            logger.error("Failed to instantiate User entity: %s", e)
             # Re-raise any unexpected errors from the User constructor
             raise
 
-        logger.info("Successfully created User entity for email: %s with UUID: %s", user.email, user.uuid)
         return user

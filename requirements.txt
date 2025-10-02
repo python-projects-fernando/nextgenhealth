@@ -15,3 +15,5 @@ sphinx-rtd-theme==2.0.0
 pytest==8.2.0
 pytest-cov==5.0.0
 freezegun==1.5.1
+
+python-dotenv>=1.0.0

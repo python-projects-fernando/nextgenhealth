@@ -5,7 +5,6 @@ PostgreSQL implementation of the UserRepository interface.
 Uses SQLAlchemy async ORM to persist User entities in a relational database.
 Maps domain User to UserModel and vice versa.
 """
-
 from typing import Optional
 from uuid import UUID
 
@@ -17,27 +16,13 @@ from user_management.application.repositories import UserRepository
 from user_management.infrastructure.models import UserModel
 from user_management.infrastructure.models import UserCredentialsModel
 
-import logging
-
-logger = logging.getLogger(__name__)
-
 
 class PostgresUserRepository(UserRepository):
-    """
-    PostgreSQL-based repository for User entities.
-    """
 
     def __init__(self, session: AsyncSession):
         self.session = session
 
     async def save(self, user: User) -> None:
-        """
-        Saves a User entity to PostgreSQL.
-
-        Persists both User and UserCredentials in a single transaction.
-        Ensures referential integrity via flush-before-commit strategy.
-        """
-        # 1. Mapeia User para UserModel
         user_model = UserModel(
             uuid=str(user.uuid),
             email=user.email,
@@ -51,48 +36,50 @@ class PostgresUserRepository(UserRepository):
             updated_at=user.updated_at,
         )
 
-        # 2. Mapeia UserCredentials para UserCredentialsModel
         credentials_model = UserCredentialsModel(
             user_uuid=str(user.uuid),
             hashed_password=user._credentials._hashed_password.encode('utf-8')
         )
 
-        # 3. Adiciona e força ordem de escrita
         self.session.add(user_model)
-        await self.session.flush()  # ← Garante que UserModel é escrito primeiro
+        await self.session.flush()
 
         self.session.add(credentials_model)
-        await self.session.commit()  # ← Agora salva tudo
+        await self.session.commit()
 
     async def find_by_email(self, email: str) -> Optional[User]:
         stmt = select(UserModel).where(UserModel.email == email)
         result = await self.session.execute(stmt)
         user_model = result.scalar_one_or_none()
+
         if user_model:
-            return self._to_domain(user_model)
+            return await self._to_domain(user_model)
         return None
 
     async def find_by_uuid(self, uuid: UUID) -> Optional[User]:
         stmt = select(UserModel).where(UserModel.uuid == str(uuid))
         result = await self.session.execute(stmt)
         user_model = result.scalar_one_or_none()
+
         if user_model:
-            return self._to_domain(user_model)
+            return await self._to_domain(user_model)
         return None
 
-    def _to_domain(self, user_model: UserModel) -> User:
+    async def _to_domain(self, user_model: UserModel) -> User:
         from user_management.domain.value_objects.user_credentials import UserCredentials
         from user_management.domain.enums import UserRole, UserStatus
+        from uuid import UUID
 
-        # Busca credenciais
         stmt = select(UserCredentialsModel).where(UserCredentialsModel.user_uuid == user_model.uuid)
-        result = self.session.execute(stmt)
+        result = await self.session.execute(stmt)
         credentials_model = result.scalar_one_or_none()
 
         if not credentials_model:
             raise ValueError(f"Credentials not found for user {user_model.uuid}")
 
-        credentials = UserCredentials._from_hashed(credentials_model.hashed_password.decode('utf-8'))
+        hashed_password_str = credentials_model.hashed_password.decode('utf-8')
+
+        credentials = UserCredentials._from_hashed(hashed_password_str)
 
         return User(
             uuid=UUID(user_model.uuid),

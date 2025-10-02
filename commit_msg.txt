@@ -1,29 +1,11 @@
-feat(api): implement API layer with PostgreSQL integration and FindUser use case
+feat(api): implement user search endpoint and restructure use cases
 
-- Added Presentation Layer (FastAPI):
-  - Created main application entry point (src/api/main.py)
-  - Defined user routes (POST /users, GET /users/{email}) in src/api/routes/user_routes.py
-  - Set up dependency injection for repositories via src/api/dependencies.py
-  - Added package markers (__init__.py) for API modules
-
-- Enhanced Application Layer:
-  - Implemented FindUserByEmailUseCase and its Command
-  - Refactored RegisterUserUseCase for async/await compatibility
-  - Updated repository interface (UserRepository) to support async operations
-
-- Implemented Infrastructure Layer - Database:
-  - Defined ORM models (UserModel, UserCredentialsModel) using SQLAlchemy
-  - Created PostgresUserRepository implementing UserRepository interface
-  - Included async session management for database interactions
-  - Ensured User and UserCredentials are persisted atomically via the repository
-
-- Updated Domain and Factories:
-  - Minor updates to UserRole and UserStatus enums
-  - Adjusted UserFactory for new domain requirements
-
-- Improved Project Configuration:
-  - Added necessary dependencies to requirements.txt (fastapi, sqlalchemy, asyncpg, etc.)
-  - Ensured project structure supports both in-memory and PostgreSQL repositories
-
-This establishes the core API endpoints and connects them to a persistent database backend,
-enabling user registration and retrieval flows with a robust, asynchronous architecture.
+- Added API response DTOs (UserSummaryResponse) in src/api/responses/
+- Implemented FindUserByEmailUseCase with FindUserByEmailQuery DTO
+- Restructured use case modules into subdirectories (register_user, find_user_by_email) with command/use_case/query files
+- Added infrastructure config (postgres_config.py) and dependency injection setup (postgres_dependencies.py) for database
+- Updated UserCredentials with _from_hashed factory for persistence re-hydration
+- Updated UserFactory to accept UserCredentials instance
+- Refactored API dependencies and routes to use new structure and PostgreSQL repository
+- Endpoint GET /users/{email} now returns public user data via UserSummaryResponse DTO
+- Ensures credentials are not exposed in API responses

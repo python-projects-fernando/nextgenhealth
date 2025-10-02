@@ -52,7 +52,6 @@ class RegisterUserCommand(BaseModel):
     password: str = Field(..., description="User's chosen password")
 
     # --- Validators ---
-
     @field_validator('first_name', 'last_name')
     @classmethod
     def validate_name(cls, v: str) -> str:
