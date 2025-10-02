@@ -1,8 +1,8 @@
 from typing import Optional
 
 from user_management.application.use_cases.find_user_by_email.query import FindUserByEmailQuery
-from user_management.domain.entities.user import User
-from user_management.application.repositories.user_repository import UserRepository
+from user_management.domain.entities import User
+from user_management.application.repositories import UserRepository
 
 
 class FindUserByEmailUseCase:

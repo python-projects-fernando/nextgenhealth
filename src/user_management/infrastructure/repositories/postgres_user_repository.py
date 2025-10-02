@@ -1,4 +1,3 @@
-# src/user_management/infrastructure/repositories/postgres_user_repository.py
 """
 PostgreSQL implementation of the UserRepository interface.
 
@@ -15,6 +14,10 @@ from user_management.domain.entities import User
 from user_management.application.repositories import UserRepository
 from user_management.infrastructure.models import UserModel
 from user_management.infrastructure.models import UserCredentialsModel
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class PostgresUserRepository(UserRepository):

@@ -7,14 +7,17 @@ Follows REST principles and integrates with domain use cases.
 
 import logging
 from typing import Annotated
+from uuid import UUID
+
 from fastapi import APIRouter, Depends, HTTPException, status, Path
-from api.dependencies import get_register_user_use_case, get_find_user_by_email_use_case
+from api.dependencies import get_register_user_use_case, get_find_user_by_email_use_case, get_find_user_by_uuid_use_case
 from api.responses import UserSummaryResponse
 from user_management.application.use_cases.find_user_by_email import FindUserByEmailUseCase
 from user_management.application.use_cases.find_user_by_email.query import FindUserByEmailQuery
+from user_management.application.use_cases.find_user_by_uuid import FindUserByUUIDUseCase, FindUserByUUIDQuery
 from user_management.application.use_cases.register_user import RegisterUserUseCase, RegisterUserCommand
 
-# logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 router = APIRouter(
     prefix="/users",
@@ -44,20 +47,43 @@ async def register_user(
             detail="Internal server error occurred during user registration."
         )
 
+@router.get("/uuid/{uuid}", status_code=status.HTTP_200_OK, response_model=UserSummaryResponse)
+async def find_user_by_uuid(
+        use_case: Annotated[FindUserByUUIDUseCase, Depends(get_find_user_by_uuid_use_case)],
+        uuid: UUID = Path(..., description="UUID of the user to find"),):
 
-@router.get("/{email}", status_code=status.HTTP_200_OK, response_model=UserSummaryResponse) # <-- Defina o modelo de resposta
+    try:
+        query = FindUserByUUIDQuery(uuid=uuid)
+        user_entity = await use_case.execute(query)
+        if not user_entity:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        return UserSummaryResponse.from_user_entity(user_entity)
+
+    except ValueError as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error occurred during user retrieval."
+        )
+
+@router.get("/email/{email}", status_code=status.HTTP_200_OK, response_model=UserSummaryResponse)
 async def find_user_by_email(
         use_case: Annotated[FindUserByEmailUseCase, Depends(get_find_user_by_email_use_case)],
         email: str = Path(..., description="Email address of the user to find"),
 ):
     try:
         query = FindUserByEmailQuery(email=email)
-        user_entity = await use_case.execute(query) # Obtém a entidade completa
+        user_entity = await use_case.execute(query)
         if not user_entity:
             raise HTTPException(status_code=404, detail="User not found")
 
-        # Converte a entidade para o DTO de resposta (excluindo credenciais)
-        return UserSummaryResponse.from_user_entity(user_entity) # <-- Retorna o DTO
+        return UserSummaryResponse.from_user_entity(user_entity)
 
     except ValueError as e:
         raise HTTPException(

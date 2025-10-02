@@ -1,11 +1,9 @@
-feat(api): implement user search endpoint and restructure use cases
+feat(api): add find user by UUID endpoint and refactor user search routes
 
-- Added API response DTOs (UserSummaryResponse) in src/api/responses/
-- Implemented FindUserByEmailUseCase with FindUserByEmailQuery DTO
-- Restructured use case modules into subdirectories (register_user, find_user_by_email) with command/use_case/query files
-- Added infrastructure config (postgres_config.py) and dependency injection setup (postgres_dependencies.py) for database
-- Updated UserCredentials with _from_hashed factory for persistence re-hydration
-- Updated UserFactory to accept UserCredentials instance
-- Refactored API dependencies and routes to use new structure and PostgreSQL repository
-- Endpoint GET /users/{email} now returns public user data via UserSummaryResponse DTO
-- Ensures credentials are not exposed in API responses
+- Implemented FindUserByUUIDUseCase with FindUserByUUIDQuery DTO
+- Added GET /users/uuid/{uuid} endpoint returning UserSummaryResponse
+- Refactored user search routes: changed GET /users/{email} to GET /users/email/{email}
+  to avoid path conflict with UUID route
+- Updated API dependencies and response handling for new route structure
+- Added debug logging to repository find methods and API routes
+- Ensured UserSummaryResponse excludes sensitive credentials data
