@@ -15,9 +15,8 @@ from user_management.application.repositories import UserRepository
 from user_management.infrastructure.models import UserModel
 from user_management.infrastructure.models import UserCredentialsModel
 
-import logging
-
-logger = logging.getLogger(__name__)
+# import logging
+# logger = logging.getLogger(__name__)
 
 
 class PostgresUserRepository(UserRepository):

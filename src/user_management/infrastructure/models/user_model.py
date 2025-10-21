@@ -7,16 +7,12 @@ Keeps persistence concerns separate from domain logic.
 """
 
 from sqlalchemy import Column, String, Date, DateTime, Enum
-from sqlalchemy.ext.asyncio import AsyncAttrs
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 from uuid import UUID
 import uuid
 
 from user_management.domain.enums import UserRole, UserStatus
-
-
-class Base(AsyncAttrs, DeclarativeBase):
-    pass
+from user_management.infrastructure.models.base import Base
 
 
 class UserModel(Base):
@@ -28,7 +24,6 @@ class UserModel(Base):
     last_name: Mapped[str] = mapped_column(String(100), nullable=False)
     phone: Mapped[str] = mapped_column(String(20), nullable=True)
     date_of_birth: Mapped[Date] = mapped_column(Date, nullable=False)
-    # user_role: Mapped[UserRole] = mapped_column(Enum(UserRole), nullable=False)
     user_role: Mapped[str] = mapped_column(Enum(UserRole), nullable=False)
     user_status: Mapped[UserStatus] = mapped_column(Enum(UserStatus), nullable=False)
     created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), nullable=False)

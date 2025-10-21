@@ -1,9 +1,11 @@
-feat(api): add find user by UUID endpoint and refactor user search routes
+feat(patient): implement full PatientProfile registration flow with DDD and Clean Architecture
 
-- Implemented FindUserByUUIDUseCase with FindUserByUUIDQuery DTO
-- Added GET /users/uuid/{uuid} endpoint returning UserSummaryResponse
-- Refactored user search routes: changed GET /users/{email} to GET /users/email/{email}
-  to avoid path conflict with UUID route
-- Updated API dependencies and response handling for new route structure
-- Added debug logging to repository find methods and API routes
-- Ensured UserSummaryResponse excludes sensitive credentials data
+- Added PatientProfile entity with strict domain validation (emergency contact, insurance, medical history, etc.)
+- Implemented RegisterPatientProfileUseCase with command pattern and async repository
+- Created PostgreSQL infrastructure: PatientProfileModel, PostgresPatientProfileRepository
+- Integrated FastAPI route /patient with dependency injection and error handling
+- Added patient_profile_factory for consistent test data
+- Extended base models and updated dependencies for dual-repository support (User + PatientProfile)
+- Aligned with HIPAA-ready audit fields (created_at, updated_at) and UTC timezone enforcement
+
+Enables complete user registration flow: User → PatientProfile in a single transactional boundary.

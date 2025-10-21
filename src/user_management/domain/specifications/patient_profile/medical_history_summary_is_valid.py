@@ -27,5 +27,5 @@ class ValidMedicalHistorySummarySpecification(Specification):
         if not isinstance(mhs, str):
             return False
 
-        pattern = r"^[A-Za-zÀ-ÿ]+(?:[\s\-][A-Za-zÀ-ÿ]+)*(?:[,.;:]\s*[A-Za-zÀ-ÿ][\s\-A-Za-zÀ-ÿ.,;:]*)*$"
+        pattern = r"^[A-Za-zÀ-ÿ\s,.;:()-]+$"
         return re.match(pattern, mhs) is not None
