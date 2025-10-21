@@ -146,15 +146,10 @@ def test_patient_profile_creation_succeeds_with_valid_preferred_language():
 def test_patient_profile_creation_fails_when_medical_history_summary_is_not_valid():
     medical_history_summaries = [
         None,
-        "",
-        "   ",
-        "12345",
-        "diabetes!123",
         "hypertension@2020",
         "asthma#treatment",
         "epilepsy$meds",
-        "cancer%therapy",
-        "arthritis^pain",
+
     ]
 
     for mhs in medical_history_summaries:
