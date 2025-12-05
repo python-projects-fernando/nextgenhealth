@@ -1,11 +1,1 @@
-feat(patient): implement full PatientProfile registration flow with DDD and Clean Architecture
-
-- Added PatientProfile entity with strict domain validation (emergency contact, insurance, medical history, etc.)
-- Implemented RegisterPatientProfileUseCase with command pattern and async repository
-- Created PostgreSQL infrastructure: PatientProfileModel, PostgresPatientProfileRepository
-- Integrated FastAPI route /patient with dependency injection and error handling
-- Added patient_profile_factory for consistent test data
-- Extended base models and updated dependencies for dual-repository support (User + PatientProfile)
-- Aligned with HIPAA-ready audit fields (created_at, updated_at) and UTC timezone enforcement
-
-Enables complete user registration flow: User → PatientProfile in a single transactional boundary.
+docs: Update README

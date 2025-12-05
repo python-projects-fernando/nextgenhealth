@@ -1,10 +1,10 @@
 # NextGenHealth
 
+> [!WARNING] > **Under Construction**  
+> This application is currently under development.
+
 > **Next-Generation Healthcare Management System**  
 > _Secure, scalable, and role-based — built with Clean Architecture and Python._
-
-> [!WARNING] > **Under Construction**  
-> This application is currently under active development as part of a Minimum Viable Product (MVP).
 
 NextGenHealth is a healthcare management system designed to streamline patient care, appointment scheduling, medical record access, and administrative workflows for clinics and hospitals. The system follows **Clean Architecture** and **Domain-Driven Design (DDD)** principles to ensure scalability, maintainability, and compliance with regulations such as HIPAA and LGPD.
 
