@@ -1,5 +1,9 @@
 # NextGenHealth
 
+<p align="center">
+  <img src="https://assets.zyrosite.com/AQEZkE43zXtgRjLB/nextgenhealth-logo-Vi8mZQBKo8HWuw36.png" alt="NextGenHealth Logo" width="300">
+</p>
+
 > [!WARNING]
 > **Under Construction**  
 > This application is currently under development.
